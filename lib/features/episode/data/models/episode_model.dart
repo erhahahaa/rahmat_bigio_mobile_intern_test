@@ -5,7 +5,7 @@ part 'episode_model.freezed.dart';
 part 'episode_model.g.dart';
 
 @freezed
-class EpisodeModel with _$EpisodeModel {
+class EpisodeModel extends EpisodeEntity with _$EpisodeModel {
   const factory EpisodeModel({
     required int id,
     required String name,
@@ -13,7 +13,10 @@ class EpisodeModel with _$EpisodeModel {
     required String episode,
     required List<String> characters,
     required String url,
-    required DateTime created,
+    required DateTime? created,
+    @JsonKey(includeFromJson: false, includeToJson: false)
+    @Default(false)
+    bool isFavorite,
   }) = _EpisodeModel;
 
   const EpisodeModel._();
@@ -29,6 +32,7 @@ class EpisodeModel with _$EpisodeModel {
         characters: entity.characters,
         url: entity.url,
         created: entity.created,
+        isFavorite: entity.isFavorite,
       );
 
   EpisodeEntity toEntity() => EpisodeEntity(
@@ -39,5 +43,6 @@ class EpisodeModel with _$EpisodeModel {
         characters: characters,
         url: url,
         created: created,
+        isFavorite: isFavorite,
       );
 }

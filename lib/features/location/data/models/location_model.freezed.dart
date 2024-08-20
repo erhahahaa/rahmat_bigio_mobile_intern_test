@@ -26,7 +26,9 @@ mixin _$LocationModel {
   String get dimension => throw _privateConstructorUsedError;
   List<String> get residents => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
-  DateTime get created => throw _privateConstructorUsedError;
+  DateTime? get created => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  bool get isFavorite => throw _privateConstructorUsedError;
 
   /// Serializes this LocationModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -51,7 +53,8 @@ abstract class $LocationModelCopyWith<$Res> {
       String dimension,
       List<String> residents,
       String url,
-      DateTime created});
+      DateTime? created,
+      @JsonKey(includeFromJson: false, includeToJson: false) bool isFavorite});
 }
 
 /// @nodoc
@@ -75,7 +78,8 @@ class _$LocationModelCopyWithImpl<$Res, $Val extends LocationModel>
     Object? dimension = null,
     Object? residents = null,
     Object? url = null,
-    Object? created = null,
+    Object? created = freezed,
+    Object? isFavorite = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -102,10 +106,14 @@ class _$LocationModelCopyWithImpl<$Res, $Val extends LocationModel>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-      created: null == created
+      created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -125,7 +133,8 @@ abstract class _$$LocationModelImplCopyWith<$Res>
       String dimension,
       List<String> residents,
       String url,
-      DateTime created});
+      DateTime? created,
+      @JsonKey(includeFromJson: false, includeToJson: false) bool isFavorite});
 }
 
 /// @nodoc
@@ -147,7 +156,8 @@ class __$$LocationModelImplCopyWithImpl<$Res>
     Object? dimension = null,
     Object? residents = null,
     Object? url = null,
-    Object? created = null,
+    Object? created = freezed,
+    Object? isFavorite = null,
   }) {
     return _then(_$LocationModelImpl(
       id: null == id
@@ -174,10 +184,14 @@ class __$$LocationModelImplCopyWithImpl<$Res>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-      created: null == created
+      created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -192,7 +206,9 @@ class _$LocationModelImpl extends _LocationModel {
       required this.dimension,
       required final List<String> residents,
       required this.url,
-      required this.created})
+      required this.created,
+      @JsonKey(includeFromJson: false, includeToJson: false)
+      this.isFavorite = false})
       : _residents = residents,
         super._();
 
@@ -218,11 +234,14 @@ class _$LocationModelImpl extends _LocationModel {
   @override
   final String url;
   @override
-  final DateTime created;
+  final DateTime? created;
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  final bool isFavorite;
 
   @override
   String toString() {
-    return 'LocationModel(id: $id, name: $name, type: $type, dimension: $dimension, residents: $residents, url: $url, created: $created)';
+    return 'LocationModel(id: $id, name: $name, type: $type, dimension: $dimension, residents: $residents, url: $url, created: $created, isFavorite: $isFavorite)';
   }
 
   @override
@@ -238,13 +257,23 @@ class _$LocationModelImpl extends _LocationModel {
             const DeepCollectionEquality()
                 .equals(other._residents, _residents) &&
             (identical(other.url, url) || other.url == url) &&
-            (identical(other.created, created) || other.created == created));
+            (identical(other.created, created) || other.created == created) &&
+            (identical(other.isFavorite, isFavorite) ||
+                other.isFavorite == isFavorite));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, type, dimension,
-      const DeepCollectionEquality().hash(_residents), url, created);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      type,
+      dimension,
+      const DeepCollectionEquality().hash(_residents),
+      url,
+      created,
+      isFavorite);
 
   /// Create a copy of LocationModel
   /// with the given fields replaced by the non-null parameter values.
@@ -270,7 +299,9 @@ abstract class _LocationModel extends LocationModel {
       required final String dimension,
       required final List<String> residents,
       required final String url,
-      required final DateTime created}) = _$LocationModelImpl;
+      required final DateTime? created,
+      @JsonKey(includeFromJson: false, includeToJson: false)
+      final bool isFavorite}) = _$LocationModelImpl;
   const _LocationModel._() : super._();
 
   factory _LocationModel.fromJson(Map<String, dynamic> json) =
@@ -289,7 +320,10 @@ abstract class _LocationModel extends LocationModel {
   @override
   String get url;
   @override
-  DateTime get created;
+  DateTime? get created;
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  bool get isFavorite;
 
   /// Create a copy of LocationModel
   /// with the given fields replaced by the non-null parameter values.

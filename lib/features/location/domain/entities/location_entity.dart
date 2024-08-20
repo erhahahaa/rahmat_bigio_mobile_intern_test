@@ -4,23 +4,23 @@ part 'location_entity.g.dart';
 
 @Collection(accessor: 'locations')
 class LocationEntity {
-  Id id = Isar.autoIncrement;
-  String name;
-  String type;
-  String dimension;
-  List<String> residents;
-  String url;
-  DateTime created;
-  bool isFavorite;
+  final Id id;
+  final String name;
+  final String type;
+  final String dimension;
+  final List<String> residents;
+  final String url;
+  final DateTime? created;
+  final bool isFavorite;
 
-  LocationEntity({
-    required this.id,
-    required this.name,
-    required this.type,
-    required this.dimension,
-    required this.residents,
-    required this.url,
-    required this.created,
+  const LocationEntity({
+    this.id = Isar.autoIncrement,
+    this.name = '',
+    this.type = '',
+    this.dimension = '',
+    this.residents = const [],
+    this.url = '',
+    this.created,
     this.isFavorite = false,
   });
 }

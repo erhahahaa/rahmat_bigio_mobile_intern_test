@@ -27,23 +27,28 @@ const LocationEntitySchema = CollectionSchema(
       name: r'dimension',
       type: IsarType.string,
     ),
-    r'name': PropertySchema(
+    r'isFavorite': PropertySchema(
       id: 2,
+      name: r'isFavorite',
+      type: IsarType.bool,
+    ),
+    r'name': PropertySchema(
+      id: 3,
       name: r'name',
       type: IsarType.string,
     ),
     r'residents': PropertySchema(
-      id: 3,
+      id: 4,
       name: r'residents',
       type: IsarType.stringList,
     ),
     r'type': PropertySchema(
-      id: 4,
+      id: 5,
       name: r'type',
       type: IsarType.string,
     ),
     r'url': PropertySchema(
-      id: 5,
+      id: 6,
       name: r'url',
       type: IsarType.string,
     )
@@ -90,10 +95,11 @@ void _locationEntitySerialize(
 ) {
   writer.writeDateTime(offsets[0], object.created);
   writer.writeString(offsets[1], object.dimension);
-  writer.writeString(offsets[2], object.name);
-  writer.writeStringList(offsets[3], object.residents);
-  writer.writeString(offsets[4], object.type);
-  writer.writeString(offsets[5], object.url);
+  writer.writeBool(offsets[2], object.isFavorite);
+  writer.writeString(offsets[3], object.name);
+  writer.writeStringList(offsets[4], object.residents);
+  writer.writeString(offsets[5], object.type);
+  writer.writeString(offsets[6], object.url);
 }
 
 LocationEntity _locationEntityDeserialize(
@@ -103,13 +109,14 @@ LocationEntity _locationEntityDeserialize(
   Map<Type, List<int>> allOffsets,
 ) {
   final object = LocationEntity(
-    created: reader.readDateTime(offsets[0]),
-    dimension: reader.readString(offsets[1]),
+    created: reader.readDateTimeOrNull(offsets[0]),
+    dimension: reader.readStringOrNull(offsets[1]) ?? '',
     id: id,
-    name: reader.readString(offsets[2]),
-    residents: reader.readStringList(offsets[3]) ?? [],
-    type: reader.readString(offsets[4]),
-    url: reader.readString(offsets[5]),
+    isFavorite: reader.readBoolOrNull(offsets[2]) ?? false,
+    name: reader.readStringOrNull(offsets[3]) ?? '',
+    residents: reader.readStringList(offsets[4]) ?? const [],
+    type: reader.readStringOrNull(offsets[5]) ?? '',
+    url: reader.readStringOrNull(offsets[6]) ?? '',
   );
   return object;
 }
@@ -122,17 +129,19 @@ P _locationEntityDeserializeProp<P>(
 ) {
   switch (propertyId) {
     case 0:
-      return (reader.readDateTime(offset)) as P;
+      return (reader.readDateTimeOrNull(offset)) as P;
     case 1:
-      return (reader.readString(offset)) as P;
+      return (reader.readStringOrNull(offset) ?? '') as P;
     case 2:
-      return (reader.readString(offset)) as P;
+      return (reader.readBoolOrNull(offset) ?? false) as P;
     case 3:
-      return (reader.readStringList(offset) ?? []) as P;
+      return (reader.readStringOrNull(offset) ?? '') as P;
     case 4:
-      return (reader.readString(offset)) as P;
+      return (reader.readStringList(offset) ?? const []) as P;
     case 5:
-      return (reader.readString(offset)) as P;
+      return (reader.readStringOrNull(offset) ?? '') as P;
+    case 6:
+      return (reader.readStringOrNull(offset) ?? '') as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
   }
@@ -147,9 +156,7 @@ List<IsarLinkBase<dynamic>> _locationEntityGetLinks(LocationEntity object) {
 }
 
 void _locationEntityAttach(
-    IsarCollection<dynamic> col, Id id, LocationEntity object) {
-  object.id = id;
-}
+    IsarCollection<dynamic> col, Id id, LocationEntity object) {}
 
 extension LocationEntityQueryWhereSort
     on QueryBuilder<LocationEntity, LocationEntity, QWhere> {
@@ -235,7 +242,25 @@ extension LocationEntityQueryWhere
 extension LocationEntityQueryFilter
     on QueryBuilder<LocationEntity, LocationEntity, QFilterCondition> {
   QueryBuilder<LocationEntity, LocationEntity, QAfterFilterCondition>
-      createdEqualTo(DateTime value) {
+      createdIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNull(
+        property: r'created',
+      ));
+    });
+  }
+
+  QueryBuilder<LocationEntity, LocationEntity, QAfterFilterCondition>
+      createdIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNotNull(
+        property: r'created',
+      ));
+    });
+  }
+
+  QueryBuilder<LocationEntity, LocationEntity, QAfterFilterCondition>
+      createdEqualTo(DateTime? value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'created',
@@ -246,7 +271,7 @@ extension LocationEntityQueryFilter
 
   QueryBuilder<LocationEntity, LocationEntity, QAfterFilterCondition>
       createdGreaterThan(
-    DateTime value, {
+    DateTime? value, {
     bool include = false,
   }) {
     return QueryBuilder.apply(this, (query) {
@@ -260,7 +285,7 @@ extension LocationEntityQueryFilter
 
   QueryBuilder<LocationEntity, LocationEntity, QAfterFilterCondition>
       createdLessThan(
-    DateTime value, {
+    DateTime? value, {
     bool include = false,
   }) {
     return QueryBuilder.apply(this, (query) {
@@ -274,8 +299,8 @@ extension LocationEntityQueryFilter
 
   QueryBuilder<LocationEntity, LocationEntity, QAfterFilterCondition>
       createdBetween(
-    DateTime lower,
-    DateTime upper, {
+    DateTime? lower,
+    DateTime? upper, {
     bool includeLower = true,
     bool includeUpper = true,
   }) {
@@ -477,6 +502,16 @@ extension LocationEntityQueryFilter
         includeLower: includeLower,
         upper: upper,
         includeUpper: includeUpper,
+      ));
+    });
+  }
+
+  QueryBuilder<LocationEntity, LocationEntity, QAfterFilterCondition>
+      isFavoriteEqualTo(bool value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'isFavorite',
+        value: value,
       ));
     });
   }
@@ -1149,6 +1184,20 @@ extension LocationEntityQuerySortBy
     });
   }
 
+  QueryBuilder<LocationEntity, LocationEntity, QAfterSortBy>
+      sortByIsFavorite() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isFavorite', Sort.asc);
+    });
+  }
+
+  QueryBuilder<LocationEntity, LocationEntity, QAfterSortBy>
+      sortByIsFavoriteDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isFavorite', Sort.desc);
+    });
+  }
+
   QueryBuilder<LocationEntity, LocationEntity, QAfterSortBy> sortByName() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'name', Sort.asc);
@@ -1226,6 +1275,20 @@ extension LocationEntityQuerySortThenBy
     });
   }
 
+  QueryBuilder<LocationEntity, LocationEntity, QAfterSortBy>
+      thenByIsFavorite() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isFavorite', Sort.asc);
+    });
+  }
+
+  QueryBuilder<LocationEntity, LocationEntity, QAfterSortBy>
+      thenByIsFavoriteDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isFavorite', Sort.desc);
+    });
+  }
+
   QueryBuilder<LocationEntity, LocationEntity, QAfterSortBy> thenByName() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'name', Sort.asc);
@@ -1278,6 +1341,13 @@ extension LocationEntityQueryWhereDistinct
     });
   }
 
+  QueryBuilder<LocationEntity, LocationEntity, QDistinct>
+      distinctByIsFavorite() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'isFavorite');
+    });
+  }
+
   QueryBuilder<LocationEntity, LocationEntity, QDistinct> distinctByName(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
@@ -1315,7 +1385,7 @@ extension LocationEntityQueryProperty
     });
   }
 
-  QueryBuilder<LocationEntity, DateTime, QQueryOperations> createdProperty() {
+  QueryBuilder<LocationEntity, DateTime?, QQueryOperations> createdProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'created');
     });
@@ -1324,6 +1394,12 @@ extension LocationEntityQueryProperty
   QueryBuilder<LocationEntity, String, QQueryOperations> dimensionProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'dimension');
+    });
+  }
+
+  QueryBuilder<LocationEntity, bool, QQueryOperations> isFavoriteProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'isFavorite');
     });
   }
 

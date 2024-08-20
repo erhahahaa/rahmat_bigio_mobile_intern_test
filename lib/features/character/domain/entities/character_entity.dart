@@ -28,45 +28,45 @@ enum CharacterGender {
 
 @Collection(accessor: 'characters')
 class CharacterEntity {
-  Id id = Isar.autoIncrement;
-  String name;
+  final Id id;
+  final String name;
   @enumerated
-  CharacterStatus status;
-  String species;
-  String type;
+  final CharacterStatus status;
+  final String species;
+  final String type;
   @enumerated
-  CharacterGender gender;
-  CharacterOriginEntity origin;
-  CharacterLocationEntity location;
-  String image;
-  List<String> episode;
-  String url;
-  DateTime created;
-  bool isFavorite;
+  final CharacterGender gender;
+  final CharacterOriginEntity origin;
+  final CharacterLocationEntity location;
+  final String image;
+  final List<String> episode;
+  final String url;
+  final DateTime? created;
+  final bool isFavorite;
 
-  CharacterEntity({
-    required this.id,
-    required this.name,
-    required this.status,
-    required this.species,
-    required this.type,
-    required this.gender,
-    required this.origin,
-    required this.location,
-    required this.image,
-    required this.episode,
-    required this.url,
-    required this.created,
+  const CharacterEntity({
+    this.id = Isar.autoIncrement,
+    this.name = '',
+    this.status = CharacterStatus.unknown,
+    this.species = '',
+    this.type = '',
+    this.gender = CharacterGender.unknown,
+    this.origin = const CharacterOriginEntity(),
+    this.location = const CharacterLocationEntity(),
+    this.image = '',
+    this.episode = const [],
+    this.url = '',
+    this.created,
     this.isFavorite = false,
   });
 }
 
 @embedded
 class CharacterOriginEntity {
-  String name;
-  String url;
+  final String name;
+  final String url;
 
-  CharacterOriginEntity({
+  const CharacterOriginEntity({
     this.name = '',
     this.url = '',
   });
@@ -74,10 +74,10 @@ class CharacterOriginEntity {
 
 @embedded
 class CharacterLocationEntity {
-  String name;
-  String url;
+  final String name;
+  final String url;
 
-  CharacterLocationEntity({
+  const CharacterLocationEntity({
     this.name = '',
     this.url = '',
   });

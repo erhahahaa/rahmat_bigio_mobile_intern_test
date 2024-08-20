@@ -163,33 +163,33 @@ CharacterEntity _characterEntityDeserialize(
   Map<Type, List<int>> allOffsets,
 ) {
   final object = CharacterEntity(
-    created: reader.readDateTime(offsets[0]),
-    episode: reader.readStringList(offsets[1]) ?? [],
+    created: reader.readDateTimeOrNull(offsets[0]),
+    episode: reader.readStringList(offsets[1]) ?? const [],
     gender:
         _CharacterEntitygenderValueEnumMap[reader.readByteOrNull(offsets[2])] ??
-            CharacterGender.female,
+            CharacterGender.unknown,
     id: id,
-    image: reader.readString(offsets[3]),
+    image: reader.readStringOrNull(offsets[3]) ?? '',
     isFavorite: reader.readBoolOrNull(offsets[4]) ?? false,
     location: reader.readObjectOrNull<CharacterLocationEntity>(
           offsets[5],
           CharacterLocationEntitySchema.deserialize,
           allOffsets,
         ) ??
-        CharacterLocationEntity(),
-    name: reader.readString(offsets[6]),
+        const CharacterLocationEntity(),
+    name: reader.readStringOrNull(offsets[6]) ?? '',
     origin: reader.readObjectOrNull<CharacterOriginEntity>(
           offsets[7],
           CharacterOriginEntitySchema.deserialize,
           allOffsets,
         ) ??
-        CharacterOriginEntity(),
-    species: reader.readString(offsets[8]),
+        const CharacterOriginEntity(),
+    species: reader.readStringOrNull(offsets[8]) ?? '',
     status:
         _CharacterEntitystatusValueEnumMap[reader.readByteOrNull(offsets[9])] ??
-            CharacterStatus.alive,
-    type: reader.readString(offsets[10]),
-    url: reader.readString(offsets[11]),
+            CharacterStatus.unknown,
+    type: reader.readStringOrNull(offsets[10]) ?? '',
+    url: reader.readStringOrNull(offsets[11]) ?? '',
   );
   return object;
 }
@@ -202,15 +202,15 @@ P _characterEntityDeserializeProp<P>(
 ) {
   switch (propertyId) {
     case 0:
-      return (reader.readDateTime(offset)) as P;
+      return (reader.readDateTimeOrNull(offset)) as P;
     case 1:
-      return (reader.readStringList(offset) ?? []) as P;
+      return (reader.readStringList(offset) ?? const []) as P;
     case 2:
       return (_CharacterEntitygenderValueEnumMap[
               reader.readByteOrNull(offset)] ??
-          CharacterGender.female) as P;
+          CharacterGender.unknown) as P;
     case 3:
-      return (reader.readString(offset)) as P;
+      return (reader.readStringOrNull(offset) ?? '') as P;
     case 4:
       return (reader.readBoolOrNull(offset) ?? false) as P;
     case 5:
@@ -219,26 +219,26 @@ P _characterEntityDeserializeProp<P>(
             CharacterLocationEntitySchema.deserialize,
             allOffsets,
           ) ??
-          CharacterLocationEntity()) as P;
+          const CharacterLocationEntity()) as P;
     case 6:
-      return (reader.readString(offset)) as P;
+      return (reader.readStringOrNull(offset) ?? '') as P;
     case 7:
       return (reader.readObjectOrNull<CharacterOriginEntity>(
             offset,
             CharacterOriginEntitySchema.deserialize,
             allOffsets,
           ) ??
-          CharacterOriginEntity()) as P;
+          const CharacterOriginEntity()) as P;
     case 8:
-      return (reader.readString(offset)) as P;
+      return (reader.readStringOrNull(offset) ?? '') as P;
     case 9:
       return (_CharacterEntitystatusValueEnumMap[
               reader.readByteOrNull(offset)] ??
-          CharacterStatus.alive) as P;
+          CharacterStatus.unknown) as P;
     case 10:
-      return (reader.readString(offset)) as P;
+      return (reader.readStringOrNull(offset) ?? '') as P;
     case 11:
-      return (reader.readString(offset)) as P;
+      return (reader.readStringOrNull(offset) ?? '') as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
   }
@@ -276,9 +276,7 @@ List<IsarLinkBase<dynamic>> _characterEntityGetLinks(CharacterEntity object) {
 }
 
 void _characterEntityAttach(
-    IsarCollection<dynamic> col, Id id, CharacterEntity object) {
-  object.id = id;
-}
+    IsarCollection<dynamic> col, Id id, CharacterEntity object) {}
 
 extension CharacterEntityQueryWhereSort
     on QueryBuilder<CharacterEntity, CharacterEntity, QWhere> {
@@ -363,7 +361,25 @@ extension CharacterEntityQueryWhere
 extension CharacterEntityQueryFilter
     on QueryBuilder<CharacterEntity, CharacterEntity, QFilterCondition> {
   QueryBuilder<CharacterEntity, CharacterEntity, QAfterFilterCondition>
-      createdEqualTo(DateTime value) {
+      createdIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNull(
+        property: r'created',
+      ));
+    });
+  }
+
+  QueryBuilder<CharacterEntity, CharacterEntity, QAfterFilterCondition>
+      createdIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNotNull(
+        property: r'created',
+      ));
+    });
+  }
+
+  QueryBuilder<CharacterEntity, CharacterEntity, QAfterFilterCondition>
+      createdEqualTo(DateTime? value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'created',
@@ -374,7 +390,7 @@ extension CharacterEntityQueryFilter
 
   QueryBuilder<CharacterEntity, CharacterEntity, QAfterFilterCondition>
       createdGreaterThan(
-    DateTime value, {
+    DateTime? value, {
     bool include = false,
   }) {
     return QueryBuilder.apply(this, (query) {
@@ -388,7 +404,7 @@ extension CharacterEntityQueryFilter
 
   QueryBuilder<CharacterEntity, CharacterEntity, QAfterFilterCondition>
       createdLessThan(
-    DateTime value, {
+    DateTime? value, {
     bool include = false,
   }) {
     return QueryBuilder.apply(this, (query) {
@@ -402,8 +418,8 @@ extension CharacterEntityQueryFilter
 
   QueryBuilder<CharacterEntity, CharacterEntity, QAfterFilterCondition>
       createdBetween(
-    DateTime lower,
-    DateTime upper, {
+    DateTime? lower,
+    DateTime? upper, {
     bool includeLower = true,
     bool includeUpper = true,
   }) {
@@ -1853,7 +1869,7 @@ extension CharacterEntityQueryProperty
     });
   }
 
-  QueryBuilder<CharacterEntity, DateTime, QQueryOperations> createdProperty() {
+  QueryBuilder<CharacterEntity, DateTime?, QQueryOperations> createdProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'created');
     });

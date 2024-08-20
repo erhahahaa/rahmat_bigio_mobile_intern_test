@@ -95,8 +95,11 @@ class LocationLocalDataSourceImpl implements LocationLocalDataSource {
       return Left(CacheFailure(message: 'Location not found in cache'));
     }
     await _isar.instance.writeTxn(() async {
-      location.isFavorite = !location.isFavorite;
-      await cacheLocation(location);
+      await cacheLocation(
+        LocationModel.fromEntity(location)
+            .copyWith(isFavorite: !location.isFavorite)
+            .toEntity(),
+      );
     });
     return Right(null);
   }

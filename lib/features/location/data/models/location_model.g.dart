@@ -15,7 +15,9 @@ _$LocationModelImpl _$$LocationModelImplFromJson(Map<String, dynamic> json) =>
       residents:
           (json['residents'] as List<dynamic>).map((e) => e as String).toList(),
       url: json['url'] as String,
-      created: DateTime.parse(json['created'] as String),
+      created: json['created'] == null
+          ? null
+          : DateTime.parse(json['created'] as String),
     );
 
 Map<String, dynamic> _$$LocationModelImplToJson(_$LocationModelImpl instance) =>
@@ -26,5 +28,5 @@ Map<String, dynamic> _$$LocationModelImplToJson(_$LocationModelImpl instance) =>
       'dimension': instance.dimension,
       'residents': instance.residents,
       'url': instance.url,
-      'created': instance.created.toIso8601String(),
+      'created': instance.created?.toIso8601String(),
     };

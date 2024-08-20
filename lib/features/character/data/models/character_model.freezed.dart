@@ -31,7 +31,9 @@ mixin _$CharacterModel {
   String get image => throw _privateConstructorUsedError;
   List<String> get episode => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
-  DateTime get created => throw _privateConstructorUsedError;
+  DateTime? get created => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  bool get isFavorite => throw _privateConstructorUsedError;
 
   /// Serializes this CharacterModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -61,7 +63,8 @@ abstract class $CharacterModelCopyWith<$Res> {
       String image,
       List<String> episode,
       String url,
-      DateTime created});
+      DateTime? created,
+      @JsonKey(includeFromJson: false, includeToJson: false) bool isFavorite});
 
   $CharacterOriginModelCopyWith<$Res> get origin;
   $CharacterLocationModelCopyWith<$Res> get location;
@@ -93,7 +96,8 @@ class _$CharacterModelCopyWithImpl<$Res, $Val extends CharacterModel>
     Object? image = null,
     Object? episode = null,
     Object? url = null,
-    Object? created = null,
+    Object? created = freezed,
+    Object? isFavorite = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -140,10 +144,14 @@ class _$CharacterModelCopyWithImpl<$Res, $Val extends CharacterModel>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-      created: null == created
+      created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -188,7 +196,8 @@ abstract class _$$CharacterModelImplCopyWith<$Res>
       String image,
       List<String> episode,
       String url,
-      DateTime created});
+      DateTime? created,
+      @JsonKey(includeFromJson: false, includeToJson: false) bool isFavorite});
 
   @override
   $CharacterOriginModelCopyWith<$Res> get origin;
@@ -220,7 +229,8 @@ class __$$CharacterModelImplCopyWithImpl<$Res>
     Object? image = null,
     Object? episode = null,
     Object? url = null,
-    Object? created = null,
+    Object? created = freezed,
+    Object? isFavorite = null,
   }) {
     return _then(_$CharacterModelImpl(
       id: null == id
@@ -267,10 +277,14 @@ class __$$CharacterModelImplCopyWithImpl<$Res>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-      created: null == created
+      created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -290,7 +304,9 @@ class _$CharacterModelImpl extends _CharacterModel {
       required this.image,
       required final List<String> episode,
       required this.url,
-      required this.created})
+      required this.created,
+      @JsonKey(includeFromJson: false, includeToJson: false)
+      this.isFavorite = false})
       : _episode = episode,
         super._();
 
@@ -326,11 +342,14 @@ class _$CharacterModelImpl extends _CharacterModel {
   @override
   final String url;
   @override
-  final DateTime created;
+  final DateTime? created;
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  final bool isFavorite;
 
   @override
   String toString() {
-    return 'CharacterModel(id: $id, name: $name, status: $status, species: $species, type: $type, gender: $gender, origin: $origin, location: $location, image: $image, episode: $episode, url: $url, created: $created)';
+    return 'CharacterModel(id: $id, name: $name, status: $status, species: $species, type: $type, gender: $gender, origin: $origin, location: $location, image: $image, episode: $episode, url: $url, created: $created, isFavorite: $isFavorite)';
   }
 
   @override
@@ -350,7 +369,9 @@ class _$CharacterModelImpl extends _CharacterModel {
             (identical(other.image, image) || other.image == image) &&
             const DeepCollectionEquality().equals(other._episode, _episode) &&
             (identical(other.url, url) || other.url == url) &&
-            (identical(other.created, created) || other.created == created));
+            (identical(other.created, created) || other.created == created) &&
+            (identical(other.isFavorite, isFavorite) ||
+                other.isFavorite == isFavorite));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -368,7 +389,8 @@ class _$CharacterModelImpl extends _CharacterModel {
       image,
       const DeepCollectionEquality().hash(_episode),
       url,
-      created);
+      created,
+      isFavorite);
 
   /// Create a copy of CharacterModel
   /// with the given fields replaced by the non-null parameter values.
@@ -400,7 +422,9 @@ abstract class _CharacterModel extends CharacterModel {
       required final String image,
       required final List<String> episode,
       required final String url,
-      required final DateTime created}) = _$CharacterModelImpl;
+      required final DateTime? created,
+      @JsonKey(includeFromJson: false, includeToJson: false)
+      final bool isFavorite}) = _$CharacterModelImpl;
   const _CharacterModel._() : super._();
 
   factory _CharacterModel.fromJson(Map<String, dynamic> json) =
@@ -429,7 +453,10 @@ abstract class _CharacterModel extends CharacterModel {
   @override
   String get url;
   @override
-  DateTime get created;
+  DateTime? get created;
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  bool get isFavorite;
 
   /// Create a copy of CharacterModel
   /// with the given fields replaced by the non-null parameter values.

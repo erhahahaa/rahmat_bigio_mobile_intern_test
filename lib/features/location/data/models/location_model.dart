@@ -5,7 +5,7 @@ part 'location_model.freezed.dart';
 part 'location_model.g.dart';
 
 @freezed
-abstract class LocationModel with _$LocationModel {
+class LocationModel extends LocationEntity with _$LocationModel {
   const factory LocationModel({
     required int id,
     required String name,
@@ -13,7 +13,10 @@ abstract class LocationModel with _$LocationModel {
     required String dimension,
     required List<String> residents,
     required String url,
-    required DateTime created,
+    required DateTime? created,
+    @JsonKey(includeFromJson: false, includeToJson: false)
+    @Default(false)
+    bool isFavorite,
   }) = _LocationModel;
 
   const LocationModel._();
@@ -29,6 +32,7 @@ abstract class LocationModel with _$LocationModel {
         residents: entity.residents,
         url: entity.url,
         created: entity.created,
+        isFavorite: entity.isFavorite,
       );
 
   LocationEntity toEntity() => LocationEntity(
@@ -39,5 +43,6 @@ abstract class LocationModel with _$LocationModel {
         residents: residents,
         url: url,
         created: created,
+        isFavorite: isFavorite,
       );
 }

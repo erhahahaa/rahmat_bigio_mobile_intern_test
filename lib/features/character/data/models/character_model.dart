@@ -5,7 +5,7 @@ part 'character_model.freezed.dart';
 part 'character_model.g.dart';
 
 @freezed
-class CharacterModel with _$CharacterModel {
+class CharacterModel extends CharacterEntity with _$CharacterModel {
   const factory CharacterModel({
     required int id,
     required String name,
@@ -18,7 +18,10 @@ class CharacterModel with _$CharacterModel {
     required String image,
     required List<String> episode,
     required String url,
-    required DateTime created,
+    required DateTime? created,
+    @JsonKey(includeFromJson: false, includeToJson: false)
+    @Default(false)
+    bool isFavorite,
   }) = _CharacterModel;
 
   const CharacterModel._();
@@ -39,6 +42,7 @@ class CharacterModel with _$CharacterModel {
         episode: entity.episode,
         url: entity.url,
         created: entity.created,
+        isFavorite: entity.isFavorite,
       );
 
   CharacterEntity toEntity() => CharacterEntity(
@@ -54,11 +58,13 @@ class CharacterModel with _$CharacterModel {
         episode: episode,
         url: url,
         created: created,
+        isFavorite: isFavorite,
       );
 }
 
 @freezed
-class CharacterOriginModel with _$CharacterOriginModel {
+class CharacterOriginModel extends CharacterOriginEntity
+    with _$CharacterOriginModel {
   const factory CharacterOriginModel({
     required String name,
     required String url,
@@ -82,7 +88,8 @@ class CharacterOriginModel with _$CharacterOriginModel {
 }
 
 @freezed
-class CharacterLocationModel with _$CharacterLocationModel {
+class CharacterLocationModel extends CharacterLocationEntity
+    with _$CharacterLocationModel {
   const factory CharacterLocationModel({
     required String name,
     required String url,

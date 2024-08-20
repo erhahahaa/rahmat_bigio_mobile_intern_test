@@ -22,7 +22,9 @@ _$CharacterModelImpl _$$CharacterModelImplFromJson(Map<String, dynamic> json) =>
       episode:
           (json['episode'] as List<dynamic>).map((e) => e as String).toList(),
       url: json['url'] as String,
-      created: DateTime.parse(json['created'] as String),
+      created: json['created'] == null
+          ? null
+          : DateTime.parse(json['created'] as String),
     );
 
 Map<String, dynamic> _$$CharacterModelImplToJson(
@@ -39,7 +41,7 @@ Map<String, dynamic> _$$CharacterModelImplToJson(
       'image': instance.image,
       'episode': instance.episode,
       'url': instance.url,
-      'created': instance.created.toIso8601String(),
+      'created': instance.created?.toIso8601String(),
     };
 
 const _$CharacterStatusEnumMap = {

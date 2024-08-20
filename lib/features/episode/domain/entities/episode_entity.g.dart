@@ -109,14 +109,14 @@ EpisodeEntity _episodeEntityDeserialize(
   Map<Type, List<int>> allOffsets,
 ) {
   final object = EpisodeEntity(
-    airDate: reader.readString(offsets[0]),
-    characters: reader.readStringList(offsets[1]) ?? [],
-    created: reader.readDateTime(offsets[2]),
-    episode: reader.readString(offsets[3]),
+    airDate: reader.readStringOrNull(offsets[0]) ?? '',
+    characters: reader.readStringList(offsets[1]) ?? const [],
+    created: reader.readDateTimeOrNull(offsets[2]),
+    episode: reader.readStringOrNull(offsets[3]) ?? '',
     id: id,
     isFavorite: reader.readBoolOrNull(offsets[4]) ?? false,
-    name: reader.readString(offsets[5]),
-    url: reader.readString(offsets[6]),
+    name: reader.readStringOrNull(offsets[5]) ?? '',
+    url: reader.readStringOrNull(offsets[6]) ?? '',
   );
   return object;
 }
@@ -129,19 +129,19 @@ P _episodeEntityDeserializeProp<P>(
 ) {
   switch (propertyId) {
     case 0:
-      return (reader.readString(offset)) as P;
+      return (reader.readStringOrNull(offset) ?? '') as P;
     case 1:
-      return (reader.readStringList(offset) ?? []) as P;
+      return (reader.readStringList(offset) ?? const []) as P;
     case 2:
-      return (reader.readDateTime(offset)) as P;
+      return (reader.readDateTimeOrNull(offset)) as P;
     case 3:
-      return (reader.readString(offset)) as P;
+      return (reader.readStringOrNull(offset) ?? '') as P;
     case 4:
       return (reader.readBoolOrNull(offset) ?? false) as P;
     case 5:
-      return (reader.readString(offset)) as P;
+      return (reader.readStringOrNull(offset) ?? '') as P;
     case 6:
-      return (reader.readString(offset)) as P;
+      return (reader.readStringOrNull(offset) ?? '') as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
   }
@@ -156,9 +156,7 @@ List<IsarLinkBase<dynamic>> _episodeEntityGetLinks(EpisodeEntity object) {
 }
 
 void _episodeEntityAttach(
-    IsarCollection<dynamic> col, Id id, EpisodeEntity object) {
-  object.id = id;
-}
+    IsarCollection<dynamic> col, Id id, EpisodeEntity object) {}
 
 extension EpisodeEntityQueryWhereSort
     on QueryBuilder<EpisodeEntity, EpisodeEntity, QWhere> {
@@ -605,7 +603,25 @@ extension EpisodeEntityQueryFilter
   }
 
   QueryBuilder<EpisodeEntity, EpisodeEntity, QAfterFilterCondition>
-      createdEqualTo(DateTime value) {
+      createdIsNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNull(
+        property: r'created',
+      ));
+    });
+  }
+
+  QueryBuilder<EpisodeEntity, EpisodeEntity, QAfterFilterCondition>
+      createdIsNotNull() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(const FilterCondition.isNotNull(
+        property: r'created',
+      ));
+    });
+  }
+
+  QueryBuilder<EpisodeEntity, EpisodeEntity, QAfterFilterCondition>
+      createdEqualTo(DateTime? value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'created',
@@ -616,7 +632,7 @@ extension EpisodeEntityQueryFilter
 
   QueryBuilder<EpisodeEntity, EpisodeEntity, QAfterFilterCondition>
       createdGreaterThan(
-    DateTime value, {
+    DateTime? value, {
     bool include = false,
   }) {
     return QueryBuilder.apply(this, (query) {
@@ -630,7 +646,7 @@ extension EpisodeEntityQueryFilter
 
   QueryBuilder<EpisodeEntity, EpisodeEntity, QAfterFilterCondition>
       createdLessThan(
-    DateTime value, {
+    DateTime? value, {
     bool include = false,
   }) {
     return QueryBuilder.apply(this, (query) {
@@ -644,8 +660,8 @@ extension EpisodeEntityQueryFilter
 
   QueryBuilder<EpisodeEntity, EpisodeEntity, QAfterFilterCondition>
       createdBetween(
-    DateTime lower,
-    DateTime upper, {
+    DateTime? lower,
+    DateTime? upper, {
     bool includeLower = true,
     bool includeUpper = true,
   }) {
@@ -1370,7 +1386,7 @@ extension EpisodeEntityQueryProperty
     });
   }
 
-  QueryBuilder<EpisodeEntity, DateTime, QQueryOperations> createdProperty() {
+  QueryBuilder<EpisodeEntity, DateTime?, QQueryOperations> createdProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'created');
     });

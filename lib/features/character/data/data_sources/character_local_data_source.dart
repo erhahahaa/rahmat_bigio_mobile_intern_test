@@ -96,8 +96,13 @@ class CharacterLocalDataSourceImpl implements CharacterLocalDataSource {
       return Left(CacheFailure(message: 'Character not found in cache'));
     }
     await _isar.instance.writeTxn(() async {
-      character.isFavorite = !character.isFavorite;
-      await cacheCharacter(character);
+      await cacheCharacter(
+        CharacterModel.fromEntity(character)
+            .copyWith(
+              isFavorite: !character.isFavorite,
+            )
+            .toEntity(),
+      );
     });
     return Right(null);
   }

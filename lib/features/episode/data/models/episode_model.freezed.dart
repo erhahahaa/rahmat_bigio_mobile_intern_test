@@ -27,7 +27,9 @@ mixin _$EpisodeModel {
   String get episode => throw _privateConstructorUsedError;
   List<String> get characters => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
-  DateTime get created => throw _privateConstructorUsedError;
+  DateTime? get created => throw _privateConstructorUsedError;
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  bool get isFavorite => throw _privateConstructorUsedError;
 
   /// Serializes this EpisodeModel to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -52,7 +54,8 @@ abstract class $EpisodeModelCopyWith<$Res> {
       String episode,
       List<String> characters,
       String url,
-      DateTime created});
+      DateTime? created,
+      @JsonKey(includeFromJson: false, includeToJson: false) bool isFavorite});
 }
 
 /// @nodoc
@@ -76,7 +79,8 @@ class _$EpisodeModelCopyWithImpl<$Res, $Val extends EpisodeModel>
     Object? episode = null,
     Object? characters = null,
     Object? url = null,
-    Object? created = null,
+    Object? created = freezed,
+    Object? isFavorite = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -103,10 +107,14 @@ class _$EpisodeModelCopyWithImpl<$Res, $Val extends EpisodeModel>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-      created: null == created
+      created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -126,7 +134,8 @@ abstract class _$$EpisodeModelImplCopyWith<$Res>
       String episode,
       List<String> characters,
       String url,
-      DateTime created});
+      DateTime? created,
+      @JsonKey(includeFromJson: false, includeToJson: false) bool isFavorite});
 }
 
 /// @nodoc
@@ -148,7 +157,8 @@ class __$$EpisodeModelImplCopyWithImpl<$Res>
     Object? episode = null,
     Object? characters = null,
     Object? url = null,
-    Object? created = null,
+    Object? created = freezed,
+    Object? isFavorite = null,
   }) {
     return _then(_$EpisodeModelImpl(
       id: null == id
@@ -175,10 +185,14 @@ class __$$EpisodeModelImplCopyWithImpl<$Res>
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-      created: null == created
+      created: freezed == created
           ? _value.created
           : created // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -193,7 +207,9 @@ class _$EpisodeModelImpl extends _EpisodeModel {
       required this.episode,
       required final List<String> characters,
       required this.url,
-      required this.created})
+      required this.created,
+      @JsonKey(includeFromJson: false, includeToJson: false)
+      this.isFavorite = false})
       : _characters = characters,
         super._();
 
@@ -220,11 +236,14 @@ class _$EpisodeModelImpl extends _EpisodeModel {
   @override
   final String url;
   @override
-  final DateTime created;
+  final DateTime? created;
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  final bool isFavorite;
 
   @override
   String toString() {
-    return 'EpisodeModel(id: $id, name: $name, airDate: $airDate, episode: $episode, characters: $characters, url: $url, created: $created)';
+    return 'EpisodeModel(id: $id, name: $name, airDate: $airDate, episode: $episode, characters: $characters, url: $url, created: $created, isFavorite: $isFavorite)';
   }
 
   @override
@@ -239,13 +258,23 @@ class _$EpisodeModelImpl extends _EpisodeModel {
             const DeepCollectionEquality()
                 .equals(other._characters, _characters) &&
             (identical(other.url, url) || other.url == url) &&
-            (identical(other.created, created) || other.created == created));
+            (identical(other.created, created) || other.created == created) &&
+            (identical(other.isFavorite, isFavorite) ||
+                other.isFavorite == isFavorite));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, airDate, episode,
-      const DeepCollectionEquality().hash(_characters), url, created);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      name,
+      airDate,
+      episode,
+      const DeepCollectionEquality().hash(_characters),
+      url,
+      created,
+      isFavorite);
 
   /// Create a copy of EpisodeModel
   /// with the given fields replaced by the non-null parameter values.
@@ -271,7 +300,9 @@ abstract class _EpisodeModel extends EpisodeModel {
       required final String episode,
       required final List<String> characters,
       required final String url,
-      required final DateTime created}) = _$EpisodeModelImpl;
+      required final DateTime? created,
+      @JsonKey(includeFromJson: false, includeToJson: false)
+      final bool isFavorite}) = _$EpisodeModelImpl;
   const _EpisodeModel._() : super._();
 
   factory _EpisodeModel.fromJson(Map<String, dynamic> json) =
@@ -291,7 +322,10 @@ abstract class _EpisodeModel extends EpisodeModel {
   @override
   String get url;
   @override
-  DateTime get created;
+  DateTime? get created;
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  bool get isFavorite;
 
   /// Create a copy of EpisodeModel
   /// with the given fields replaced by the non-null parameter values.

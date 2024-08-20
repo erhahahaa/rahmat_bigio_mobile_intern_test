@@ -16,7 +16,9 @@ _$EpisodeModelImpl _$$EpisodeModelImplFromJson(Map<String, dynamic> json) =>
           .map((e) => e as String)
           .toList(),
       url: json['url'] as String,
-      created: DateTime.parse(json['created'] as String),
+      created: json['created'] == null
+          ? null
+          : DateTime.parse(json['created'] as String),
     );
 
 Map<String, dynamic> _$$EpisodeModelImplToJson(_$EpisodeModelImpl instance) =>
@@ -27,5 +29,5 @@ Map<String, dynamic> _$$EpisodeModelImplToJson(_$EpisodeModelImpl instance) =>
       'episode': instance.episode,
       'characters': instance.characters,
       'url': instance.url,
-      'created': instance.created.toIso8601String(),
+      'created': instance.created?.toIso8601String(),
     };

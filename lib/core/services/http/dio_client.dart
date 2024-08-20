@@ -7,7 +7,7 @@ import 'package:rick_morty/core/core.dart';
 import 'package:rick_morty/utils/utils.dart';
 
 @lazySingleton
-class DioService with Log {
+class DioClient with Log {
   late final Dio _dio = Dio(
     BaseOptions(
       baseUrl: ListAPI.BASE_URL,
@@ -21,7 +21,7 @@ class DioService with Log {
     ),
   );
 
-  DioService() {
+  DioClient() {
     _dio.interceptors.add(DioInterceptor());
   }
 

@@ -19,7 +19,7 @@ abstract class LocationRemoteDataSource {
 
 @LazySingleton(as: LocationRemoteDataSource)
 class LocationRemoteDataSourceImpl implements LocationRemoteDataSource {
-  final DioService _dio;
+  final DioClient _dio;
 
   LocationRemoteDataSourceImpl(this._dio);
 

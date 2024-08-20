@@ -19,7 +19,7 @@ abstract class CharacterRemoteDataSource {
 
 @LazySingleton(as: CharacterRemoteDataSource)
 class CharacterRemoteDataSourceImpl implements CharacterRemoteDataSource {
-  final DioService _dio;
+  final DioClient _dio;
 
   CharacterRemoteDataSourceImpl(this._dio);
 

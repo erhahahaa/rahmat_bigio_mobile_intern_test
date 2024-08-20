@@ -19,7 +19,7 @@ abstract class EpisodeRemoteDataSource {
 
 @LazySingleton(as: EpisodeRemoteDataSource)
 class EpisodeRemoteDataSourceImpl implements EpisodeRemoteDataSource {
-  final DioService _dio;
+  final DioClient _dio;
 
   EpisodeRemoteDataSourceImpl(this._dio);
 

@@ -107,10 +107,10 @@ EpisodeEntity _episodeEntityDeserialize(
     characters: reader.readStringList(offsets[1]) ?? [],
     created: reader.readDateTime(offsets[2]),
     episode: reader.readString(offsets[3]),
+    id: id,
     name: reader.readString(offsets[4]),
     url: reader.readString(offsets[5]),
   );
-  object.id = id;
   return object;
 }
 

@@ -13,6 +13,7 @@ class LocationEntity {
   DateTime created;
 
   LocationEntity({
+    required this.id,
     required this.name,
     required this.type,
     required this.dimension,

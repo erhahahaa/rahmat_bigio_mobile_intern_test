@@ -1,0 +1,43 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:rick_morty/features/features.dart';
+
+part 'episode_model.freezed.dart';
+part 'episode_model.g.dart';
+
+@freezed
+class EpisodeModel with _$EpisodeModel {
+  const factory EpisodeModel({
+    required int id,
+    required String name,
+    @JsonKey(name: 'air_date') required String airDate,
+    required String episode,
+    required List<String> characters,
+    required String url,
+    required DateTime created,
+  }) = _EpisodeModel;
+
+  const EpisodeModel._();
+
+  factory EpisodeModel.fromJson(Map<String, dynamic> json) =>
+      _$EpisodeModelFromJson(json);
+
+  factory EpisodeModel.fromEntity(EpisodeEntity entity) => EpisodeModel(
+        id: entity.id,
+        name: entity.name,
+        airDate: entity.airDate,
+        episode: entity.episode,
+        characters: entity.characters,
+        url: entity.url,
+        created: entity.created,
+      );
+
+  EpisodeEntity toEntity() => EpisodeEntity(
+        id: id,
+        name: name,
+        airDate: airDate,
+        episode: episode,
+        characters: characters,
+        url: url,
+        created: created,
+      );
+}

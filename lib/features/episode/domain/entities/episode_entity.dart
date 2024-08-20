@@ -13,6 +13,7 @@ class EpisodeEntity {
   DateTime created;
 
   EpisodeEntity({
+    required this.id,
     required this.name,
     required this.airDate,
     required this.episode,

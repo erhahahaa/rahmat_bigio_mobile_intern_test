@@ -162,6 +162,7 @@ CharacterEntity _characterEntityDeserialize(
     gender:
         _CharacterEntitygenderValueEnumMap[reader.readByteOrNull(offsets[2])] ??
             CharacterGender.female,
+    id: id,
     image: reader.readString(offsets[3]),
     location: reader.readObjectOrNull<CharacterLocationEntity>(
           offsets[4],
@@ -183,7 +184,6 @@ CharacterEntity _characterEntityDeserialize(
     type: reader.readString(offsets[9]),
     url: reader.readString(offsets[10]),
   );
-  object.id = id;
   return object;
 }
 

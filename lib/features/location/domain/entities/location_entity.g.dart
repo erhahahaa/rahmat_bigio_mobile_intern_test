@@ -105,12 +105,12 @@ LocationEntity _locationEntityDeserialize(
   final object = LocationEntity(
     created: reader.readDateTime(offsets[0]),
     dimension: reader.readString(offsets[1]),
+    id: id,
     name: reader.readString(offsets[2]),
     residents: reader.readStringList(offsets[3]) ?? [],
     type: reader.readString(offsets[4]),
     url: reader.readString(offsets[5]),
   );
-  object.id = id;
   return object;
 }
 

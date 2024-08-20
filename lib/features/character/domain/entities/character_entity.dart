@@ -10,6 +10,8 @@ enum CharacterStatus {
   dead,
   @JsonValue('unknown')
   unknown;
+
+  String get value => toString().split('.').last;
 }
 
 enum CharacterGender {
@@ -20,6 +22,8 @@ enum CharacterGender {
   @JsonValue('Genderless')
   genderless,
   unknown;
+
+  String get value => toString().split('.').last;
 }
 
 @Collection(accessor: 'characters')

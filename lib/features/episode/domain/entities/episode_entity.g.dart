@@ -37,13 +37,18 @@ const EpisodeEntitySchema = CollectionSchema(
       name: r'episode',
       type: IsarType.string,
     ),
-    r'name': PropertySchema(
+    r'isFavorite': PropertySchema(
       id: 4,
+      name: r'isFavorite',
+      type: IsarType.bool,
+    ),
+    r'name': PropertySchema(
+      id: 5,
       name: r'name',
       type: IsarType.string,
     ),
     r'url': PropertySchema(
-      id: 5,
+      id: 6,
       name: r'url',
       type: IsarType.string,
     )
@@ -92,8 +97,9 @@ void _episodeEntitySerialize(
   writer.writeStringList(offsets[1], object.characters);
   writer.writeDateTime(offsets[2], object.created);
   writer.writeString(offsets[3], object.episode);
-  writer.writeString(offsets[4], object.name);
-  writer.writeString(offsets[5], object.url);
+  writer.writeBool(offsets[4], object.isFavorite);
+  writer.writeString(offsets[5], object.name);
+  writer.writeString(offsets[6], object.url);
 }
 
 EpisodeEntity _episodeEntityDeserialize(
@@ -108,8 +114,9 @@ EpisodeEntity _episodeEntityDeserialize(
     created: reader.readDateTime(offsets[2]),
     episode: reader.readString(offsets[3]),
     id: id,
-    name: reader.readString(offsets[4]),
-    url: reader.readString(offsets[5]),
+    isFavorite: reader.readBoolOrNull(offsets[4]) ?? false,
+    name: reader.readString(offsets[5]),
+    url: reader.readString(offsets[6]),
   );
   return object;
 }
@@ -130,8 +137,10 @@ P _episodeEntityDeserializeProp<P>(
     case 3:
       return (reader.readString(offset)) as P;
     case 4:
-      return (reader.readString(offset)) as P;
+      return (reader.readBoolOrNull(offset) ?? false) as P;
     case 5:
+      return (reader.readString(offset)) as P;
+    case 6:
       return (reader.readString(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -841,6 +850,16 @@ extension EpisodeEntityQueryFilter
     });
   }
 
+  QueryBuilder<EpisodeEntity, EpisodeEntity, QAfterFilterCondition>
+      isFavoriteEqualTo(bool value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'isFavorite',
+        value: value,
+      ));
+    });
+  }
+
   QueryBuilder<EpisodeEntity, EpisodeEntity, QAfterFilterCondition> nameEqualTo(
     String value, {
     bool caseSensitive = true,
@@ -1155,6 +1174,19 @@ extension EpisodeEntityQuerySortBy
     });
   }
 
+  QueryBuilder<EpisodeEntity, EpisodeEntity, QAfterSortBy> sortByIsFavorite() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isFavorite', Sort.asc);
+    });
+  }
+
+  QueryBuilder<EpisodeEntity, EpisodeEntity, QAfterSortBy>
+      sortByIsFavoriteDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isFavorite', Sort.desc);
+    });
+  }
+
   QueryBuilder<EpisodeEntity, EpisodeEntity, QAfterSortBy> sortByName() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'name', Sort.asc);
@@ -1230,6 +1262,19 @@ extension EpisodeEntityQuerySortThenBy
     });
   }
 
+  QueryBuilder<EpisodeEntity, EpisodeEntity, QAfterSortBy> thenByIsFavorite() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isFavorite', Sort.asc);
+    });
+  }
+
+  QueryBuilder<EpisodeEntity, EpisodeEntity, QAfterSortBy>
+      thenByIsFavoriteDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isFavorite', Sort.desc);
+    });
+  }
+
   QueryBuilder<EpisodeEntity, EpisodeEntity, QAfterSortBy> thenByName() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'name', Sort.asc);
@@ -1283,6 +1328,12 @@ extension EpisodeEntityQueryWhereDistinct
     });
   }
 
+  QueryBuilder<EpisodeEntity, EpisodeEntity, QDistinct> distinctByIsFavorite() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'isFavorite');
+    });
+  }
+
   QueryBuilder<EpisodeEntity, EpisodeEntity, QDistinct> distinctByName(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
@@ -1328,6 +1379,12 @@ extension EpisodeEntityQueryProperty
   QueryBuilder<EpisodeEntity, String, QQueryOperations> episodeProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'episode');
+    });
+  }
+
+  QueryBuilder<EpisodeEntity, bool, QQueryOperations> isFavoriteProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'isFavorite');
     });
   }
 

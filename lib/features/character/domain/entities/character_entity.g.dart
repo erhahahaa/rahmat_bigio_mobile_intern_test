@@ -38,41 +38,46 @@ const CharacterEntitySchema = CollectionSchema(
       name: r'image',
       type: IsarType.string,
     ),
-    r'location': PropertySchema(
+    r'isFavorite': PropertySchema(
       id: 4,
+      name: r'isFavorite',
+      type: IsarType.bool,
+    ),
+    r'location': PropertySchema(
+      id: 5,
       name: r'location',
       type: IsarType.object,
       target: r'CharacterLocationEntity',
     ),
     r'name': PropertySchema(
-      id: 5,
+      id: 6,
       name: r'name',
       type: IsarType.string,
     ),
     r'origin': PropertySchema(
-      id: 6,
+      id: 7,
       name: r'origin',
       type: IsarType.object,
       target: r'CharacterOriginEntity',
     ),
     r'species': PropertySchema(
-      id: 7,
+      id: 8,
       name: r'species',
       type: IsarType.string,
     ),
     r'status': PropertySchema(
-      id: 8,
+      id: 9,
       name: r'status',
       type: IsarType.byte,
       enumMap: _CharacterEntitystatusEnumValueMap,
     ),
     r'type': PropertySchema(
-      id: 9,
+      id: 10,
       name: r'type',
       type: IsarType.string,
     ),
     r'url': PropertySchema(
-      id: 10,
+      id: 11,
       name: r'url',
       type: IsarType.string,
     )
@@ -131,23 +136,24 @@ void _characterEntitySerialize(
   writer.writeStringList(offsets[1], object.episode);
   writer.writeByte(offsets[2], object.gender.index);
   writer.writeString(offsets[3], object.image);
+  writer.writeBool(offsets[4], object.isFavorite);
   writer.writeObject<CharacterLocationEntity>(
-    offsets[4],
+    offsets[5],
     allOffsets,
     CharacterLocationEntitySchema.serialize,
     object.location,
   );
-  writer.writeString(offsets[5], object.name);
+  writer.writeString(offsets[6], object.name);
   writer.writeObject<CharacterOriginEntity>(
-    offsets[6],
+    offsets[7],
     allOffsets,
     CharacterOriginEntitySchema.serialize,
     object.origin,
   );
-  writer.writeString(offsets[7], object.species);
-  writer.writeByte(offsets[8], object.status.index);
-  writer.writeString(offsets[9], object.type);
-  writer.writeString(offsets[10], object.url);
+  writer.writeString(offsets[8], object.species);
+  writer.writeByte(offsets[9], object.status.index);
+  writer.writeString(offsets[10], object.type);
+  writer.writeString(offsets[11], object.url);
 }
 
 CharacterEntity _characterEntityDeserialize(
@@ -164,25 +170,26 @@ CharacterEntity _characterEntityDeserialize(
             CharacterGender.female,
     id: id,
     image: reader.readString(offsets[3]),
+    isFavorite: reader.readBoolOrNull(offsets[4]) ?? false,
     location: reader.readObjectOrNull<CharacterLocationEntity>(
-          offsets[4],
+          offsets[5],
           CharacterLocationEntitySchema.deserialize,
           allOffsets,
         ) ??
         CharacterLocationEntity(),
-    name: reader.readString(offsets[5]),
+    name: reader.readString(offsets[6]),
     origin: reader.readObjectOrNull<CharacterOriginEntity>(
-          offsets[6],
+          offsets[7],
           CharacterOriginEntitySchema.deserialize,
           allOffsets,
         ) ??
         CharacterOriginEntity(),
-    species: reader.readString(offsets[7]),
+    species: reader.readString(offsets[8]),
     status:
-        _CharacterEntitystatusValueEnumMap[reader.readByteOrNull(offsets[8])] ??
+        _CharacterEntitystatusValueEnumMap[reader.readByteOrNull(offsets[9])] ??
             CharacterStatus.alive,
-    type: reader.readString(offsets[9]),
-    url: reader.readString(offsets[10]),
+    type: reader.readString(offsets[10]),
+    url: reader.readString(offsets[11]),
   );
   return object;
 }
@@ -205,30 +212,32 @@ P _characterEntityDeserializeProp<P>(
     case 3:
       return (reader.readString(offset)) as P;
     case 4:
+      return (reader.readBoolOrNull(offset) ?? false) as P;
+    case 5:
       return (reader.readObjectOrNull<CharacterLocationEntity>(
             offset,
             CharacterLocationEntitySchema.deserialize,
             allOffsets,
           ) ??
           CharacterLocationEntity()) as P;
-    case 5:
-      return (reader.readString(offset)) as P;
     case 6:
+      return (reader.readString(offset)) as P;
+    case 7:
       return (reader.readObjectOrNull<CharacterOriginEntity>(
             offset,
             CharacterOriginEntitySchema.deserialize,
             allOffsets,
           ) ??
           CharacterOriginEntity()) as P;
-    case 7:
-      return (reader.readString(offset)) as P;
     case 8:
+      return (reader.readString(offset)) as P;
+    case 9:
       return (_CharacterEntitystatusValueEnumMap[
               reader.readByteOrNull(offset)] ??
           CharacterStatus.alive) as P;
-    case 9:
-      return (reader.readString(offset)) as P;
     case 10:
+      return (reader.readString(offset)) as P;
+    case 11:
       return (reader.readString(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
@@ -878,6 +887,16 @@ extension CharacterEntityQueryFilter
       return query.addFilterCondition(FilterCondition.greaterThan(
         property: r'image',
         value: '',
+      ));
+    });
+  }
+
+  QueryBuilder<CharacterEntity, CharacterEntity, QAfterFilterCondition>
+      isFavoriteEqualTo(bool value) {
+    return QueryBuilder.apply(this, (query) {
+      return query.addFilterCondition(FilterCondition.equalTo(
+        property: r'isFavorite',
+        value: value,
       ));
     });
   }
@@ -1544,6 +1563,20 @@ extension CharacterEntityQuerySortBy
     });
   }
 
+  QueryBuilder<CharacterEntity, CharacterEntity, QAfterSortBy>
+      sortByIsFavorite() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isFavorite', Sort.asc);
+    });
+  }
+
+  QueryBuilder<CharacterEntity, CharacterEntity, QAfterSortBy>
+      sortByIsFavoriteDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isFavorite', Sort.desc);
+    });
+  }
+
   QueryBuilder<CharacterEntity, CharacterEntity, QAfterSortBy> sortByName() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'name', Sort.asc);
@@ -1662,6 +1695,20 @@ extension CharacterEntityQuerySortThenBy
     });
   }
 
+  QueryBuilder<CharacterEntity, CharacterEntity, QAfterSortBy>
+      thenByIsFavorite() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isFavorite', Sort.asc);
+    });
+  }
+
+  QueryBuilder<CharacterEntity, CharacterEntity, QAfterSortBy>
+      thenByIsFavoriteDesc() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addSortBy(r'isFavorite', Sort.desc);
+    });
+  }
+
   QueryBuilder<CharacterEntity, CharacterEntity, QAfterSortBy> thenByName() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'name', Sort.asc);
@@ -1756,6 +1803,13 @@ extension CharacterEntityQueryWhereDistinct
     });
   }
 
+  QueryBuilder<CharacterEntity, CharacterEntity, QDistinct>
+      distinctByIsFavorite() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addDistinctBy(r'isFavorite');
+    });
+  }
+
   QueryBuilder<CharacterEntity, CharacterEntity, QDistinct> distinctByName(
       {bool caseSensitive = true}) {
     return QueryBuilder.apply(this, (query) {
@@ -1822,6 +1876,12 @@ extension CharacterEntityQueryProperty
   QueryBuilder<CharacterEntity, String, QQueryOperations> imageProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'image');
+    });
+  }
+
+  QueryBuilder<CharacterEntity, bool, QQueryOperations> isFavoriteProperty() {
+    return QueryBuilder.apply(this, (query) {
+      return query.addPropertyName(r'isFavorite');
     });
   }
 

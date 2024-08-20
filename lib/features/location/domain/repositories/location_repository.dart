@@ -14,4 +14,10 @@ abstract class LocationRepository {
   Future<Either<Failure, List<LocationEntity>>> getFilteredLocations(
     GetLocationsByFilterParams params,
   );
+
+  Future<Either<Failure, List<LocationEntity>>> getLocationsFromCache();
+  Future<Either<Failure, void>> toggleFavoriteLocation(
+    ByIdParam param,
+  );
+  Future<Either<Failure, void>> clearCache();
 }

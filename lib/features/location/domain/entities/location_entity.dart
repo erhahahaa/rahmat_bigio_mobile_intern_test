@@ -11,6 +11,7 @@ class LocationEntity {
   List<String> residents;
   String url;
   DateTime created;
+  bool isFavorite;
 
   LocationEntity({
     required this.id,
@@ -20,5 +21,6 @@ class LocationEntity {
     required this.residents,
     required this.url,
     required this.created,
+    this.isFavorite = false,
   });
 }

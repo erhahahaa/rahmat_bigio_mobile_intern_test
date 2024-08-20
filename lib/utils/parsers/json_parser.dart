@@ -1,6 +1,6 @@
 import 'dart:isolate';
 
-typedef JSONIsolateConverter<T> = T Function(Map<String, dynamic> response);
+typedef JSONIsolateConverter<T> = T Function(dynamic response);
 
 class JSONIsolateParser<T> {
   final Map<String, dynamic> json;

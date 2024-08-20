@@ -7,7 +7,7 @@ import 'package:rick_morty/utils/utils.dart';
 
 @singleton
 class IsarClient with Log {
-  late final Isar isar;
+  late final Isar instance;
 
   IsarClient() {
     init();
@@ -15,12 +15,12 @@ class IsarClient with Log {
 
   @PostConstruct(preResolve: true)
   Future<void> init() async {
-    isar = Isar.getInstance() ?? await _createIsar();
+    instance = Isar.getInstance() ?? await _createIsar();
   }
 
   @disposeMethod
   void dispose() {
-    isar.close();
+    instance.close();
   }
 
   Future<Isar> _createIsar() async {

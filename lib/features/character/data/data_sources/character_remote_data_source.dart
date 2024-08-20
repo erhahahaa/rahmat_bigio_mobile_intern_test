@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:injectable/injectable.dart';
 import 'package:rick_morty/core/core.dart';
 import 'package:rick_morty/features/features.dart';
 import 'package:rick_morty/utils/utils.dart';
@@ -14,4 +15,58 @@ abstract class CharacterRemoteDataSource {
   Future<Either<Failure, List<CharacterModel>>> getFilteredCharacters(
     GetCharactersByFilterParams params,
   );
+}
+
+@LazySingleton(as: CharacterRemoteDataSource)
+class CharacterRemoteDataSourceImpl implements CharacterRemoteDataSource {
+  final DioService _dio;
+
+  CharacterRemoteDataSourceImpl(this._dio);
+
+  @override
+  Future<Either<Failure, CharacterModel>> getCharacter(
+    ByIdParam param,
+  ) =>
+      _dio.getRequest(
+        '${ListAPI.CHARACTER}/${param.id}',
+        converter: CharacterModel.fromJson as CharacterModel Function(dynamic),
+      );
+
+  @override
+  Future<Either<Failure, List<CharacterModel>>> getCharacters() =>
+      _dio.getRequest(
+        ListAPI.CHARACTER,
+        converter: (json) => json['results']
+            .map(
+              (e) => CharacterModel.fromJson(e),
+            )
+            .toList(),
+      );
+
+  @override
+  Future<Either<Failure, List<CharacterModel>>> getFilteredCharacters(
+    GetCharactersByFilterParams params,
+  ) =>
+      _dio.getRequest(
+        ListAPI.CHARACTER,
+        queryParameters: params.toJson(),
+        converter: (json) => json['results']
+            .map(
+              (e) => CharacterModel.fromJson(e),
+            )
+            .toList(),
+      );
+
+  @override
+  Future<Either<Failure, List<CharacterModel>>> getMultipleCharacters(
+    ByIdsParam param,
+  ) =>
+      _dio.getRequest(
+        '${ListAPI.CHARACTER}/${param.ids.join(',')}',
+        converter: (json) => json
+            .map(
+              (e) => CharacterModel.fromJson(e),
+            )
+            .toList(),
+      );
 }

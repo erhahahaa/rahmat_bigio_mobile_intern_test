@@ -42,6 +42,7 @@ class CharacterEntity {
   List<String> episode;
   String url;
   DateTime created;
+  bool isFavorite;
 
   CharacterEntity({
     required this.id,
@@ -56,6 +57,7 @@ class CharacterEntity {
     required this.episode,
     required this.url,
     required this.created,
+    this.isFavorite = false,
   });
 }
 

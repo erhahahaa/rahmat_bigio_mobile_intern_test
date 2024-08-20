@@ -1,32 +1,35 @@
 abstract class Failure {
   final String message;
 
-  Failure({required this.message});
-
-  @override
-  String toString() => message;
+  const Failure(this.message);
 }
 
 // http
 class ServerFailure extends Failure {
   final int statusCode;
 
-  ServerFailure({
+  const ServerFailure({
     this.statusCode = 500,
-    super.message = 'Server Failure',
-  });
+    String message = 'Server Failure',
+  }) : super(message);
 }
 
 // network
 class NetworkFailure extends Failure {
-  NetworkFailure({
-    super.message = 'Network Failure',
-  });
+  const NetworkFailure({
+    String message = 'Network Failure',
+  }) : super(message);
 }
 
 // local storage / cache
 class CacheFailure extends Failure {
-  CacheFailure({
-    super.message = 'Cache Failure',
-  });
+  const CacheFailure({
+    String message = 'Cache Failure',
+  }) : super(message);
+}
+
+class StorageFailure extends Failure {
+  const StorageFailure({
+    String message = 'Storage Failure',
+  }) : super(message);
 }

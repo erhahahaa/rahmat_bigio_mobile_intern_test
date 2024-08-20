@@ -1,1 +1,1 @@
-// TODO Implement this library.
+export 'character_entity.dart';

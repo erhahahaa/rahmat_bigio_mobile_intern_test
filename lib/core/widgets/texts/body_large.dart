@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rick_morty/utils/utils.dart';
+import 'package:moon_design/moon_design.dart';
 
 class BodyLarge extends StatelessWidget {
   final String? text;
@@ -20,9 +20,9 @@ class BodyLarge extends StatelessWidget {
     return Text(
       text ?? 'Unassigned',
       style: style ??
-          context.theme.textTheme.bodyLarge?.copyWith(
+          context.moonTypography?.body.text16.copyWith(
             color: color,
-            fontWeight: fontWeight,
+            fontWeight: fontWeight ?? FontWeight.w400,
           ),
     );
   }

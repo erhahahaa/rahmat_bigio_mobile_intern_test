@@ -1,5 +1,8 @@
+import 'dart:math';
+
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:rick_morty/features/character/domain/entities/character_entity.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 
 part 'character_model.freezed.dart';
 part 'character_model.g.dart';
@@ -60,6 +63,29 @@ class CharacterModel extends CharacterEntity with _$CharacterModel {
         created: created,
         isFavorite: isFavorite,
       );
+
+  static CharacterModel fake() {
+    return CharacterModel(
+      id: Random().nextInt(100),
+      name: BoneMock.name,
+      status: CharacterStatus.alive,
+      species: BoneMock.subtitle,
+      type: BoneMock.subtitle,
+      gender: CharacterGender.unknown,
+      origin: CharacterOriginModel(
+        name: BoneMock.name,
+        url: BoneMock.paragraph,
+      ),
+      location: CharacterLocationModel(
+        name: BoneMock.name,
+        url: BoneMock.paragraph,
+      ),
+      image: BoneMock.name,
+      episode: List.generate(5, (index) => BoneMock.name),
+      url: BoneMock.paragraph,
+      created: DateTime.now(),
+    );
+  }
 }
 
 @freezed

@@ -30,6 +30,8 @@ dependencies:
   moon_design: ^1.0.3
   flutter_screenutil: ^5.9.3
   elegant_notification: ^2.2.2
+  cached_network_image: ^3.4.1
+  dot_navigation_bar: ^1.0.2
 
 dev_dependencies:
   flutter_test:

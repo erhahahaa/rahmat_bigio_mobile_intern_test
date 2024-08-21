@@ -33,6 +33,7 @@ import '../features/character/domain/usecases/get_multiple_characters.dart'
     as _i840;
 import '../features/character/domain/usecases/toggle_favorite_character.dart'
     as _i437;
+import '../features/character/ui/bloc/character_bloc.dart' as _i323;
 import '../features/episode/data/data_sources/episode_local_data_source.dart'
     as _i620;
 import '../features/episode/data/data_sources/episode_remote_data_source.dart'
@@ -128,6 +129,12 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i840.GetMultipleCharacters(gh<_i1009.CharacterRepository>()));
     gh.lazySingleton<_i437.ToggleFavoriteCharacter>(
         () => _i437.ToggleFavoriteCharacter(gh<_i1009.CharacterRepository>()));
+    gh.lazySingleton<_i323.CharacterBloc>(() => _i323.CharacterBloc(
+          gh<_i1009.GetCharacters>(),
+          gh<_i1009.GetCharactersById>(),
+          gh<_i1009.GetMultipleCharacters>(),
+          gh<_i1009.GetFilteredCharacters>(),
+        ));
     gh.lazySingleton<_i1009.LocationRepository>(
         () => _i159.LocationRepositoryImpl(
               gh<_i1009.LocationLocalDataSource>(),

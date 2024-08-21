@@ -6,6 +6,7 @@ import 'package:gap/gap.dart';
 import 'package:rick_morty/app/router.gr.dart';
 import 'package:rick_morty/core/core.dart';
 import 'package:rick_morty/features/features.dart';
+import 'package:rick_morty/utils/utils.dart';
 
 @RoutePage()
 class EpisodeScreen extends StatefulWidget {
@@ -77,7 +78,7 @@ class _EpisodeScreenState extends State<EpisodeScreen> {
                         : 0;
                     return Row(
                       children: [
-                        TitleLarge('Episodes ($count)'),
+                        TitleLarge('${context.str?.episodes} ($count)'),
                         const Spacer(),
                         IconButton(
                           icon: Icon(Icons.refresh),

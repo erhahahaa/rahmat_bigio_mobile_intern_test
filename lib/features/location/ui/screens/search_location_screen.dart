@@ -40,33 +40,36 @@ class SearchLocationScreen extends StatelessWidget implements AutoRouteWrapper {
           },
         ),
       ),
-      body: BlocBuilder<LocationBloc, LocationState>(
-        builder: (context, state) {
-          return state.when(
-            initial: () => const SizedBox(),
-            loading: () {
-              final fakeLocations =
-                  List.generate(10, (index) => LocationModel.fake());
+      body: Padding(
+        padding: EdgeInsets.all(8.w),
+        child: BlocBuilder<LocationBloc, LocationState>(
+          builder: (context, state) {
+            return state.when(
+              initial: () => const SizedBox(),
+              loading: () {
+                final fakeLocations =
+                    List.generate(10, (index) => LocationModel.fake());
 
-              return ListLocation(
-                height: 650.h,
-                locations: fakeLocations,
-                isLoading: true,
-              );
-            },
-            loaded: (locations) {
-              return ListLocation(
-                height: 650.h,
-                locations: locations.results,
-              );
-            },
-            error: (message) => Center(
-              child: BoxWrapper(
-                child: Text(message),
+                return ListLocation(
+                  height: 650.h,
+                  locations: fakeLocations,
+                  isLoading: true,
+                );
+              },
+              loaded: (locations) {
+                return ListLocation(
+                  height: 650.h,
+                  locations: locations.results,
+                );
+              },
+              error: (message) => Center(
+                child: BoxWrapper(
+                  child: Text(message),
+                ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

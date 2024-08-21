@@ -8,8 +8,8 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i11;
-import 'package:flutter/material.dart' as _i12;
+import 'package:auto_route/auto_route.dart' as _i12;
+import 'package:flutter/material.dart' as _i13;
 import 'package:rick_morty/features/character/ui/screens/character_detail_screen.dart'
     as _i1;
 import 'package:rick_morty/features/character/ui/screens/home_screen.dart'
@@ -22,7 +22,7 @@ import 'package:rick_morty/features/episode/ui/screens/episode_screen.dart'
     as _i4;
 import 'package:rick_morty/features/episode/ui/screens/search_episode_screen.dart'
     as _i9;
-import 'package:rick_morty/features/features.dart' as _i13;
+import 'package:rick_morty/features/features.dart' as _i14;
 import 'package:rick_morty/features/location/ui/screens/location_detail_screen.dart'
     as _i6;
 import 'package:rick_morty/features/location/ui/screens/location_screen.dart'
@@ -31,16 +31,18 @@ import 'package:rick_morty/features/location/ui/screens/search_location_screen.d
     as _i10;
 import 'package:rick_morty/features/navigation/ui/screens/dashboard_screen.dart'
     as _i2;
+import 'package:rick_morty/features/settings/ui/screens/settings_screen.dart'
+    as _i11;
 
 /// generated route for
 /// [_i1.CharacterDetailScreen]
 class CharacterDetailRoute
-    extends _i11.PageRouteInfo<CharacterDetailRouteArgs> {
+    extends _i12.PageRouteInfo<CharacterDetailRouteArgs> {
   CharacterDetailRoute({
-    _i12.Key? key,
+    _i13.Key? key,
     required int id,
-    required _i13.CharacterEntity character,
-    List<_i11.PageRouteInfo>? children,
+    required _i14.CharacterEntity character,
+    List<_i12.PageRouteInfo>? children,
   }) : super(
           CharacterDetailRoute.name,
           args: CharacterDetailRouteArgs(
@@ -54,7 +56,7 @@ class CharacterDetailRoute
 
   static const String name = 'CharacterDetailRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<CharacterDetailRouteArgs>();
@@ -74,11 +76,11 @@ class CharacterDetailRouteArgs {
     required this.character,
   });
 
-  final _i12.Key? key;
+  final _i13.Key? key;
 
   final int id;
 
-  final _i13.CharacterEntity character;
+  final _i14.CharacterEntity character;
 
   @override
   String toString() {
@@ -88,8 +90,8 @@ class CharacterDetailRouteArgs {
 
 /// generated route for
 /// [_i2.DashboardScreen]
-class DashboardRoute extends _i11.PageRouteInfo<void> {
-  const DashboardRoute({List<_i11.PageRouteInfo>? children})
+class DashboardRoute extends _i12.PageRouteInfo<void> {
+  const DashboardRoute({List<_i12.PageRouteInfo>? children})
       : super(
           DashboardRoute.name,
           initialChildren: children,
@@ -97,7 +99,7 @@ class DashboardRoute extends _i11.PageRouteInfo<void> {
 
   static const String name = 'DashboardRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i2.DashboardScreen();
@@ -107,12 +109,12 @@ class DashboardRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.EpisodeDetailScreen]
-class EpisodeDetailRoute extends _i11.PageRouteInfo<EpisodeDetailRouteArgs> {
+class EpisodeDetailRoute extends _i12.PageRouteInfo<EpisodeDetailRouteArgs> {
   EpisodeDetailRoute({
-    _i12.Key? key,
+    _i13.Key? key,
     required int id,
-    required _i13.EpisodeEntity episode,
-    List<_i11.PageRouteInfo>? children,
+    required _i14.EpisodeEntity episode,
+    List<_i12.PageRouteInfo>? children,
   }) : super(
           EpisodeDetailRoute.name,
           args: EpisodeDetailRouteArgs(
@@ -126,7 +128,7 @@ class EpisodeDetailRoute extends _i11.PageRouteInfo<EpisodeDetailRouteArgs> {
 
   static const String name = 'EpisodeDetailRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<EpisodeDetailRouteArgs>();
@@ -146,11 +148,11 @@ class EpisodeDetailRouteArgs {
     required this.episode,
   });
 
-  final _i12.Key? key;
+  final _i13.Key? key;
 
   final int id;
 
-  final _i13.EpisodeEntity episode;
+  final _i14.EpisodeEntity episode;
 
   @override
   String toString() {
@@ -160,8 +162,8 @@ class EpisodeDetailRouteArgs {
 
 /// generated route for
 /// [_i4.EpisodeScreen]
-class EpisodeRoute extends _i11.PageRouteInfo<void> {
-  const EpisodeRoute({List<_i11.PageRouteInfo>? children})
+class EpisodeRoute extends _i12.PageRouteInfo<void> {
+  const EpisodeRoute({List<_i12.PageRouteInfo>? children})
       : super(
           EpisodeRoute.name,
           initialChildren: children,
@@ -169,7 +171,7 @@ class EpisodeRoute extends _i11.PageRouteInfo<void> {
 
   static const String name = 'EpisodeRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i4.EpisodeScreen();
@@ -179,8 +181,8 @@ class EpisodeRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.HomeScreen]
-class HomeRoute extends _i11.PageRouteInfo<void> {
-  const HomeRoute({List<_i11.PageRouteInfo>? children})
+class HomeRoute extends _i12.PageRouteInfo<void> {
+  const HomeRoute({List<_i12.PageRouteInfo>? children})
       : super(
           HomeRoute.name,
           initialChildren: children,
@@ -188,7 +190,7 @@ class HomeRoute extends _i11.PageRouteInfo<void> {
 
   static const String name = 'HomeRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i5.HomeScreen();
@@ -198,12 +200,12 @@ class HomeRoute extends _i11.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.LocationDetailScreen]
-class LocationDetailRoute extends _i11.PageRouteInfo<LocationDetailRouteArgs> {
+class LocationDetailRoute extends _i12.PageRouteInfo<LocationDetailRouteArgs> {
   LocationDetailRoute({
-    _i12.Key? key,
+    _i13.Key? key,
     required int id,
-    required _i13.LocationEntity location,
-    List<_i11.PageRouteInfo>? children,
+    required _i14.LocationEntity location,
+    List<_i12.PageRouteInfo>? children,
   }) : super(
           LocationDetailRoute.name,
           args: LocationDetailRouteArgs(
@@ -217,7 +219,7 @@ class LocationDetailRoute extends _i11.PageRouteInfo<LocationDetailRouteArgs> {
 
   static const String name = 'LocationDetailRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<LocationDetailRouteArgs>();
@@ -237,11 +239,11 @@ class LocationDetailRouteArgs {
     required this.location,
   });
 
-  final _i12.Key? key;
+  final _i13.Key? key;
 
   final int id;
 
-  final _i13.LocationEntity location;
+  final _i14.LocationEntity location;
 
   @override
   String toString() {
@@ -251,8 +253,8 @@ class LocationDetailRouteArgs {
 
 /// generated route for
 /// [_i7.LocationScreen]
-class LocationRoute extends _i11.PageRouteInfo<void> {
-  const LocationRoute({List<_i11.PageRouteInfo>? children})
+class LocationRoute extends _i12.PageRouteInfo<void> {
+  const LocationRoute({List<_i12.PageRouteInfo>? children})
       : super(
           LocationRoute.name,
           initialChildren: children,
@@ -260,7 +262,7 @@ class LocationRoute extends _i11.PageRouteInfo<void> {
 
   static const String name = 'LocationRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       return const _i7.LocationScreen();
@@ -271,11 +273,11 @@ class LocationRoute extends _i11.PageRouteInfo<void> {
 /// generated route for
 /// [_i8.SearchCharacterScreen]
 class SearchCharacterRoute
-    extends _i11.PageRouteInfo<SearchCharacterRouteArgs> {
+    extends _i12.PageRouteInfo<SearchCharacterRouteArgs> {
   SearchCharacterRoute({
-    _i12.Key? key,
-    required _i13.GetCharactersByFilterParams params,
-    List<_i11.PageRouteInfo>? children,
+    _i13.Key? key,
+    required _i14.GetCharactersByFilterParams params,
+    List<_i12.PageRouteInfo>? children,
   }) : super(
           SearchCharacterRoute.name,
           args: SearchCharacterRouteArgs(
@@ -287,11 +289,11 @@ class SearchCharacterRoute
 
   static const String name = 'SearchCharacterRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<SearchCharacterRouteArgs>();
-      return _i11.WrappedRoute(
+      return _i12.WrappedRoute(
           child: _i8.SearchCharacterScreen(
         key: args.key,
         params: args.params,
@@ -306,9 +308,9 @@ class SearchCharacterRouteArgs {
     required this.params,
   });
 
-  final _i12.Key? key;
+  final _i13.Key? key;
 
-  final _i13.GetCharactersByFilterParams params;
+  final _i14.GetCharactersByFilterParams params;
 
   @override
   String toString() {
@@ -318,11 +320,11 @@ class SearchCharacterRouteArgs {
 
 /// generated route for
 /// [_i9.SearchEpisodeScreen]
-class SearchEpisodeRoute extends _i11.PageRouteInfo<SearchEpisodeRouteArgs> {
+class SearchEpisodeRoute extends _i12.PageRouteInfo<SearchEpisodeRouteArgs> {
   SearchEpisodeRoute({
-    _i12.Key? key,
-    required _i13.GetEpisodesByFilterParams params,
-    List<_i11.PageRouteInfo>? children,
+    _i13.Key? key,
+    required _i14.GetEpisodesByFilterParams params,
+    List<_i12.PageRouteInfo>? children,
   }) : super(
           SearchEpisodeRoute.name,
           args: SearchEpisodeRouteArgs(
@@ -334,11 +336,11 @@ class SearchEpisodeRoute extends _i11.PageRouteInfo<SearchEpisodeRouteArgs> {
 
   static const String name = 'SearchEpisodeRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<SearchEpisodeRouteArgs>();
-      return _i11.WrappedRoute(
+      return _i12.WrappedRoute(
           child: _i9.SearchEpisodeScreen(
         key: args.key,
         params: args.params,
@@ -353,9 +355,9 @@ class SearchEpisodeRouteArgs {
     required this.params,
   });
 
-  final _i12.Key? key;
+  final _i13.Key? key;
 
-  final _i13.GetEpisodesByFilterParams params;
+  final _i14.GetEpisodesByFilterParams params;
 
   @override
   String toString() {
@@ -365,11 +367,11 @@ class SearchEpisodeRouteArgs {
 
 /// generated route for
 /// [_i10.SearchLocationScreen]
-class SearchLocationRoute extends _i11.PageRouteInfo<SearchLocationRouteArgs> {
+class SearchLocationRoute extends _i12.PageRouteInfo<SearchLocationRouteArgs> {
   SearchLocationRoute({
-    _i12.Key? key,
-    required _i13.GetLocationsByFilterParams params,
-    List<_i11.PageRouteInfo>? children,
+    _i13.Key? key,
+    required _i14.GetLocationsByFilterParams params,
+    List<_i12.PageRouteInfo>? children,
   }) : super(
           SearchLocationRoute.name,
           args: SearchLocationRouteArgs(
@@ -381,11 +383,11 @@ class SearchLocationRoute extends _i11.PageRouteInfo<SearchLocationRouteArgs> {
 
   static const String name = 'SearchLocationRoute';
 
-  static _i11.PageInfo page = _i11.PageInfo(
+  static _i12.PageInfo page = _i12.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<SearchLocationRouteArgs>();
-      return _i11.WrappedRoute(
+      return _i12.WrappedRoute(
           child: _i10.SearchLocationScreen(
         key: args.key,
         params: args.params,
@@ -400,12 +402,31 @@ class SearchLocationRouteArgs {
     required this.params,
   });
 
-  final _i12.Key? key;
+  final _i13.Key? key;
 
-  final _i13.GetLocationsByFilterParams params;
+  final _i14.GetLocationsByFilterParams params;
 
   @override
   String toString() {
     return 'SearchLocationRouteArgs{key: $key, params: $params}';
   }
+}
+
+/// generated route for
+/// [_i11.SettingsScreen]
+class SettingsRoute extends _i12.PageRouteInfo<void> {
+  const SettingsRoute({List<_i12.PageRouteInfo>? children})
+      : super(
+          SettingsRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SettingsRoute';
+
+  static _i12.PageInfo page = _i12.PageInfo(
+    name,
+    builder: (data) {
+      return const _i11.SettingsScreen();
+    },
+  );
 }

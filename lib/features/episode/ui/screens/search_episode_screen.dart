@@ -40,33 +40,36 @@ class SearchEpisodeScreen extends StatelessWidget implements AutoRouteWrapper {
           },
         ),
       ),
-      body: BlocBuilder<EpisodeBloc, EpisodeState>(
-        builder: (context, state) {
-          return state.when(
-            initial: () => const SizedBox(),
-            loading: () {
-              final fakeEpisodes =
-                  List.generate(10, (index) => EpisodeModel.fake());
+      body: Padding(
+        padding: EdgeInsets.all(8.w),
+        child: BlocBuilder<EpisodeBloc, EpisodeState>(
+          builder: (context, state) {
+            return state.when(
+              initial: () => const SizedBox(),
+              loading: () {
+                final fakeEpisodes =
+                    List.generate(10, (index) => EpisodeModel.fake());
 
-              return ListEpisode(
-                height: 650.h,
-                episodes: fakeEpisodes,
-                isLoading: true,
-              );
-            },
-            loaded: (episodes) {
-              return ListEpisode(
-                height: 650.h,
-                episodes: episodes.results,
-              );
-            },
-            error: (message) => Center(
-              child: BoxWrapper(
-                child: Text(message),
+                return ListEpisode(
+                  height: 650.h,
+                  episodes: fakeEpisodes,
+                  isLoading: true,
+                );
+              },
+              loaded: (episodes) {
+                return ListEpisode(
+                  height: 650.h,
+                  episodes: episodes.results,
+                );
+              },
+              error: (message) => Center(
+                child: BoxWrapper(
+                  child: Text(message),
+                ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

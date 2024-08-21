@@ -25,6 +25,12 @@ class RickMortyApp extends StatelessWidget {
 
     return MultiBlocProvider(
       providers: [
+        BlocProvider<SettingsBloc>(
+          create: (_) => sl<SettingsBloc>()
+            ..add(
+              const SettingsEvent.started(),
+            ),
+        ),
         BlocProvider<CharacterBloc>(
           create: (_) => sl<CharacterBloc>()
             ..add(
@@ -49,31 +55,35 @@ class RickMortyApp extends StatelessWidget {
         minTextAdapt: true,
         splitScreenMode: true,
         builder: (ctx, child) {
-          return MaterialApp.router(
-            title: AppConstants.APP_NAME,
-            routerConfig: _router.config(),
-            localizationsDelegates: const [
-              Strings.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            debugShowCheckedModeBanner: false,
-            builder: (c, child) {
-              return MediaQuery(
-                data: MediaQuery.of(c).copyWith(
-                  textScaler: const TextScaler.linear(1),
-                  alwaysUse24HourFormat: true,
-                ),
-                child:
-                    child ?? const Center(child: CircularProgressIndicator()),
+          return BlocBuilder<SettingsBloc, SettingsState>(
+            builder: (context, state) {
+              return MaterialApp.router(
+                title: AppConstants.APP_NAME,
+                routerConfig: _router.config(),
+                localizationsDelegates: const [
+                  Strings.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                ],
+                debugShowCheckedModeBanner: false,
+                builder: (c, child) {
+                  return MediaQuery(
+                    data: MediaQuery.of(c).copyWith(
+                      textScaler: const TextScaler.linear(1),
+                      alwaysUse24HourFormat: true,
+                    ),
+                    child: child ??
+                        const Center(child: CircularProgressIndicator()),
+                  );
+                },
+                theme: _theme.lightTheme(),
+                darkTheme: _theme.darkTheme(),
+                themeMode: state.themeMode,
+                supportedLocales: L10n.supportedLocales,
+                locale: state.locale,
               );
             },
-            theme: _theme.lightTheme(),
-            darkTheme: _theme.darkTheme(),
-            // themeMode: state.themeMode,
-            // supportedLocales: L10n.all,
-            // locale: state.locale,
           );
         },
       ),

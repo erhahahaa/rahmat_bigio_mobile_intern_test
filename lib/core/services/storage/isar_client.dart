@@ -35,6 +35,7 @@ class IsarClient with Log {
           CharacterEntitySchema,
           EpisodeEntitySchema,
           LocationEntitySchema,
+          SettingsEntitySchema,
         ],
         inspector: kDebugMode,
         directory: path,

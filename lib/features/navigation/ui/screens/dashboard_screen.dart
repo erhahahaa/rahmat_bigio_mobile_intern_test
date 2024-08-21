@@ -19,6 +19,7 @@ class DashboardScreen extends StatelessWidget {
         HomeRoute(),
         EpisodeRoute(),
         LocationRoute(),
+        SettingsRoute(),
       ],
       transitionBuilder: (context, child, animation) => FadeTransition(
         opacity: animation,
@@ -48,6 +49,10 @@ class DashboardScreen extends StatelessWidget {
               icon: const Icon(Icons.place),
               selectedColor: Colors.red,
             ),
+            DotNavigationBarItem(
+              icon: const Icon(Icons.settings),
+              selectedColor: Colors.purple,
+            )
           ],
         );
       },

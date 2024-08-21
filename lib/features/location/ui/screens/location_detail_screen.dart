@@ -74,18 +74,18 @@ class _LocationDetailScreenState extends State<LocationDetailScreen> {
               delegate: SliverChildListDelegate(
                 [
                   Gap(8.h),
-                  TitleLarge('Location Info'),
+                  TitleLarge(context.str?.location_info),
                   Gap(8.h),
                   ListTileBoxWrapper(
-                    title: 'Type',
+                    title: context.str?.type ?? 'Type',
                     subtitle: widget.location.type,
                   ),
                   ListTileBoxWrapper(
-                    title: 'Dimension',
+                    title: context.str?.dimension ?? 'Dimension',
                     subtitle: widget.location.dimension,
                   ),
                   ListTileBoxWrapper(
-                    title: 'Residents',
+                    title: context.str?.residents ?? 'Residents',
                     subtitle: widget.location.residents.length.toString(),
                   ),
                 ],

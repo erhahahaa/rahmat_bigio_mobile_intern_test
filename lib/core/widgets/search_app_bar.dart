@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:moon_design/moon_design.dart';
+import 'package:rick_morty/utils/utils.dart';
 
 class SearchAppBar extends StatefulWidget implements PreferredSizeWidget {
   final String? hintText;
@@ -38,7 +39,7 @@ class _SearchAppBarState extends State<SearchAppBar> {
     return AppBar(
       title: MoonTextInput(
         controller: _controller,
-        hintText: 'Search',
+        hintText: context.str?.search,
         backgroundColor: Colors.transparent,
         trailing: IconButton(
           icon: Icon(
@@ -46,12 +47,16 @@ class _SearchAppBarState extends State<SearchAppBar> {
             size: 20.h,
           ),
           onPressed: () {
+            FocusManager.instance.primaryFocus?.unfocus();
+            FocusScope.of(context).unfocus();
             if (widget.onSearch != null) {
               widget.onSearch!(_controller.text);
             }
           },
         ),
         onSubmitted: (value) {
+          FocusManager.instance.primaryFocus?.unfocus();
+          FocusScope.of(context).unfocus();
           if (widget.onSearch != null) {
             widget.onSearch!(value);
           }

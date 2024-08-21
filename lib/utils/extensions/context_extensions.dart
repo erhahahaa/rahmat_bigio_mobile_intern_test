@@ -9,6 +9,8 @@ extension BuildContextX on BuildContext {
   ThemeData get theme => Theme.of(this);
 
   Strings? get str => Strings.of(this);
+  
+  Locale get locale => Localizations.localeOf(this);
 
   void changeFocus(FocusNode currentFocus, FocusNode? nextFocus) {
     currentFocus.unfocus();

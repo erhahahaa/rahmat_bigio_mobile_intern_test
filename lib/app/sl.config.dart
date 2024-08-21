@@ -78,6 +78,15 @@ import '../features/location/domain/usecases/get_multiple_locations.dart'
 import '../features/location/domain/usecases/toggle_favorite_location.dart'
     as _i428;
 import '../features/location/ui/bloc/location_bloc.dart' as _i234;
+import '../features/settings/data/data_sources/settings_local_data_source.dart'
+    as _i968;
+import '../features/settings/data/repositories/settings_repository.dart'
+    as _i1020;
+import '../features/settings/domain/usecases/get_locale.dart' as _i901;
+import '../features/settings/domain/usecases/get_theme_mode.dart' as _i462;
+import '../features/settings/domain/usecases/set_locale.dart' as _i1030;
+import '../features/settings/domain/usecases/set_theme_mode.dart' as _i942;
+import '../features/settings/ui/bloc/settings_bloc.dart' as _i647;
 import 'router.dart' as _i216;
 import 'sl.dart' as _i581;
 
@@ -112,12 +121,16 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i568.CharacterLocalDataSourceImpl(gh<_i156.IsarClient>()));
     gh.lazySingleton<_i620.EpisodeLocalDataSource>(
         () => _i620.EpisodeLocalDataSourceImpl(gh<_i156.IsarClient>()));
+    gh.lazySingleton<_i968.SettingsLocalDataSource>(
+        () => _i968.SettingsLocalDataSourceImpl(gh<_i156.IsarClient>()));
     gh.lazySingleton<_i540.CharacterRemoteDataSource>(
         () => _i540.CharacterRemoteDataSourceImpl(gh<_i156.DioClient>()));
     gh.lazySingleton<_i611.LocationRemoteDataSource>(
         () => _i611.LocationRemoteDataSourceImpl(gh<_i156.DioClient>()));
     gh.lazySingleton<_i271.EpisodeRemoteDataSource>(
         () => _i271.EpisodeRemoteDataSourceImpl(gh<_i156.DioClient>()));
+    gh.lazySingleton<_i1009.SettingsRepository>(() =>
+        _i1020.SettingsRepositoryImpl(gh<_i1009.SettingsLocalDataSource>()));
     gh.lazySingleton<_i1009.CharacterRepository>(
         () => _i512.CharacterRepositoryImpl(
               gh<_i1009.CharacterLocalDataSource>(),
@@ -174,6 +187,14 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i418.GetEpisodesByPagination(gh<_i1009.EpisodeRepository>()));
     gh.lazySingleton<_i545.GetLocationsByPagination>(
         () => _i545.GetLocationsByPagination(gh<_i1009.LocationRepository>()));
+    gh.lazySingleton<_i1030.SetLocale>(
+        () => _i1030.SetLocale(gh<_i1009.SettingsRepository>()));
+    gh.lazySingleton<_i901.GetLocale>(
+        () => _i901.GetLocale(gh<_i1009.SettingsRepository>()));
+    gh.lazySingleton<_i942.SetThemeMode>(
+        () => _i942.SetThemeMode(gh<_i1009.SettingsRepository>()));
+    gh.lazySingleton<_i462.GetThemeMode>(
+        () => _i462.GetThemeMode(gh<_i1009.SettingsRepository>()));
     gh.lazySingleton<_i792.EpisodeBloc>(() => _i792.EpisodeBloc(
           gh<_i1009.GetEpisodes>(),
           gh<_i1009.GetMultipleEpisodes>(),
@@ -201,6 +222,12 @@ extension GetItInjectableX on _i174.GetIt {
           gh<_i1009.GetFilteredLocations>(),
           gh<_i1009.ToggleFavoriteLocation>(),
           gh<_i1009.GetLocationsByPagination>(),
+        ));
+    gh.lazySingleton<_i647.SettingsBloc>(() => _i647.SettingsBloc(
+          gh<_i1009.GetThemeMode>(),
+          gh<_i1009.SetThemeMode>(),
+          gh<_i1009.GetLocale>(),
+          gh<_i1009.SetLocale>(),
         ));
     return this;
   }

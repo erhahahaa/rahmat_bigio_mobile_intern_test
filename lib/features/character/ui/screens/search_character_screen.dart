@@ -41,33 +41,36 @@ class SearchCharacterScreen extends StatelessWidget
           },
         ),
       ),
-      body: BlocBuilder<CharacterBloc, CharacterState>(
-        builder: (context, state) {
-          return state.when(
-            initial: () => const SizedBox(),
-            loading: () {
-              final fakeCharacters =
-                  List.generate(10, (index) => CharacterModel.fake());
+      body: Padding(
+        padding: EdgeInsets.all(8.w),
+        child: BlocBuilder<CharacterBloc, CharacterState>(
+          builder: (context, state) {
+            return state.when(
+              initial: () => const SizedBox(),
+              loading: () {
+                final fakeCharacters =
+                    List.generate(10, (index) => CharacterModel.fake());
 
-              return ListCharacter(
-                height: 650.h,
-                characters: fakeCharacters,
-                isLoading: true,
-              );
-            },
-            loaded: (characters) {
-              return ListCharacter(
-                height: 650.h,
-                characters: characters.results,
-              );
-            },
-            error: (message) => Center(
-              child: BoxWrapper(
-                child: Text(message),
+                return ListCharacter(
+                  height: 650.h,
+                  characters: fakeCharacters,
+                  isLoading: true,
+                );
+              },
+              loaded: (characters) {
+                return ListCharacter(
+                  height: 650.h,
+                  characters: characters.results,
+                );
+              },
+              error: (message) => Center(
+                child: BoxWrapper(
+                  child: Text(message),
+                ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }

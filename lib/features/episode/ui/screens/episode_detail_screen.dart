@@ -74,40 +74,39 @@ class _EpisodeDetailScreenState extends State<EpisodeDetailScreen> {
               delegate: SliverChildListDelegate(
                 [
                   Gap(8.h),
-                  TitleLarge('Episode Info'),
+                  TitleLarge(context.str?.episode_info),
                   Gap(8.h),
                   ListTileBoxWrapper(
-                    title: 'Episode',
+                    title: context.str?.episode ?? 'Episode',
                     subtitle: widget.episode.episode,
                   ),
                   ListTileBoxWrapper(
-                    title: 'Air Date',
+                    title: context.str?.air_date ?? 'Air Date',
                     subtitle: widget.episode.airDate,
                   ),
                   ListTileBoxWrapper(
-                    title: 'Created',
+                    title: context.str?.created_at ?? 'Created',
                     subtitle: widget.episode.created?.toIso8601String() ?? '',
                   ),
                   ListTileBoxWrapper(
-                    title: 'Episode ID',
+                    title: context.str?.episode_id ?? 'Episode ID',
                     subtitle: widget.episode.id.toString(),
                   ),
                   ListTileBoxWrapper(
-                    title: 'URL',
+                    title: context.str?.url ?? 'URL',
                     subtitle: widget.episode.url,
                   ),
                   Gap(8.h),
                   TitleLarge('Other Info'),
                   Gap(8.h),
                   ListTileBoxWrapper(
-                    title: 'Name',
+                    title: context.str?.name ?? 'Name',
                     subtitle: widget.episode.name,
                   ),
                   ListTileBoxWrapper(
-                    title: 'URL',
+                    title: context.str?.url ?? 'URL',
                     subtitle: widget.episode.url,
                   ),
-                  Gap(8.h),
                 ],
               ),
             ),

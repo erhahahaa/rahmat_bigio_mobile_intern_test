@@ -16,18 +16,18 @@ Project Description
 
 ## <a name="features"></a> Features :
 
-- [ ] List of character
-- [ ] Detail character
-- [ ] Favorite character
-- [ ] Search character
-- [ ] Localization (English and Bahasa Indonesia)
-- [ ] Dark Mode
+- [x] List of character, episode and location
+- [x] Detail character, episode and location
+- [x] Favorite character, episode and location
+- [x] Search character, episode and location
+- [x] Localization (English and Bahasa Indonesia)
+- [x] Dark Mode
 
 ## <a name="libraries"></a> Libraries :
 
 You may list what libraries you used in this project, example :
 
-- Flutter (version)
+- Flutter 3.24.0
 - Flutter Bloc as State Management
 - Dio as API Client
 - GetIt as Service Locator

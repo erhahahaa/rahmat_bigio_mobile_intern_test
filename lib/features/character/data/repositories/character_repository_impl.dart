@@ -109,4 +109,13 @@ class CharacterRepositoryImpl implements CharacterRepository {
       return Left(CacheFailure(message: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, List<CharacterEntity>>> getFavoriteCharacters() async {
+    try {
+      return await _local.getFavoriteCharacters();
+    } catch (e) {
+      return Left(CacheFailure(message: e.toString()));
+    }
+  }
 }

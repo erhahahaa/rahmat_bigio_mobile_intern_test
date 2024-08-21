@@ -13,6 +13,7 @@ abstract class EpisodeLocalDataSource {
     List<EpisodeEntity> episodes,
   );
   Future<Either<Failure, List<EpisodeEntity>>> getEpisodesFromCache();
+  Future<Either<Failure, List<EpisodeEntity>>> getFavoriteEpisodes();
   Future<Either<Failure, void>> toggleFavoriteEpisode(
     ByIdParam param,
   );
@@ -100,5 +101,19 @@ class EpisodeLocalDataSourceImpl implements EpisodeLocalDataSource {
           .toEntity(),
     );
     return Right(null);
+  }
+
+  @override
+  Future<Either<Failure, List<EpisodeEntity>>> getFavoriteEpisodes() async {
+    final episodes = await _isar.instance.episodes
+        .where()
+        .filter()
+        .isFavoriteEqualTo(true)
+        .findAll();
+    if (episodes.isNotEmpty) {
+      return Right(episodes);
+    } else {
+      return Left(CacheFailure(message: 'No favorite episodes in cache'));
+    }
   }
 }

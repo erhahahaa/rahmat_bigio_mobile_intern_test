@@ -108,4 +108,13 @@ class EpisodeRepositoryImpl implements EpisodeRepository {
       return Left(CacheFailure(message: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, List<EpisodeEntity>>> getFavoriteEpisodes() async {
+    try {
+      return await _local.getFavoriteEpisodes();
+    } catch (e) {
+      return Left(CacheFailure(message: e.toString()));
+    }
+  }
 }

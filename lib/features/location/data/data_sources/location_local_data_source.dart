@@ -13,6 +13,7 @@ abstract class LocationLocalDataSource {
     List<LocationEntity> locations,
   );
   Future<Either<Failure, List<LocationEntity>>> getLocationsFromCache();
+  Future<Either<Failure, List<LocationEntity>>> getFavoriteLocations();
   Future<Either<Failure, void>> toggleFavoriteLocation(
     ByIdParam param,
   );
@@ -100,5 +101,20 @@ class LocationLocalDataSourceImpl implements LocationLocalDataSource {
           .toEntity(),
     );
     return Right(null);
+  }
+
+  @override
+  Future<Either<Failure, List<LocationEntity>>> getFavoriteLocations() async {
+    final locations = await _isar.instance.locations
+        .where()
+        .filter()
+        .isFavoriteEqualTo(true)
+        .findAll();
+
+    if (locations.isNotEmpty) {
+      return Right(locations);
+    } else {
+      return Left(CacheFailure(message: 'No favorite locations in cache'));
+    }
   }
 }

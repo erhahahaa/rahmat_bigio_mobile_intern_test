@@ -108,4 +108,13 @@ class LocationRepositoryImpl implements LocationRepository {
       return Left(CacheFailure(message: e.toString()));
     }
   }
+
+  @override
+  Future<Either<Failure, List<LocationEntity>>> getFavoriteLocations() async {
+    try {
+      return await _local.getFavoriteLocations();
+    } catch (e) {
+      return Left(CacheFailure(message: e.toString()));
+    }
+  }
 }

@@ -16,6 +16,7 @@ abstract class CharacterRepository {
   );
 
   Future<Either<Failure, List<CharacterEntity>>> getCharactersFromCache();
+  Future<Either<Failure, List<CharacterEntity>>> getFavoriteCharacters();
   Future<Either<Failure, void>> toggleFavoriteCharacter(
     ByIdParam param,
   );

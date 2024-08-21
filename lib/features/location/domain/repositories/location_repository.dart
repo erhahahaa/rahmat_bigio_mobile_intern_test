@@ -16,6 +16,7 @@ abstract class LocationRepository {
   );
 
   Future<Either<Failure, List<LocationEntity>>> getLocationsFromCache();
+  Future<Either<Failure, List<LocationEntity>>> getFavoriteLocations();
   Future<Either<Failure, void>> toggleFavoriteLocation(
     ByIdParam param,
   );

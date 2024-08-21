@@ -136,6 +136,24 @@ class MockCharacterRepository extends _i1.Mock
           ) as _i4.Future<_i2.Either<_i5.Failure, List<_i3.CharacterEntity>>>);
 
   @override
+  _i4.Future<_i2.Either<_i5.Failure, List<_i3.CharacterEntity>>>
+      getFavoriteCharacters() => (super.noSuchMethod(
+            Invocation.method(
+              #getFavoriteCharacters,
+              [],
+            ),
+            returnValue: _i4.Future<
+                    _i2.Either<_i5.Failure, List<_i3.CharacterEntity>>>.value(
+                _FakeEither_0<_i5.Failure, List<_i3.CharacterEntity>>(
+              this,
+              Invocation.method(
+                #getFavoriteCharacters,
+                [],
+              ),
+            )),
+          ) as _i4.Future<_i2.Either<_i5.Failure, List<_i3.CharacterEntity>>>);
+
+  @override
   _i4.Future<_i2.Either<_i5.Failure, void>> toggleFavoriteCharacter(
           _i6.ByIdParam? param) =>
       (super.noSuchMethod(

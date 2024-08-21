@@ -13,6 +13,7 @@ abstract class CharacterLocalDataSource {
     List<CharacterEntity> characters,
   );
   Future<Either<Failure, List<CharacterEntity>>> getCharactersFromCache();
+  Future<Either<Failure, List<CharacterEntity>>> getFavoriteCharacters();
   Future<Either<Failure, void>> toggleFavoriteCharacter(
     ByIdParam param,
   );
@@ -103,5 +104,18 @@ class CharacterLocalDataSourceImpl implements CharacterLocalDataSource {
           .toEntity(),
     );
     return Right(null);
+  }
+
+  @override
+  Future<Either<Failure, List<CharacterEntity>>> getFavoriteCharacters() async {
+    final characters = await _isar.instance.characters
+        .where()
+        .filter()
+        .isFavoriteEqualTo(true)
+        .findAll();
+    if (characters.isEmpty) {
+      return Left(CacheFailure(message: 'No favorite characters in cache'));
+    }
+    return Right(characters);
   }
 }

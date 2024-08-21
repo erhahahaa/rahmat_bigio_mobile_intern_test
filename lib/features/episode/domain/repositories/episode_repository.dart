@@ -16,6 +16,7 @@ abstract class EpisodeRepository {
   );
 
   Future<Either<Failure, List<EpisodeEntity>>> getEpisodesFromCache();
+  Future<Either<Failure, List<EpisodeEntity>>> getFavoriteEpisodes();
   Future<Either<Failure, void>> toggleFavoriteEpisode(
     ByIdParam param,
   );

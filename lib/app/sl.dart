@@ -4,9 +4,21 @@ import 'package:rick_morty/app/sl.config.dart';
 
 final sl = GetIt.instance;
 
+bool _isUnitTest = false;
+
+@module
+abstract class AppModule {
+  @singleton
+  bool get isUnitTest => _isUnitTest;
+}
+
 @InjectableInit(
   initializerName: r'init',
   preferRelativeImports: true,
   throwOnMissingDependencies: true,
+  asExtension: true,
 )
-Future<void> configureDependencies() async => await sl.init();
+configureDependencies({bool isUnitTest = false}) async {
+  _isUnitTest = isUnitTest;
+  await sl.init();
+}

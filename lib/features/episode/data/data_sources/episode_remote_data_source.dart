@@ -29,7 +29,7 @@ class EpisodeRemoteDataSourceImpl implements EpisodeRemoteDataSource {
   ) =>
       _dio.getRequest(
         '${ListAPI.EPISODE}/${param.id}',
-        converter: EpisodeModel.fromJson as EpisodeModel Function(dynamic),
+        converter: (json) => EpisodeModel.fromJson(json),
       );
 
   @override

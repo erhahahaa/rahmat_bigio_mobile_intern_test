@@ -8,7 +8,7 @@ import 'package:rick_morty/utils/utils.dart';
 
 @lazySingleton
 class DioClient with Log {
-  late final Dio _dio = Dio(
+  late final Dio dio = Dio(
     BaseOptions(
       baseUrl: ListAPI.BASE_URL,
       headers: {
@@ -22,12 +22,12 @@ class DioClient with Log {
   );
 
   DioClient() {
-    _dio.interceptors.add(DioInterceptor());
+    dio.interceptors.add(DioInterceptor());
   }
 
   @disposeMethod
   void dispose() {
-    _dio.close();
+    dio.close();
   }
 
   Future<Either<Failure, T>> getRequest<T>(
@@ -38,7 +38,7 @@ class DioClient with Log {
     CancelToken? cancelToken,
   }) async {
     try {
-      final response = await _dio.get(
+      final response = await dio.get(
         url,
         queryParameters: queryParameters,
         onReceiveProgress: onReceiveProgress,

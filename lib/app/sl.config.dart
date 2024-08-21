@@ -69,6 +69,7 @@ import '../features/location/domain/usecases/get_multiple_locations.dart'
     as _i707;
 import '../features/location/domain/usecases/toggle_favorite_location.dart'
     as _i428;
+import 'sl.dart' as _i581;
 
 extension GetItInjectableX on _i174.GetIt {
 // initializes the registration of main-scope dependencies inside of GetIt
@@ -81,17 +82,18 @@ extension GetItInjectableX on _i174.GetIt {
       environment,
       environmentFilter,
     );
-    await gh.singletonAsync<_i361.IsarClient>(
-      () {
-        final i = _i361.IsarClient();
-        return i.init().then((_) => i);
-      },
-      preResolve: true,
-      dispose: (i) => i.dispose(),
-    );
+    final appModule = _$AppModule();
+    gh.singleton<bool>(() => appModule.isUnitTest);
     gh.lazySingleton<_i352.DioClient>(
       () => _i352.DioClient(),
       dispose: (i) => i.dispose(),
+    );
+    await gh.lazySingletonAsync<_i361.IsarClient>(
+      () {
+        final i = _i361.IsarClient(gh<bool>());
+        return i.init().then((_) => i);
+      },
+      preResolve: true,
     );
     gh.lazySingleton<_i751.LocationLocalDataSource>(
         () => _i751.LocationLocalDataSourceImpl(gh<_i156.IsarClient>()));
@@ -165,3 +167,5 @@ extension GetItInjectableX on _i174.GetIt {
     return this;
   }
 }
+
+class _$AppModule extends _i581.AppModule {}

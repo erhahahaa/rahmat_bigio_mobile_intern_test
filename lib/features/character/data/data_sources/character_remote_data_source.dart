@@ -29,7 +29,7 @@ class CharacterRemoteDataSourceImpl implements CharacterRemoteDataSource {
   ) =>
       _dio.getRequest(
         '${ListAPI.CHARACTER}/${param.id}',
-        converter: CharacterModel.fromJson as CharacterModel Function(dynamic),
+        converter: (json) => CharacterModel.fromJson(json),
       );
 
   @override

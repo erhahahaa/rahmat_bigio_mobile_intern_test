@@ -29,7 +29,7 @@ class LocationRemoteDataSourceImpl implements LocationRemoteDataSource {
   ) =>
       _dio.getRequest(
         '${ListAPI.LOCATION}/${param.id}',
-        converter: LocationModel.fromJson as LocationModel Function(dynamic),
+        converter: (json) => LocationModel.fromJson(json),
       );
 
   @override

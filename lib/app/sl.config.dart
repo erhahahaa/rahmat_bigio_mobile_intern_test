@@ -69,6 +69,7 @@ import '../features/location/domain/usecases/get_multiple_locations.dart'
     as _i707;
 import '../features/location/domain/usecases/toggle_favorite_location.dart'
     as _i428;
+import 'router.dart' as _i216;
 import 'sl.dart' as _i581;
 
 extension GetItInjectableX on _i174.GetIt {
@@ -83,6 +84,7 @@ extension GetItInjectableX on _i174.GetIt {
       environmentFilter,
     );
     final appModule = _$AppModule();
+    gh.factory<_i216.AppRouter>(() => _i216.AppRouter());
     gh.singleton<bool>(() => appModule.isUnitTest);
     gh.lazySingleton<_i352.DioClient>(
       () => _i352.DioClient(),

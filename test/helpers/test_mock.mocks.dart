@@ -290,6 +290,24 @@ class MockEpisodeRepository extends _i1.Mock implements _i3.EpisodeRepository {
           ) as _i4.Future<_i2.Either<_i5.Failure, List<_i3.EpisodeEntity>>>);
 
   @override
+  _i4.Future<_i2.Either<_i5.Failure, List<_i3.EpisodeEntity>>>
+      getFavoriteEpisodes() => (super.noSuchMethod(
+            Invocation.method(
+              #getFavoriteEpisodes,
+              [],
+            ),
+            returnValue: _i4
+                .Future<_i2.Either<_i5.Failure, List<_i3.EpisodeEntity>>>.value(
+                _FakeEither_0<_i5.Failure, List<_i3.EpisodeEntity>>(
+              this,
+              Invocation.method(
+                #getFavoriteEpisodes,
+                [],
+              ),
+            )),
+          ) as _i4.Future<_i2.Either<_i5.Failure, List<_i3.EpisodeEntity>>>);
+
+  @override
   _i4.Future<_i2.Either<_i5.Failure, void>> toggleFavoriteEpisode(
           _i6.ByIdParam? param) =>
       (super.noSuchMethod(
@@ -423,6 +441,24 @@ class MockLocationRepository extends _i1.Mock
               this,
               Invocation.method(
                 #getLocationsFromCache,
+                [],
+              ),
+            )),
+          ) as _i4.Future<_i2.Either<_i5.Failure, List<_i3.LocationEntity>>>);
+
+  @override
+  _i4.Future<_i2.Either<_i5.Failure, List<_i3.LocationEntity>>>
+      getFavoriteLocations() => (super.noSuchMethod(
+            Invocation.method(
+              #getFavoriteLocations,
+              [],
+            ),
+            returnValue: _i4.Future<
+                    _i2.Either<_i5.Failure, List<_i3.LocationEntity>>>.value(
+                _FakeEither_0<_i5.Failure, List<_i3.LocationEntity>>(
+              this,
+              Invocation.method(
+                #getFavoriteLocations,
                 [],
               ),
             )),

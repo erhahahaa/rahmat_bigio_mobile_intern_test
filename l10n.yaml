@@ -1,5 +1,5 @@
 arb-dir: lib/core/l10n
-output-dir: lib/core/l10n/generated
+output-dir: lib/core/gen
 template-arb-file: intl_en.arb
 output-localization-file: strings.dart
 output-class: Strings

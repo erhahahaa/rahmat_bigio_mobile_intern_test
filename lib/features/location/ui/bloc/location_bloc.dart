@@ -6,9 +6,8 @@ part 'location_event.dart';
 part 'location_state.dart';
 
 class LocationBloc extends Bloc<LocationEvent, LocationState> {
-  LocationBloc() : super(_Initial()) {
-    on<LocationEvent>((event, emit) {
-      // TODO: implement event handler
+  LocationBloc() : super(const _Initial()) {
+    on<LocationEvent>((event, emit) { 
     });
   }
 }

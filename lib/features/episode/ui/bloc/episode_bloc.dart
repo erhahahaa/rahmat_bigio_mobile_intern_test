@@ -6,9 +6,8 @@ part 'episode_event.dart';
 part 'episode_state.dart';
 
 class EpisodeBloc extends Bloc<EpisodeEvent, EpisodeState> {
-  EpisodeBloc() : super(_Initial()) {
-    on<EpisodeEvent>((event, emit) {
-      // TODO: implement event handler
+  EpisodeBloc() : super(const _Initial()) {
+    on<EpisodeEvent>((event, emit) { 
     });
   }
 }

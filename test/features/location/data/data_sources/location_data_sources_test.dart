@@ -68,7 +68,7 @@ void main() {
         onReceiveProgress: anyNamed('onReceiveProgress'),
         cancelToken: anyNamed('cancelToken'),
       )).thenAnswer(
-        (_) async => Left<Failure, List<LocationModel>>(ServerFailure()),
+        (_) async => const Left<Failure, List<LocationModel>>(ServerFailure()),
       );
 
       // Act
@@ -99,7 +99,7 @@ void main() {
       );
 
       // Act
-      final result = await dataSource.getLocation(ByIdParam(id: 1));
+      final result = await dataSource.getLocation(const ByIdParam(id: 1));
 
       // Assert
       result.fold(
@@ -117,11 +117,11 @@ void main() {
         onReceiveProgress: anyNamed('onReceiveProgress'),
         cancelToken: anyNamed('cancelToken'),
       )).thenAnswer(
-        (_) async => Left<Failure, LocationModel>(ServerFailure()),
+        (_) async => const Left<Failure, LocationModel>(ServerFailure()),
       );
 
       // Act
-      final result = await dataSource.getLocation(ByIdParam(id: 1));
+      final result = await dataSource.getLocation(const ByIdParam(id: 1));
 
       // Assert
       result.fold(
@@ -152,7 +152,7 @@ void main() {
 
       // Act
       final result = await dataSource.getMultipleLocations(
-        ByIdsParam(ids: [1, 2, 3]),
+        const ByIdsParam(ids: [1, 2, 3]),
       );
 
       // Assert
@@ -171,12 +171,12 @@ void main() {
         onReceiveProgress: anyNamed('onReceiveProgress'),
         cancelToken: anyNamed('cancelToken'),
       )).thenAnswer(
-        (_) async => Left<Failure, List<LocationModel>>(ServerFailure()),
+        (_) async => const Left<Failure, List<LocationModel>>(ServerFailure()),
       );
 
       // Act
       final result = await dataSource.getMultipleLocations(
-        ByIdsParam(ids: [1, 2, 3]),
+        const ByIdsParam(ids: [1, 2, 3]),
       );
 
       // Assert
@@ -209,7 +209,7 @@ void main() {
 
       // Act
       final result = await dataSource.getFilteredLocations(
-        GetLocationsByFilterParams(name: 'Rick'),
+        const GetLocationsByFilterParams(name: 'Rick'),
       );
 
       // Assert

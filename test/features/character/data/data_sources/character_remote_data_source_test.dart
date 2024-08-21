@@ -68,7 +68,7 @@ void main() {
         onReceiveProgress: anyNamed('onReceiveProgress'),
         cancelToken: anyNamed('cancelToken'),
       )).thenAnswer(
-        (_) async => Left<Failure, List<CharacterModel>>(ServerFailure()),
+        (_) async => const Left<Failure, List<CharacterModel>>(ServerFailure()),
       );
 
       // Act
@@ -100,7 +100,7 @@ void main() {
       );
 
       // Act
-      final result = await dataSource.getCharacter(ByIdParam(id: 1));
+      final result = await dataSource.getCharacter(const ByIdParam(id: 1));
 
       // Assert
       result.fold(
@@ -118,11 +118,11 @@ void main() {
         onReceiveProgress: anyNamed('onReceiveProgress'),
         cancelToken: anyNamed('cancelToken'),
       )).thenAnswer(
-        (_) async => Left<Failure, CharacterModel>(ServerFailure()),
+        (_) async => const Left<Failure, CharacterModel>(ServerFailure()),
       );
 
       // Act
-      final result = await dataSource.getCharacter(ByIdParam(id: 1));
+      final result = await dataSource.getCharacter(const ByIdParam(id: 1));
 
       // Assert
       result.fold(
@@ -153,7 +153,7 @@ void main() {
 
       // Act
       final result = await dataSource.getMultipleCharacters(
-        ByIdsParam(ids: [1, 2, 3]),
+        const ByIdsParam(ids: [1, 2, 3]),
       );
 
       // Assert
@@ -172,12 +172,12 @@ void main() {
         onReceiveProgress: anyNamed('onReceiveProgress'),
         cancelToken: anyNamed('cancelToken'),
       )).thenAnswer(
-        (_) async => Left<Failure, List<CharacterModel>>(ServerFailure()),
+        (_) async => const Left<Failure, List<CharacterModel>>(ServerFailure()),
       );
 
       // Act
       final result = await dataSource.getMultipleCharacters(
-        ByIdsParam(ids: [1, 2, 3]),
+        const ByIdsParam(ids: [1, 2, 3]),
       );
 
       // Assert
@@ -210,7 +210,7 @@ void main() {
 
       // Act
       final result = await dataSource.getFilteredCharacters(
-        GetCharactersByFilterParams(
+        const GetCharactersByFilterParams(
           name: 'Rick',
           status: CharacterStatus.alive,
         ),

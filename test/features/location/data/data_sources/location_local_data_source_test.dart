@@ -161,7 +161,7 @@ void main() {
 
         // Act
         final result = await locationLocalDataSourceImpl.toggleFavoriteLocation(
-          ByIdParam(id: 1),
+          const ByIdParam(id: 1),
         );
 
         // Assert

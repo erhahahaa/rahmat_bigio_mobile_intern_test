@@ -52,13 +52,13 @@ class EpisodeLocalDataSourceImpl implements EpisodeLocalDataSource {
       return await _isar.instance.episodes.getAll(ids);
     });
     if (cachings.isEmpty) {
-      return Left(
+      return const Left(
         CacheFailure(message: 'Failed to caching episodes'),
       );
     }
     for (final episode in cachings) {
       if (episode == null) {
-        return Left(
+        return const Left(
           CacheFailure(message: 'Failed to caching episode'),
         );
       }
@@ -73,9 +73,9 @@ class EpisodeLocalDataSourceImpl implements EpisodeLocalDataSource {
     });
     final check = await _isar.instance.episodes.count();
     if (check != 0) {
-      return Left(CacheFailure(message: 'Error clearing episodes cache'));
+      return const Left(CacheFailure(message: 'Error clearing episodes cache'));
     }
-    return Right(null);
+    return const Right(null);
   }
 
   @override
@@ -85,7 +85,7 @@ class EpisodeLocalDataSourceImpl implements EpisodeLocalDataSource {
     if (episodes.isNotEmpty) {
       return Right(episodes);
     } else {
-      return Left(CacheFailure(message: 'No episodes in cache'));
+      return const Left(CacheFailure(message: 'No episodes in cache'));
     }
   }
 
@@ -93,14 +93,14 @@ class EpisodeLocalDataSourceImpl implements EpisodeLocalDataSource {
   Future<Either<Failure, void>> toggleFavoriteEpisode(ByIdParam param) async {
     final episode = await _isar.instance.episodes.get(param.id);
     if (episode == null) {
-      return Left(CacheFailure(message: 'Episode not found in cache'));
+      return const Left(CacheFailure(message: 'Episode not found in cache'));
     }
     await cacheEpisode(
       EpisodeModel.fromEntity(episode)
           .copyWith(isFavorite: !episode.isFavorite)
           .toEntity(),
     );
-    return Right(null);
+    return const Right(null);
   }
 
   @override
@@ -113,7 +113,7 @@ class EpisodeLocalDataSourceImpl implements EpisodeLocalDataSource {
     if (episodes.isNotEmpty) {
       return Right(episodes);
     } else {
-      return Left(CacheFailure(message: 'No favorite episodes in cache'));
+      return const Left(CacheFailure(message: 'No favorite episodes in cache'));
     }
   }
 }

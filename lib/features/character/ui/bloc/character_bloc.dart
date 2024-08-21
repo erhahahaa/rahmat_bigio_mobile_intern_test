@@ -6,9 +6,8 @@ part 'character_event.dart';
 part 'character_state.dart';
 
 class CharacterBloc extends Bloc<CharacterEvent, CharacterState> {
-  CharacterBloc() : super(_Initial()) {
-    on<CharacterEvent>((event, emit) {
-      // TODO: implement event handler
+  CharacterBloc() : super(const _Initial()) {
+    on<CharacterEvent>((event, emit) { 
     });
   }
 }

@@ -27,7 +27,7 @@ void main() {
           jsonReader('characters/all_character_raw.json'),
         )['results'] as List;
         when(mockCharacterRepository.getFilteredCharacters(
-          GetCharactersByFilterParams(
+          const GetCharactersByFilterParams(
               name: 'Rick', status: CharacterStatus.alive),
         )).thenAnswer((_) async => Right(
               testCharacter.map((e) => CharacterModel.fromJson(e)).toList(),
@@ -35,7 +35,7 @@ void main() {
 
         // act
         final result = await getFilteredCharacters(
-          GetCharactersByFilterParams(
+          const GetCharactersByFilterParams(
               name: 'Rick', status: CharacterStatus.alive),
         );
 
@@ -46,7 +46,7 @@ void main() {
           (r) => expect(r, isA<List<CharacterEntity>>()),
         );
         verify(mockCharacterRepository.getFilteredCharacters(
-          GetCharactersByFilterParams(
+          const GetCharactersByFilterParams(
               name: 'Rick', status: CharacterStatus.alive),
         ));
         verifyNoMoreInteractions(mockCharacterRepository);
@@ -58,12 +58,12 @@ void main() {
       () async {
         // arrange
         when(mockCharacterRepository.getFilteredCharacters(
-          GetCharactersByFilterParams(
+          const GetCharactersByFilterParams(
               name: 'Rick', status: CharacterStatus.alive),
-        )).thenAnswer((_) async => Left(ServerFailure()));
+        )).thenAnswer((_) async => const Left(ServerFailure()));
         // act
         final result = await getFilteredCharacters(
-          GetCharactersByFilterParams(
+          const GetCharactersByFilterParams(
               name: 'Rick', status: CharacterStatus.alive),
         );
 
@@ -74,7 +74,7 @@ void main() {
           (r) => expect(r, isA<List<CharacterEntity>>()),
         );
         verify(mockCharacterRepository.getFilteredCharacters(
-          GetCharactersByFilterParams(
+          const GetCharactersByFilterParams(
               name: 'Rick', status: CharacterStatus.alive),
         ));
         verifyNoMoreInteractions(mockCharacterRepository);

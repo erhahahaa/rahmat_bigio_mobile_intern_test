@@ -28,13 +28,13 @@ void main() {
           jsonReader('characters/character_1.json'),
         );
         when(mockCharacterRepository.getCharacter(
-          ByIdParam(id: 1),
+          const ByIdParam(id: 1),
         )).thenAnswer((_) async => Right(
               CharacterModel.fromJson(testCharacter),
             ));
         // act
         final result = await getCharacter(
-          ByIdParam(id: 1),
+          const ByIdParam(id: 1),
         );
         // assert
         expect(result, isA<Right>());
@@ -43,7 +43,7 @@ void main() {
           (r) => expect(r, isA<CharacterEntity>()),
         );
         verify(mockCharacterRepository.getCharacter(
-          ByIdParam(id: 1),
+          const ByIdParam(id: 1),
         ));
         verifyNoMoreInteractions(mockCharacterRepository);
       },
@@ -54,11 +54,11 @@ void main() {
       () async {
         // arrange
         when(mockCharacterRepository.getCharacter(
-          ByIdParam(id: -2),
-        )).thenAnswer((_) async => Left(ServerFailure()));
+          const ByIdParam(id: -2),
+        )).thenAnswer((_) async => const Left(ServerFailure()));
         // act
         final result = await getCharacter(
-          ByIdParam(id: -2),
+          const ByIdParam(id: -2),
         );
 
         // assert
@@ -68,7 +68,7 @@ void main() {
           (r) => expect(r, isA<CharacterEntity>()),
         );
         verify(mockCharacterRepository.getCharacter(
-          ByIdParam(id: -2),
+          const ByIdParam(id: -2),
         ));
         verifyNoMoreInteractions(mockCharacterRepository);
       },

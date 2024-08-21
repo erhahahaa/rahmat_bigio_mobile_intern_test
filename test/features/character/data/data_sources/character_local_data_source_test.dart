@@ -163,7 +163,7 @@ void main() {
         // Act
         final result =
             await characterLocalDataSourceImpl.toggleFavoriteCharacter(
-          ByIdParam(id: 1),
+          const ByIdParam(id: 1),
         );
 
         // Assert

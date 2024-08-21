@@ -15,11 +15,11 @@ void main() {
     species: 'Human',
     type: '',
     gender: CharacterGender.male,
-    origin: CharacterOriginModel(
+    origin: const CharacterOriginModel(
       name: 'Earth (C-137)',
       url: 'https://rickandmortyapi.com/api/location/1',
     ),
-    location: CharacterLocationModel(
+    location: const CharacterLocationModel(
       name: 'Citadel of Ricks',
       url: 'https://rickandmortyapi.com/api/location/3',
     ),

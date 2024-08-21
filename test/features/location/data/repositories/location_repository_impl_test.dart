@@ -138,7 +138,7 @@ void main() {
 
           // Act
           final result = await locationRepositoryImpl.getLocation(
-            ByIdParam(id: 1),
+            const ByIdParam(id: 1),
           );
 
           // Assert
@@ -184,7 +184,7 @@ void main() {
 
           // Act
           final result = await locationRepositoryImpl.toggleFavoriteLocation(
-            ByIdParam(id: 100),
+            const ByIdParam(id: 100),
           );
 
           // Assert
@@ -219,7 +219,7 @@ void main() {
 
           // Act
           final result = await locationRepositoryImpl.getFilteredLocations(
-            GetLocationsByFilterParams(name: 'Rick'),
+            const GetLocationsByFilterParams(name: 'Rick'),
           );
 
           // Assert
@@ -239,7 +239,7 @@ void main() {
 
           // Act
           final result = await locationRepositoryImpl.getFilteredLocations(
-            GetLocationsByFilterParams(name: 'Rick who does not exist'),
+            const GetLocationsByFilterParams(name: 'Rick who does not exist'),
           );
 
           // Assert
@@ -278,7 +278,7 @@ void main() {
 
           // Act
           final result = await locationRepositoryImpl.getMultipleLocations(
-            ByIdsParam(ids: [1, 2, 3]),
+            const ByIdsParam(ids: [1, 2, 3]),
           );
 
           // Assert
@@ -298,7 +298,7 @@ void main() {
 
           // Act
           final result = await locationRepositoryImpl.getMultipleLocations(
-            ByIdsParam(ids: [1, 2, 3]),
+            const ByIdsParam(ids: [1, 2, 3]),
           );
 
           // Assert
@@ -395,7 +395,7 @@ void main() {
 
           // Act
           final result = await locationRepositoryImpl.toggleFavoriteLocation(
-            ByIdParam(id: 1),
+            const ByIdParam(id: 1),
           );
 
           // Assert

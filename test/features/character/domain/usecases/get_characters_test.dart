@@ -21,7 +21,7 @@ void main() {
       () async {
         // arrange
         when(mockCharacterRepository.getCharacters())
-            .thenAnswer((_) async => Right([]));
+            .thenAnswer((_) async => const Right([]));
         // act
         final result = await getCharacters();
         // assert
@@ -40,7 +40,7 @@ void main() {
       () async {
         // arrange
         when(mockCharacterRepository.getCharacters())
-            .thenAnswer((_) async => Left(ServerFailure()));
+            .thenAnswer((_) async => const Left(ServerFailure()));
         // act
         final result = await getCharacters();
 

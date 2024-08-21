@@ -52,13 +52,13 @@ class CharacterLocalDataSourceImpl implements CharacterLocalDataSource {
       return await _isar.instance.characters.getAll(ids);
     });
     if (cachings.isEmpty) {
-      return Left(
+      return const Left(
         CacheFailure(message: 'Failed to caching characters'),
       );
     }
     for (final character in cachings) {
       if (character == null) {
-        return Left(
+        return const Left(
           CacheFailure(message: 'Failed to caching character'),
         );
       }
@@ -73,9 +73,9 @@ class CharacterLocalDataSourceImpl implements CharacterLocalDataSource {
     });
     final check = await _isar.instance.characters.count();
     if (check != 0) {
-      return Left(CacheFailure(message: 'Error clearing characters cache'));
+      return const Left(CacheFailure(message: 'Error clearing characters cache'));
     }
-    return Right(null);
+    return const Right(null);
   }
 
   @override
@@ -86,7 +86,7 @@ class CharacterLocalDataSourceImpl implements CharacterLocalDataSource {
     if (characters.isNotEmpty) {
       return Right(characters);
     } else {
-      return Left(CacheFailure(message: 'No characters in cache'));
+      return const Left(CacheFailure(message: 'No characters in cache'));
     }
   }
 
@@ -94,7 +94,7 @@ class CharacterLocalDataSourceImpl implements CharacterLocalDataSource {
   Future<Either<Failure, void>> toggleFavoriteCharacter(ByIdParam param) async {
     final character = await _isar.instance.characters.get(param.id);
     if (character == null) {
-      return Left(CacheFailure(message: 'Character not found in cache'));
+      return const Left(CacheFailure(message: 'Character not found in cache'));
     }
     await cacheCharacter(
       CharacterModel.fromEntity(character)
@@ -103,7 +103,7 @@ class CharacterLocalDataSourceImpl implements CharacterLocalDataSource {
           )
           .toEntity(),
     );
-    return Right(null);
+    return const Right(null);
   }
 
   @override
@@ -114,7 +114,7 @@ class CharacterLocalDataSourceImpl implements CharacterLocalDataSource {
         .isFavoriteEqualTo(true)
         .findAll();
     if (characters.isEmpty) {
-      return Left(CacheFailure(message: 'No favorite characters in cache'));
+      return const Left(CacheFailure(message: 'No favorite characters in cache'));
     }
     return Right(characters);
   }

@@ -138,7 +138,7 @@ void main() {
 
           // Act
           final result = await episodeRepositoryImpl.getEpisode(
-            ByIdParam(id: 1),
+            const ByIdParam(id: 1),
           );
 
           // Assert
@@ -184,7 +184,7 @@ void main() {
 
           // Act
           final result = await episodeRepositoryImpl.toggleFavoriteEpisode(
-            ByIdParam(id: 100),
+            const ByIdParam(id: 100),
           );
 
           // Assert
@@ -219,7 +219,7 @@ void main() {
 
           // Act
           final result = await episodeRepositoryImpl.getFilteredEpisodes(
-            GetEpisodesByFilterParams(name: 'Rick'),
+            const GetEpisodesByFilterParams(name: 'Rick'),
           );
 
           // Assert
@@ -239,7 +239,7 @@ void main() {
 
           // Act
           final result = await episodeRepositoryImpl.getFilteredEpisodes(
-            GetEpisodesByFilterParams(name: 'Rick who does not exist'),
+            const GetEpisodesByFilterParams(name: 'Rick who does not exist'),
           );
 
           // Assert
@@ -278,7 +278,7 @@ void main() {
 
           // Act
           final result = await episodeRepositoryImpl.getMultipleEpisodes(
-            ByIdsParam(ids: [1, 2, 3]),
+            const ByIdsParam(ids: [1, 2, 3]),
           );
 
           // Assert
@@ -298,7 +298,7 @@ void main() {
 
           // Act
           final result = await episodeRepositoryImpl.getMultipleEpisodes(
-            ByIdsParam(ids: [1, 2, 3]),
+            const ByIdsParam(ids: [1, 2, 3]),
           );
 
           // Assert
@@ -395,7 +395,7 @@ void main() {
 
           // Act
           final result = await episodeRepositoryImpl.toggleFavoriteEpisode(
-            ByIdParam(id: 1),
+            const ByIdParam(id: 1),
           );
 
           // Assert

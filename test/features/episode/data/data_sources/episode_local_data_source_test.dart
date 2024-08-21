@@ -158,7 +158,7 @@ void main() {
 
         // Act
         final result = await episodeLocalDataSourceImpl.toggleFavoriteEpisode(
-          ByIdParam(id: 1),
+          const ByIdParam(id: 1),
         );
 
         // Assert

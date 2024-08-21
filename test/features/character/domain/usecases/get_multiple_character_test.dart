@@ -28,14 +28,14 @@ void main() {
           jsonReader('characters/all_character_raw.json'),
         )['results'] as List;
         when(mockCharacterRepository.getMultipleCharacters(
-          ByIdsParam(ids: [1, 2, 3]),
+          const ByIdsParam(ids: [1, 2, 3]),
         )).thenAnswer((_) async => Right(
               testCharacter.map((e) => CharacterModel.fromJson(e)).toList(),
             ));
 
         // act
         final result = await getCharacter(
-          ByIdsParam(ids: [1, 2, 3]),
+          const ByIdsParam(ids: [1, 2, 3]),
         );
 
         // assert
@@ -45,7 +45,7 @@ void main() {
           (r) => expect(r, isA<List<CharacterEntity>>()),
         );
         verify(mockCharacterRepository.getMultipleCharacters(
-          ByIdsParam(ids: [1, 2, 3]),
+          const ByIdsParam(ids: [1, 2, 3]),
         ));
         verifyNoMoreInteractions(mockCharacterRepository);
       },
@@ -56,12 +56,12 @@ void main() {
       () async {
         // arrange
         when(mockCharacterRepository.getMultipleCharacters(
-          ByIdsParam(ids: [1, 2, 3]),
-        )).thenAnswer((_) async => Left(ServerFailure()));
+          const ByIdsParam(ids: [1, 2, 3]),
+        )).thenAnswer((_) async => const Left(ServerFailure()));
 
         // act
         final result = await getCharacter(
-          ByIdsParam(ids: [1, 2, 3]),
+          const ByIdsParam(ids: [1, 2, 3]),
         );
 
         // assert
@@ -71,7 +71,7 @@ void main() {
           (r) => expect(r, isA<List<CharacterEntity>>()),
         );
         verify(mockCharacterRepository.getMultipleCharacters(
-          ByIdsParam(ids: [1, 2, 3]),
+          const ByIdsParam(ids: [1, 2, 3]),
         ));
         verifyNoMoreInteractions(mockCharacterRepository);
       },

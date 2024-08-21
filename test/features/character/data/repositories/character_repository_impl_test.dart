@@ -139,7 +139,7 @@ void main() {
 
           // Act
           final result = await characterRepositoryImpl.getCharacter(
-            ByIdParam(id: 1),
+            const ByIdParam(id: 1),
           );
 
           // Assert
@@ -185,7 +185,7 @@ void main() {
 
           // Act
           final result = await characterRepositoryImpl.toggleFavoriteCharacter(
-            ByIdParam(id: 100),
+            const ByIdParam(id: 100),
           );
 
           // Assert
@@ -221,7 +221,7 @@ void main() {
 
           // Act
           final result = await characterRepositoryImpl.getFilteredCharacters(
-            GetCharactersByFilterParams(name: 'Rick'),
+            const GetCharactersByFilterParams(name: 'Rick'),
           );
 
           // Assert
@@ -241,7 +241,7 @@ void main() {
 
           // Act
           final result = await characterRepositoryImpl.getFilteredCharacters(
-            GetCharactersByFilterParams(name: 'Rick who does not exist'),
+            const GetCharactersByFilterParams(name: 'Rick who does not exist'),
           );
 
           // Assert
@@ -281,7 +281,7 @@ void main() {
 
           // Act
           final result = await characterRepositoryImpl.getMultipleCharacters(
-            ByIdsParam(ids: [1, 2, 3]),
+            const ByIdsParam(ids: [1, 2, 3]),
           );
 
           // Assert
@@ -301,7 +301,7 @@ void main() {
 
           // Act
           final result = await characterRepositoryImpl.getMultipleCharacters(
-            ByIdsParam(ids: [1, 2, 3]),
+            const ByIdsParam(ids: [1, 2, 3]),
           );
 
           // Assert
@@ -398,7 +398,7 @@ void main() {
 
           // Act
           final result = await characterRepositoryImpl.toggleFavoriteCharacter(
-            ByIdParam(id: 1),
+            const ByIdParam(id: 1),
           );
 
           // Assert

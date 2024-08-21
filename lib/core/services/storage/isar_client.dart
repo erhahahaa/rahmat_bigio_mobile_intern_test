@@ -42,7 +42,7 @@ class IsarClient with Log {
     } catch (e) {
       final dir = Directory.current;
       final path = dir.path;
-      Log.failure('IS unit test ${isUnitTest}');
+      Log.failure('IS unit test $isUnitTest');
       Log.error('dir: $path');
       Log.error('Error creating Isar: $e');
       rethrow;

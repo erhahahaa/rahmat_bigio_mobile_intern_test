@@ -52,13 +52,13 @@ class LocationLocalDataSourceImpl implements LocationLocalDataSource {
       return await _isar.instance.locations.getAll(ids);
     });
     if (cachings.isEmpty) {
-      return Left(
+      return const Left(
         CacheFailure(message: 'Failed to caching locations'),
       );
     }
     for (final location in cachings) {
       if (location == null) {
-        return Left(
+        return const Left(
           CacheFailure(message: 'Failed to caching location'),
         );
       }
@@ -73,9 +73,9 @@ class LocationLocalDataSourceImpl implements LocationLocalDataSource {
     });
     final check = await _isar.instance.locations.count();
     if (check != 0) {
-      return Left(CacheFailure(message: 'Error clearing locations cache'));
+      return const Left(CacheFailure(message: 'Error clearing locations cache'));
     }
-    return Right(null);
+    return const Right(null);
   }
 
   @override
@@ -85,7 +85,7 @@ class LocationLocalDataSourceImpl implements LocationLocalDataSource {
     if (locations.isNotEmpty) {
       return Right(locations);
     } else {
-      return Left(CacheFailure(message: 'No locations in cache'));
+      return const Left(CacheFailure(message: 'No locations in cache'));
     }
   }
 
@@ -93,14 +93,14 @@ class LocationLocalDataSourceImpl implements LocationLocalDataSource {
   Future<Either<Failure, void>> toggleFavoriteLocation(ByIdParam param) async {
     final location = await _isar.instance.locations.get(param.id);
     if (location == null) {
-      return Left(CacheFailure(message: 'Location not found in cache'));
+      return const Left(CacheFailure(message: 'Location not found in cache'));
     }
     await cacheLocation(
       LocationModel.fromEntity(location)
           .copyWith(isFavorite: !location.isFavorite)
           .toEntity(),
     );
-    return Right(null);
+    return const Right(null);
   }
 
   @override
@@ -114,7 +114,7 @@ class LocationLocalDataSourceImpl implements LocationLocalDataSource {
     if (locations.isNotEmpty) {
       return Right(locations);
     } else {
-      return Left(CacheFailure(message: 'No favorite locations in cache'));
+      return const Left(CacheFailure(message: 'No favorite locations in cache'));
     }
   }
 }

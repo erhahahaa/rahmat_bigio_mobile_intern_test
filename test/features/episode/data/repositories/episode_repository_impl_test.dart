@@ -44,11 +44,14 @@ void main() {
         'SHOULD return a list of EpisodeModel WHEN the call is successful',
         () async {
           // Arrange
-          final testEpisodeList = (json.decode(
+          final jsonMap = json.decode(
             jsonReader('episodes/all_episode_raw.json'),
-          )['results'] as List)
-              .map((e) => EpisodeModel.fromJson(e))
-              .toList();
+          );
+
+          final testEpisodeList = WithPagination.fromJson(
+            jsonMap,
+            (jsonMap) => EpisodeModel.fromJson(jsonMap),
+          );
 
           when(dioClient.getRequest(
             ListAPI.EPISODE,
@@ -57,7 +60,8 @@ void main() {
             onReceiveProgress: anyNamed('onReceiveProgress'),
             cancelToken: anyNamed('cancelToken'),
           )).thenAnswer(
-            (_) async => Right<Failure, List<EpisodeModel>>(testEpisodeList),
+            (_) async =>
+                Right<Failure, WithPagination<EpisodeModel>>(testEpisodeList),
           );
 
           // Act
@@ -66,7 +70,7 @@ void main() {
           // Assert
           result.fold(
             (l) => expect(l, isA<Failure>()),
-            (r) => expect(r, isA<List<EpisodeEntity>>()),
+            (r) => expect(r, isA<WithPagination<EpisodeEntity>>()),
           );
 
           expect(true, result.isRight());
@@ -84,7 +88,7 @@ void main() {
           // Assert
           result.fold(
             (l) => expect(l, isA<Failure>()),
-            (r) => expect(r, isA<List<EpisodeEntity>>()),
+            (r) => expect(r, isA<WithPagination<EpisodeEntity>>()),
           );
 
           expect(true, result.isLeft());

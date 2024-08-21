@@ -44,11 +44,13 @@ void main() {
         'SHOULD return a list of LocationModel WHEN the call is successful',
         () async {
           // Arrange
-          final testLocationList = (json.decode(
+          final jsonMap = json.decode(
             jsonReader('locations/all_location_raw.json'),
-          )['results'] as List)
-              .map((e) => LocationModel.fromJson(e))
-              .toList();
+          );
+          final testLocationList = WithPagination.fromJson(
+            jsonMap,
+            (jsonMap) => LocationModel.fromJson(jsonMap),
+          );
 
           when(dioClient.getRequest(
             ListAPI.LOCATION,
@@ -57,7 +59,8 @@ void main() {
             onReceiveProgress: anyNamed('onReceiveProgress'),
             cancelToken: anyNamed('cancelToken'),
           )).thenAnswer(
-            (_) async => Right<Failure, List<LocationModel>>(testLocationList),
+            (_) async =>
+                Right<Failure, WithPagination<LocationModel>>(testLocationList),
           );
 
           // Act
@@ -66,7 +69,7 @@ void main() {
           // Assert
           result.fold(
             (l) => expect(l, isA<Failure>()),
-            (r) => expect(r, isA<List<LocationEntity>>()),
+            (r) => expect(r, isA<WithPagination<LocationEntity>>()),
           );
 
           expect(true, result.isRight());
@@ -84,7 +87,7 @@ void main() {
           // Assert
           result.fold(
             (l) => expect(l, isA<Failure>()),
-            (r) => expect(r, isA<List<LocationEntity>>()),
+            (r) => expect(r, isA<WithPagination<LocationEntity>>()),
           );
 
           expect(true, result.isLeft());

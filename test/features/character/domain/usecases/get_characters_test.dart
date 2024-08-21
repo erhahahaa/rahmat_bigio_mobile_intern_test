@@ -29,7 +29,7 @@ void main() {
         expect(result, isA<Right>());
         result.fold(
           (l) => expect(l, isA<Failure>()),
-          (r) => expect(r, isA<List<CharacterEntity>>()),
+          (r) => expect(r, isA<WithPagination<CharacterEntity>>()),
         );
         verify(mockCharacterRepository.getCharacters());
         verifyNoMoreInteractions(mockCharacterRepository);

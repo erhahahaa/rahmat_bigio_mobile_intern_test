@@ -44,11 +44,14 @@ void main() {
         'SHOULD return a list of CharacterModel WHEN the call is successful',
         () async {
           // Arrange
-          final testCharacterList = (json.decode(
+          final jsonMap = json.decode(
             jsonReader('characters/all_character_raw.json'),
-          )['results'] as List)
-              .map((e) => CharacterModel.fromJson(e))
-              .toList();
+          );
+
+          final testCharacterList = WithPagination.fromJson(
+            jsonMap,
+            (jsonMap) => CharacterModel.fromJson(jsonMap),
+          );
 
           when(dioClient.getRequest(
             ListAPI.CHARACTER,
@@ -57,8 +60,8 @@ void main() {
             onReceiveProgress: anyNamed('onReceiveProgress'),
             cancelToken: anyNamed('cancelToken'),
           )).thenAnswer(
-            (_) async =>
-                Right<Failure, List<CharacterModel>>(testCharacterList),
+            (_) async => Right<Failure, WithPagination<CharacterModel>>(
+                testCharacterList),
           );
 
           // Act
@@ -67,7 +70,7 @@ void main() {
           // Assert
           result.fold(
             (l) => expect(l, isA<Failure>()),
-            (r) => expect(r, isA<List<CharacterEntity>>()),
+            (r) => expect(r, isA<WithPagination<CharacterEntity>>()),
           );
 
           expect(true, result.isRight());
@@ -85,7 +88,7 @@ void main() {
           // Assert
           result.fold(
             (l) => expect(l, isA<Failure>()),
-            (r) => expect(r, isA<List<CharacterEntity>>()),
+            (r) => expect(r, isA<WithPagination<CharacterEntity>>()),
           );
 
           expect(true, result.isLeft());

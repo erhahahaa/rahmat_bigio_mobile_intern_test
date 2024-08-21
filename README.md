@@ -51,3 +51,7 @@ The project is organized into the following directories and files, reflecting a 
 ## <a name="apk-link"></a> APK Link :
 
 To try out the application, you can download the APK from the following link: [APK Download](https://drive.google.com/file/d/1aR4gZvPA5NUKlbyM9khExWhDWiZcyHr-/view?usp=sharing) or check release tab in this repository.
+
+## <a name="test-result-snippet"></a> Test Result Snippet :
+<!-- image -->
+![Test Result Snippet]()

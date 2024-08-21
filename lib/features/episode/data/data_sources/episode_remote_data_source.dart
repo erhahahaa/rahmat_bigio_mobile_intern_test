@@ -33,28 +33,27 @@ class EpisodeRemoteDataSourceImpl implements EpisodeRemoteDataSource {
       );
 
   @override
-  Future<Either<Failure, List<EpisodeModel>>> getEpisodes() => _dio.getRequest(
-        ListAPI.EPISODE,
-        converter: (json) => json['results']
-            .map(
-              (e) => EpisodeModel.fromJson(e),
-            )
-            .toList(),
-      );
+  Future<Either<Failure, List<EpisodeModel>>> getEpisodes() =>
+      _dio.getRequest(ListAPI.EPISODE, converter: (json) {
+        final List<EpisodeModel> episodes = [];
+        for (final item in json['results']) {
+          episodes.add(EpisodeModel.fromJson(item));
+        }
+        return episodes;
+      });
 
   @override
   Future<Either<Failure, List<EpisodeModel>>> getFilteredEpisodes(
     GetEpisodesByFilterParams params,
   ) =>
-      _dio.getRequest(
-        ListAPI.EPISODE,
-        queryParameters: params.toJson(),
-        converter: (json) => json['results']
-            .map(
-              (e) => EpisodeModel.fromJson(e),
-            )
-            .toList(),
-      );
+      _dio.getRequest(ListAPI.EPISODE, queryParameters: params.toJson(),
+          converter: (json) {
+        final List<EpisodeModel> episodes = [];
+        for (final item in json['results']) {
+          episodes.add(EpisodeModel.fromJson(item));
+        }
+        return episodes;
+      });
 
   @override
   Future<Either<Failure, List<EpisodeModel>>> getMultipleEpisodes(

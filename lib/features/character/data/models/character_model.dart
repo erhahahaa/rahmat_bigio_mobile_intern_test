@@ -74,15 +74,15 @@ class CharacterModel extends CharacterEntity with _$CharacterModel {
       gender: CharacterGender.unknown,
       origin: CharacterOriginModel(
         name: BoneMock.name,
-        url: BoneMock.paragraph,
+        url: CharacterOriginEntity.URL_FALLBACK,
       ),
       location: CharacterLocationModel(
         name: BoneMock.name,
-        url: BoneMock.paragraph,
+        url: CharacterLocationEntity.URL_FALLBACK,
       ),
-      image: BoneMock.name,
+      image: CharacterEntity.IMAGE_FALLBACK,
       episode: List.generate(5, (index) => BoneMock.name),
-      url: BoneMock.paragraph,
+      url: CharacterEntity.URL_FALLBACK,
       created: DateTime.now(),
     );
   }

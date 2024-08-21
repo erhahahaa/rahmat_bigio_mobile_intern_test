@@ -23,6 +23,9 @@ mixin _$CharacterEvent {
     required TResult Function(ByIdsParam param) getMultipleCharacters,
     required TResult Function(GetCharactersByFilterParams param)
         getFilteredCharacters,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteCharacters,
+    required TResult Function() restoreCharacters,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,6 +34,9 @@ mixin _$CharacterEvent {
     TResult? Function(ByIdParam param)? getCharactersById,
     TResult? Function(ByIdsParam param)? getMultipleCharacters,
     TResult? Function(GetCharactersByFilterParams param)? getFilteredCharacters,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteCharacters,
+    TResult? Function()? restoreCharacters,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,6 +45,9 @@ mixin _$CharacterEvent {
     TResult Function(ByIdParam param)? getCharactersById,
     TResult Function(ByIdsParam param)? getMultipleCharacters,
     TResult Function(GetCharactersByFilterParams param)? getFilteredCharacters,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteCharacters,
+    TResult Function()? restoreCharacters,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -50,6 +59,10 @@ mixin _$CharacterEvent {
         getMultipleCharacters,
     required TResult Function(_GetFilteredCharacters value)
         getFilteredCharacters,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteCharacters value)
+        getFavoriteCharacters,
+    required TResult Function(_RestoreCharacters value) restoreCharacters,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -58,6 +71,9 @@ mixin _$CharacterEvent {
     TResult? Function(_GetCharactersById value)? getCharactersById,
     TResult? Function(_GetMultipleCharacters value)? getMultipleCharacters,
     TResult? Function(_GetFilteredCharacters value)? getFilteredCharacters,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteCharacters value)? getFavoriteCharacters,
+    TResult? Function(_RestoreCharacters value)? restoreCharacters,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,6 +82,9 @@ mixin _$CharacterEvent {
     TResult Function(_GetCharactersById value)? getCharactersById,
     TResult Function(_GetMultipleCharacters value)? getMultipleCharacters,
     TResult Function(_GetFilteredCharacters value)? getFilteredCharacters,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteCharacters value)? getFavoriteCharacters,
+    TResult Function(_RestoreCharacters value)? restoreCharacters,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -138,6 +157,9 @@ class _$GetCharactersImpl implements _GetCharacters {
     required TResult Function(ByIdsParam param) getMultipleCharacters,
     required TResult Function(GetCharactersByFilterParams param)
         getFilteredCharacters,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteCharacters,
+    required TResult Function() restoreCharacters,
   }) {
     return getCharacters();
   }
@@ -149,6 +171,9 @@ class _$GetCharactersImpl implements _GetCharacters {
     TResult? Function(ByIdParam param)? getCharactersById,
     TResult? Function(ByIdsParam param)? getMultipleCharacters,
     TResult? Function(GetCharactersByFilterParams param)? getFilteredCharacters,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteCharacters,
+    TResult? Function()? restoreCharacters,
   }) {
     return getCharacters?.call();
   }
@@ -160,6 +185,9 @@ class _$GetCharactersImpl implements _GetCharacters {
     TResult Function(ByIdParam param)? getCharactersById,
     TResult Function(ByIdsParam param)? getMultipleCharacters,
     TResult Function(GetCharactersByFilterParams param)? getFilteredCharacters,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteCharacters,
+    TResult Function()? restoreCharacters,
     required TResult orElse(),
   }) {
     if (getCharacters != null) {
@@ -177,6 +205,10 @@ class _$GetCharactersImpl implements _GetCharacters {
         getMultipleCharacters,
     required TResult Function(_GetFilteredCharacters value)
         getFilteredCharacters,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteCharacters value)
+        getFavoriteCharacters,
+    required TResult Function(_RestoreCharacters value) restoreCharacters,
   }) {
     return getCharacters(this);
   }
@@ -188,6 +220,9 @@ class _$GetCharactersImpl implements _GetCharacters {
     TResult? Function(_GetCharactersById value)? getCharactersById,
     TResult? Function(_GetMultipleCharacters value)? getMultipleCharacters,
     TResult? Function(_GetFilteredCharacters value)? getFilteredCharacters,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteCharacters value)? getFavoriteCharacters,
+    TResult? Function(_RestoreCharacters value)? restoreCharacters,
   }) {
     return getCharacters?.call(this);
   }
@@ -199,6 +234,9 @@ class _$GetCharactersImpl implements _GetCharacters {
     TResult Function(_GetCharactersById value)? getCharactersById,
     TResult Function(_GetMultipleCharacters value)? getMultipleCharacters,
     TResult Function(_GetFilteredCharacters value)? getFilteredCharacters,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteCharacters value)? getFavoriteCharacters,
+    TResult Function(_RestoreCharacters value)? restoreCharacters,
     required TResult orElse(),
   }) {
     if (getCharacters != null) {
@@ -298,6 +336,9 @@ class _$GetCharactersByIdImpl implements _GetCharactersById {
     required TResult Function(ByIdsParam param) getMultipleCharacters,
     required TResult Function(GetCharactersByFilterParams param)
         getFilteredCharacters,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteCharacters,
+    required TResult Function() restoreCharacters,
   }) {
     return getCharactersById(param);
   }
@@ -309,6 +350,9 @@ class _$GetCharactersByIdImpl implements _GetCharactersById {
     TResult? Function(ByIdParam param)? getCharactersById,
     TResult? Function(ByIdsParam param)? getMultipleCharacters,
     TResult? Function(GetCharactersByFilterParams param)? getFilteredCharacters,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteCharacters,
+    TResult? Function()? restoreCharacters,
   }) {
     return getCharactersById?.call(param);
   }
@@ -320,6 +364,9 @@ class _$GetCharactersByIdImpl implements _GetCharactersById {
     TResult Function(ByIdParam param)? getCharactersById,
     TResult Function(ByIdsParam param)? getMultipleCharacters,
     TResult Function(GetCharactersByFilterParams param)? getFilteredCharacters,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteCharacters,
+    TResult Function()? restoreCharacters,
     required TResult orElse(),
   }) {
     if (getCharactersById != null) {
@@ -337,6 +384,10 @@ class _$GetCharactersByIdImpl implements _GetCharactersById {
         getMultipleCharacters,
     required TResult Function(_GetFilteredCharacters value)
         getFilteredCharacters,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteCharacters value)
+        getFavoriteCharacters,
+    required TResult Function(_RestoreCharacters value) restoreCharacters,
   }) {
     return getCharactersById(this);
   }
@@ -348,6 +399,9 @@ class _$GetCharactersByIdImpl implements _GetCharactersById {
     TResult? Function(_GetCharactersById value)? getCharactersById,
     TResult? Function(_GetMultipleCharacters value)? getMultipleCharacters,
     TResult? Function(_GetFilteredCharacters value)? getFilteredCharacters,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteCharacters value)? getFavoriteCharacters,
+    TResult? Function(_RestoreCharacters value)? restoreCharacters,
   }) {
     return getCharactersById?.call(this);
   }
@@ -359,6 +413,9 @@ class _$GetCharactersByIdImpl implements _GetCharactersById {
     TResult Function(_GetCharactersById value)? getCharactersById,
     TResult Function(_GetMultipleCharacters value)? getMultipleCharacters,
     TResult Function(_GetFilteredCharacters value)? getFilteredCharacters,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteCharacters value)? getFavoriteCharacters,
+    TResult Function(_RestoreCharacters value)? restoreCharacters,
     required TResult orElse(),
   }) {
     if (getCharactersById != null) {
@@ -468,6 +525,9 @@ class _$GetMultipleCharactersImpl implements _GetMultipleCharacters {
     required TResult Function(ByIdsParam param) getMultipleCharacters,
     required TResult Function(GetCharactersByFilterParams param)
         getFilteredCharacters,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteCharacters,
+    required TResult Function() restoreCharacters,
   }) {
     return getMultipleCharacters(param);
   }
@@ -479,6 +539,9 @@ class _$GetMultipleCharactersImpl implements _GetMultipleCharacters {
     TResult? Function(ByIdParam param)? getCharactersById,
     TResult? Function(ByIdsParam param)? getMultipleCharacters,
     TResult? Function(GetCharactersByFilterParams param)? getFilteredCharacters,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteCharacters,
+    TResult? Function()? restoreCharacters,
   }) {
     return getMultipleCharacters?.call(param);
   }
@@ -490,6 +553,9 @@ class _$GetMultipleCharactersImpl implements _GetMultipleCharacters {
     TResult Function(ByIdParam param)? getCharactersById,
     TResult Function(ByIdsParam param)? getMultipleCharacters,
     TResult Function(GetCharactersByFilterParams param)? getFilteredCharacters,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteCharacters,
+    TResult Function()? restoreCharacters,
     required TResult orElse(),
   }) {
     if (getMultipleCharacters != null) {
@@ -507,6 +573,10 @@ class _$GetMultipleCharactersImpl implements _GetMultipleCharacters {
         getMultipleCharacters,
     required TResult Function(_GetFilteredCharacters value)
         getFilteredCharacters,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteCharacters value)
+        getFavoriteCharacters,
+    required TResult Function(_RestoreCharacters value) restoreCharacters,
   }) {
     return getMultipleCharacters(this);
   }
@@ -518,6 +588,9 @@ class _$GetMultipleCharactersImpl implements _GetMultipleCharacters {
     TResult? Function(_GetCharactersById value)? getCharactersById,
     TResult? Function(_GetMultipleCharacters value)? getMultipleCharacters,
     TResult? Function(_GetFilteredCharacters value)? getFilteredCharacters,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteCharacters value)? getFavoriteCharacters,
+    TResult? Function(_RestoreCharacters value)? restoreCharacters,
   }) {
     return getMultipleCharacters?.call(this);
   }
@@ -529,6 +602,9 @@ class _$GetMultipleCharactersImpl implements _GetMultipleCharacters {
     TResult Function(_GetCharactersById value)? getCharactersById,
     TResult Function(_GetMultipleCharacters value)? getMultipleCharacters,
     TResult Function(_GetFilteredCharacters value)? getFilteredCharacters,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteCharacters value)? getFavoriteCharacters,
+    TResult Function(_RestoreCharacters value)? restoreCharacters,
     required TResult orElse(),
   }) {
     if (getMultipleCharacters != null) {
@@ -638,6 +714,9 @@ class _$GetFilteredCharactersImpl implements _GetFilteredCharacters {
     required TResult Function(ByIdsParam param) getMultipleCharacters,
     required TResult Function(GetCharactersByFilterParams param)
         getFilteredCharacters,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteCharacters,
+    required TResult Function() restoreCharacters,
   }) {
     return getFilteredCharacters(param);
   }
@@ -649,6 +728,9 @@ class _$GetFilteredCharactersImpl implements _GetFilteredCharacters {
     TResult? Function(ByIdParam param)? getCharactersById,
     TResult? Function(ByIdsParam param)? getMultipleCharacters,
     TResult? Function(GetCharactersByFilterParams param)? getFilteredCharacters,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteCharacters,
+    TResult? Function()? restoreCharacters,
   }) {
     return getFilteredCharacters?.call(param);
   }
@@ -660,6 +742,9 @@ class _$GetFilteredCharactersImpl implements _GetFilteredCharacters {
     TResult Function(ByIdParam param)? getCharactersById,
     TResult Function(ByIdsParam param)? getMultipleCharacters,
     TResult Function(GetCharactersByFilterParams param)? getFilteredCharacters,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteCharacters,
+    TResult Function()? restoreCharacters,
     required TResult orElse(),
   }) {
     if (getFilteredCharacters != null) {
@@ -677,6 +762,10 @@ class _$GetFilteredCharactersImpl implements _GetFilteredCharacters {
         getMultipleCharacters,
     required TResult Function(_GetFilteredCharacters value)
         getFilteredCharacters,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteCharacters value)
+        getFavoriteCharacters,
+    required TResult Function(_RestoreCharacters value) restoreCharacters,
   }) {
     return getFilteredCharacters(this);
   }
@@ -688,6 +777,9 @@ class _$GetFilteredCharactersImpl implements _GetFilteredCharacters {
     TResult? Function(_GetCharactersById value)? getCharactersById,
     TResult? Function(_GetMultipleCharacters value)? getMultipleCharacters,
     TResult? Function(_GetFilteredCharacters value)? getFilteredCharacters,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteCharacters value)? getFavoriteCharacters,
+    TResult? Function(_RestoreCharacters value)? restoreCharacters,
   }) {
     return getFilteredCharacters?.call(this);
   }
@@ -699,6 +791,9 @@ class _$GetFilteredCharactersImpl implements _GetFilteredCharacters {
     TResult Function(_GetCharactersById value)? getCharactersById,
     TResult Function(_GetMultipleCharacters value)? getMultipleCharacters,
     TResult Function(_GetFilteredCharacters value)? getFilteredCharacters,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteCharacters value)? getFavoriteCharacters,
+    TResult Function(_RestoreCharacters value)? restoreCharacters,
     required TResult orElse(),
   }) {
     if (getFilteredCharacters != null) {
@@ -722,14 +817,479 @@ abstract class _GetFilteredCharacters implements CharacterEvent {
 }
 
 /// @nodoc
+abstract class _$$ToggleFavoriteImplCopyWith<$Res> {
+  factory _$$ToggleFavoriteImplCopyWith(_$ToggleFavoriteImpl value,
+          $Res Function(_$ToggleFavoriteImpl) then) =
+      __$$ToggleFavoriteImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ByIdParam param});
+
+  $ByIdParamCopyWith<$Res> get param;
+}
+
+/// @nodoc
+class __$$ToggleFavoriteImplCopyWithImpl<$Res>
+    extends _$CharacterEventCopyWithImpl<$Res, _$ToggleFavoriteImpl>
+    implements _$$ToggleFavoriteImplCopyWith<$Res> {
+  __$$ToggleFavoriteImplCopyWithImpl(
+      _$ToggleFavoriteImpl _value, $Res Function(_$ToggleFavoriteImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CharacterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? param = null,
+  }) {
+    return _then(_$ToggleFavoriteImpl(
+      null == param
+          ? _value.param
+          : param // ignore: cast_nullable_to_non_nullable
+              as ByIdParam,
+    ));
+  }
+
+  /// Create a copy of CharacterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ByIdParamCopyWith<$Res> get param {
+    return $ByIdParamCopyWith<$Res>(_value.param, (value) {
+      return _then(_value.copyWith(param: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$ToggleFavoriteImpl implements _ToggleFavorite {
+  const _$ToggleFavoriteImpl(this.param);
+
+  @override
+  final ByIdParam param;
+
+  @override
+  String toString() {
+    return 'CharacterEvent.toggleFavorite(param: $param)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ToggleFavoriteImpl &&
+            (identical(other.param, param) || other.param == param));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, param);
+
+  /// Create a copy of CharacterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ToggleFavoriteImplCopyWith<_$ToggleFavoriteImpl> get copyWith =>
+      __$$ToggleFavoriteImplCopyWithImpl<_$ToggleFavoriteImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getCharacters,
+    required TResult Function(ByIdParam param) getCharactersById,
+    required TResult Function(ByIdsParam param) getMultipleCharacters,
+    required TResult Function(GetCharactersByFilterParams param)
+        getFilteredCharacters,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteCharacters,
+    required TResult Function() restoreCharacters,
+  }) {
+    return toggleFavorite(param);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getCharacters,
+    TResult? Function(ByIdParam param)? getCharactersById,
+    TResult? Function(ByIdsParam param)? getMultipleCharacters,
+    TResult? Function(GetCharactersByFilterParams param)? getFilteredCharacters,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteCharacters,
+    TResult? Function()? restoreCharacters,
+  }) {
+    return toggleFavorite?.call(param);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getCharacters,
+    TResult Function(ByIdParam param)? getCharactersById,
+    TResult Function(ByIdsParam param)? getMultipleCharacters,
+    TResult Function(GetCharactersByFilterParams param)? getFilteredCharacters,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteCharacters,
+    TResult Function()? restoreCharacters,
+    required TResult orElse(),
+  }) {
+    if (toggleFavorite != null) {
+      return toggleFavorite(param);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetCharacters value) getCharacters,
+    required TResult Function(_GetCharactersById value) getCharactersById,
+    required TResult Function(_GetMultipleCharacters value)
+        getMultipleCharacters,
+    required TResult Function(_GetFilteredCharacters value)
+        getFilteredCharacters,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteCharacters value)
+        getFavoriteCharacters,
+    required TResult Function(_RestoreCharacters value) restoreCharacters,
+  }) {
+    return toggleFavorite(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetCharacters value)? getCharacters,
+    TResult? Function(_GetCharactersById value)? getCharactersById,
+    TResult? Function(_GetMultipleCharacters value)? getMultipleCharacters,
+    TResult? Function(_GetFilteredCharacters value)? getFilteredCharacters,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteCharacters value)? getFavoriteCharacters,
+    TResult? Function(_RestoreCharacters value)? restoreCharacters,
+  }) {
+    return toggleFavorite?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCharacters value)? getCharacters,
+    TResult Function(_GetCharactersById value)? getCharactersById,
+    TResult Function(_GetMultipleCharacters value)? getMultipleCharacters,
+    TResult Function(_GetFilteredCharacters value)? getFilteredCharacters,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteCharacters value)? getFavoriteCharacters,
+    TResult Function(_RestoreCharacters value)? restoreCharacters,
+    required TResult orElse(),
+  }) {
+    if (toggleFavorite != null) {
+      return toggleFavorite(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ToggleFavorite implements CharacterEvent {
+  const factory _ToggleFavorite(final ByIdParam param) = _$ToggleFavoriteImpl;
+
+  ByIdParam get param;
+
+  /// Create a copy of CharacterEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ToggleFavoriteImplCopyWith<_$ToggleFavoriteImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetFavoriteCharactersImplCopyWith<$Res> {
+  factory _$$GetFavoriteCharactersImplCopyWith(
+          _$GetFavoriteCharactersImpl value,
+          $Res Function(_$GetFavoriteCharactersImpl) then) =
+      __$$GetFavoriteCharactersImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetFavoriteCharactersImplCopyWithImpl<$Res>
+    extends _$CharacterEventCopyWithImpl<$Res, _$GetFavoriteCharactersImpl>
+    implements _$$GetFavoriteCharactersImplCopyWith<$Res> {
+  __$$GetFavoriteCharactersImplCopyWithImpl(_$GetFavoriteCharactersImpl _value,
+      $Res Function(_$GetFavoriteCharactersImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CharacterEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$GetFavoriteCharactersImpl implements _GetFavoriteCharacters {
+  const _$GetFavoriteCharactersImpl();
+
+  @override
+  String toString() {
+    return 'CharacterEvent.getFavoriteCharacters()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetFavoriteCharactersImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getCharacters,
+    required TResult Function(ByIdParam param) getCharactersById,
+    required TResult Function(ByIdsParam param) getMultipleCharacters,
+    required TResult Function(GetCharactersByFilterParams param)
+        getFilteredCharacters,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteCharacters,
+    required TResult Function() restoreCharacters,
+  }) {
+    return getFavoriteCharacters();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getCharacters,
+    TResult? Function(ByIdParam param)? getCharactersById,
+    TResult? Function(ByIdsParam param)? getMultipleCharacters,
+    TResult? Function(GetCharactersByFilterParams param)? getFilteredCharacters,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteCharacters,
+    TResult? Function()? restoreCharacters,
+  }) {
+    return getFavoriteCharacters?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getCharacters,
+    TResult Function(ByIdParam param)? getCharactersById,
+    TResult Function(ByIdsParam param)? getMultipleCharacters,
+    TResult Function(GetCharactersByFilterParams param)? getFilteredCharacters,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteCharacters,
+    TResult Function()? restoreCharacters,
+    required TResult orElse(),
+  }) {
+    if (getFavoriteCharacters != null) {
+      return getFavoriteCharacters();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetCharacters value) getCharacters,
+    required TResult Function(_GetCharactersById value) getCharactersById,
+    required TResult Function(_GetMultipleCharacters value)
+        getMultipleCharacters,
+    required TResult Function(_GetFilteredCharacters value)
+        getFilteredCharacters,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteCharacters value)
+        getFavoriteCharacters,
+    required TResult Function(_RestoreCharacters value) restoreCharacters,
+  }) {
+    return getFavoriteCharacters(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetCharacters value)? getCharacters,
+    TResult? Function(_GetCharactersById value)? getCharactersById,
+    TResult? Function(_GetMultipleCharacters value)? getMultipleCharacters,
+    TResult? Function(_GetFilteredCharacters value)? getFilteredCharacters,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteCharacters value)? getFavoriteCharacters,
+    TResult? Function(_RestoreCharacters value)? restoreCharacters,
+  }) {
+    return getFavoriteCharacters?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCharacters value)? getCharacters,
+    TResult Function(_GetCharactersById value)? getCharactersById,
+    TResult Function(_GetMultipleCharacters value)? getMultipleCharacters,
+    TResult Function(_GetFilteredCharacters value)? getFilteredCharacters,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteCharacters value)? getFavoriteCharacters,
+    TResult Function(_RestoreCharacters value)? restoreCharacters,
+    required TResult orElse(),
+  }) {
+    if (getFavoriteCharacters != null) {
+      return getFavoriteCharacters(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetFavoriteCharacters implements CharacterEvent {
+  const factory _GetFavoriteCharacters() = _$GetFavoriteCharactersImpl;
+}
+
+/// @nodoc
+abstract class _$$RestoreCharactersImplCopyWith<$Res> {
+  factory _$$RestoreCharactersImplCopyWith(_$RestoreCharactersImpl value,
+          $Res Function(_$RestoreCharactersImpl) then) =
+      __$$RestoreCharactersImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RestoreCharactersImplCopyWithImpl<$Res>
+    extends _$CharacterEventCopyWithImpl<$Res, _$RestoreCharactersImpl>
+    implements _$$RestoreCharactersImplCopyWith<$Res> {
+  __$$RestoreCharactersImplCopyWithImpl(_$RestoreCharactersImpl _value,
+      $Res Function(_$RestoreCharactersImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of CharacterEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$RestoreCharactersImpl implements _RestoreCharacters {
+  const _$RestoreCharactersImpl();
+
+  @override
+  String toString() {
+    return 'CharacterEvent.restoreCharacters()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RestoreCharactersImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getCharacters,
+    required TResult Function(ByIdParam param) getCharactersById,
+    required TResult Function(ByIdsParam param) getMultipleCharacters,
+    required TResult Function(GetCharactersByFilterParams param)
+        getFilteredCharacters,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteCharacters,
+    required TResult Function() restoreCharacters,
+  }) {
+    return restoreCharacters();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getCharacters,
+    TResult? Function(ByIdParam param)? getCharactersById,
+    TResult? Function(ByIdsParam param)? getMultipleCharacters,
+    TResult? Function(GetCharactersByFilterParams param)? getFilteredCharacters,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteCharacters,
+    TResult? Function()? restoreCharacters,
+  }) {
+    return restoreCharacters?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getCharacters,
+    TResult Function(ByIdParam param)? getCharactersById,
+    TResult Function(ByIdsParam param)? getMultipleCharacters,
+    TResult Function(GetCharactersByFilterParams param)? getFilteredCharacters,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteCharacters,
+    TResult Function()? restoreCharacters,
+    required TResult orElse(),
+  }) {
+    if (restoreCharacters != null) {
+      return restoreCharacters();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetCharacters value) getCharacters,
+    required TResult Function(_GetCharactersById value) getCharactersById,
+    required TResult Function(_GetMultipleCharacters value)
+        getMultipleCharacters,
+    required TResult Function(_GetFilteredCharacters value)
+        getFilteredCharacters,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteCharacters value)
+        getFavoriteCharacters,
+    required TResult Function(_RestoreCharacters value) restoreCharacters,
+  }) {
+    return restoreCharacters(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetCharacters value)? getCharacters,
+    TResult? Function(_GetCharactersById value)? getCharactersById,
+    TResult? Function(_GetMultipleCharacters value)? getMultipleCharacters,
+    TResult? Function(_GetFilteredCharacters value)? getFilteredCharacters,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteCharacters value)? getFavoriteCharacters,
+    TResult? Function(_RestoreCharacters value)? restoreCharacters,
+  }) {
+    return restoreCharacters?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetCharacters value)? getCharacters,
+    TResult Function(_GetCharactersById value)? getCharactersById,
+    TResult Function(_GetMultipleCharacters value)? getMultipleCharacters,
+    TResult Function(_GetFilteredCharacters value)? getFilteredCharacters,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteCharacters value)? getFavoriteCharacters,
+    TResult Function(_RestoreCharacters value)? restoreCharacters,
+    required TResult orElse(),
+  }) {
+    if (restoreCharacters != null) {
+      return restoreCharacters(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RestoreCharacters implements CharacterEvent {
+  const factory _RestoreCharacters() = _$RestoreCharactersImpl;
+}
+
+/// @nodoc
 mixin _$CharacterState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CharacterEntity> characters,
-            List<CharacterEntity> filteredCharacters)
-        loaded,
+    required TResult Function(List<CharacterEntity> characters) loaded,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -737,9 +1297,7 @@ mixin _$CharacterState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CharacterEntity> characters,
-            List<CharacterEntity> filteredCharacters)?
-        loaded,
+    TResult? Function(List<CharacterEntity> characters)? loaded,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -747,9 +1305,7 @@ mixin _$CharacterState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CharacterEntity> characters,
-            List<CharacterEntity> filteredCharacters)?
-        loaded,
+    TResult Function(List<CharacterEntity> characters)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -847,9 +1403,7 @@ class _$CharacterStateInitialImpl implements CharacterStateInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CharacterEntity> characters,
-            List<CharacterEntity> filteredCharacters)
-        loaded,
+    required TResult Function(List<CharacterEntity> characters) loaded,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -860,9 +1414,7 @@ class _$CharacterStateInitialImpl implements CharacterStateInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CharacterEntity> characters,
-            List<CharacterEntity> filteredCharacters)?
-        loaded,
+    TResult? Function(List<CharacterEntity> characters)? loaded,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -873,9 +1425,7 @@ class _$CharacterStateInitialImpl implements CharacterStateInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CharacterEntity> characters,
-            List<CharacterEntity> filteredCharacters)?
-        loaded,
+    TResult Function(List<CharacterEntity> characters)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -972,9 +1522,7 @@ class _$CharacterStateLoadingImpl implements CharacterStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CharacterEntity> characters,
-            List<CharacterEntity> filteredCharacters)
-        loaded,
+    required TResult Function(List<CharacterEntity> characters) loaded,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -985,9 +1533,7 @@ class _$CharacterStateLoadingImpl implements CharacterStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CharacterEntity> characters,
-            List<CharacterEntity> filteredCharacters)?
-        loaded,
+    TResult? Function(List<CharacterEntity> characters)? loaded,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -998,9 +1544,7 @@ class _$CharacterStateLoadingImpl implements CharacterStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CharacterEntity> characters,
-            List<CharacterEntity> filteredCharacters)?
-        loaded,
+    TResult Function(List<CharacterEntity> characters)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -1058,9 +1602,7 @@ abstract class _$$CharacterStateLoadedImplCopyWith<$Res> {
           $Res Function(_$CharacterStateLoadedImpl) then) =
       __$$CharacterStateLoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call(
-      {List<CharacterEntity> characters,
-      List<CharacterEntity> filteredCharacters});
+  $Res call({List<CharacterEntity> characters});
 }
 
 /// @nodoc
@@ -1077,16 +1619,11 @@ class __$$CharacterStateLoadedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? characters = null,
-    Object? filteredCharacters = null,
   }) {
     return _then(_$CharacterStateLoadedImpl(
       null == characters
           ? _value._characters
           : characters // ignore: cast_nullable_to_non_nullable
-              as List<CharacterEntity>,
-      null == filteredCharacters
-          ? _value._filteredCharacters
-          : filteredCharacters // ignore: cast_nullable_to_non_nullable
               as List<CharacterEntity>,
     ));
   }
@@ -1095,10 +1632,8 @@ class __$$CharacterStateLoadedImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$CharacterStateLoadedImpl implements CharacterStateLoaded {
-  const _$CharacterStateLoadedImpl(final List<CharacterEntity> characters,
-      final List<CharacterEntity> filteredCharacters)
-      : _characters = characters,
-        _filteredCharacters = filteredCharacters;
+  const _$CharacterStateLoadedImpl(final List<CharacterEntity> characters)
+      : _characters = characters;
 
   final List<CharacterEntity> _characters;
   @override
@@ -1108,18 +1643,9 @@ class _$CharacterStateLoadedImpl implements CharacterStateLoaded {
     return EqualUnmodifiableListView(_characters);
   }
 
-  final List<CharacterEntity> _filteredCharacters;
-  @override
-  List<CharacterEntity> get filteredCharacters {
-    if (_filteredCharacters is EqualUnmodifiableListView)
-      return _filteredCharacters;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_filteredCharacters);
-  }
-
   @override
   String toString() {
-    return 'CharacterState.loaded(characters: $characters, filteredCharacters: $filteredCharacters)';
+    return 'CharacterState.loaded(characters: $characters)';
   }
 
   @override
@@ -1128,16 +1654,12 @@ class _$CharacterStateLoadedImpl implements CharacterStateLoaded {
         (other.runtimeType == runtimeType &&
             other is _$CharacterStateLoadedImpl &&
             const DeepCollectionEquality()
-                .equals(other._characters, _characters) &&
-            const DeepCollectionEquality()
-                .equals(other._filteredCharacters, _filteredCharacters));
+                .equals(other._characters, _characters));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_characters),
-      const DeepCollectionEquality().hash(_filteredCharacters));
+      runtimeType, const DeepCollectionEquality().hash(_characters));
 
   /// Create a copy of CharacterState
   /// with the given fields replaced by the non-null parameter values.
@@ -1154,12 +1676,10 @@ class _$CharacterStateLoadedImpl implements CharacterStateLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CharacterEntity> characters,
-            List<CharacterEntity> filteredCharacters)
-        loaded,
+    required TResult Function(List<CharacterEntity> characters) loaded,
     required TResult Function(String message) error,
   }) {
-    return loaded(characters, filteredCharacters);
+    return loaded(characters);
   }
 
   @override
@@ -1167,12 +1687,10 @@ class _$CharacterStateLoadedImpl implements CharacterStateLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CharacterEntity> characters,
-            List<CharacterEntity> filteredCharacters)?
-        loaded,
+    TResult? Function(List<CharacterEntity> characters)? loaded,
     TResult? Function(String message)? error,
   }) {
-    return loaded?.call(characters, filteredCharacters);
+    return loaded?.call(characters);
   }
 
   @override
@@ -1180,14 +1698,12 @@ class _$CharacterStateLoadedImpl implements CharacterStateLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CharacterEntity> characters,
-            List<CharacterEntity> filteredCharacters)?
-        loaded,
+    TResult Function(List<CharacterEntity> characters)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
-      return loaded(characters, filteredCharacters);
+      return loaded(characters);
     }
     return orElse();
   }
@@ -1231,12 +1747,10 @@ class _$CharacterStateLoadedImpl implements CharacterStateLoaded {
 }
 
 abstract class CharacterStateLoaded implements CharacterState {
-  const factory CharacterStateLoaded(final List<CharacterEntity> characters,
-          final List<CharacterEntity> filteredCharacters) =
+  const factory CharacterStateLoaded(final List<CharacterEntity> characters) =
       _$CharacterStateLoadedImpl;
 
   List<CharacterEntity> get characters;
-  List<CharacterEntity> get filteredCharacters;
 
   /// Create a copy of CharacterState
   /// with the given fields replaced by the non-null parameter values.
@@ -1316,9 +1830,7 @@ class _$CharacterStateErrorImpl implements CharacterStateError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<CharacterEntity> characters,
-            List<CharacterEntity> filteredCharacters)
-        loaded,
+    required TResult Function(List<CharacterEntity> characters) loaded,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -1329,9 +1841,7 @@ class _$CharacterStateErrorImpl implements CharacterStateError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<CharacterEntity> characters,
-            List<CharacterEntity> filteredCharacters)?
-        loaded,
+    TResult? Function(List<CharacterEntity> characters)? loaded,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -1342,9 +1852,7 @@ class _$CharacterStateErrorImpl implements CharacterStateError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<CharacterEntity> characters,
-            List<CharacterEntity> filteredCharacters)?
-        loaded,
+    TResult Function(List<CharacterEntity> characters)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {

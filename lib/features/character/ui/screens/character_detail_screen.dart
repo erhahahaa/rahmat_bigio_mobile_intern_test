@@ -1,0 +1,104 @@
+import 'package:auto_route/auto_route.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:gap/gap.dart';
+import 'package:rick_morty/core/core.dart';
+import 'package:rick_morty/features/features.dart';
+import 'package:rick_morty/utils/utils.dart';
+
+@RoutePage()
+class CharacterDetailScreen extends StatefulWidget {
+  final int id;
+  final CharacterEntity character;
+
+  const CharacterDetailScreen({
+    super.key,
+    @pathParam required this.id,
+    required this.character,
+  });
+
+  @override
+  State<CharacterDetailScreen> createState() => _CharacterDetailScreenState();
+}
+
+class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
+  bool isFavorite = false;
+
+  @override
+  void initState() {
+    super.initState();
+    isFavorite = widget.character.isFavorite;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Parent(
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar(
+            expandedHeight: 150.h,
+            pinned: true,
+            flexibleSpace: FlexibleSpaceBar(
+              background: CachedNetworkImage(
+                imageUrl: widget.character.image,
+                fit: BoxFit.cover,
+                colorBlendMode: BlendMode.darken,
+                color: Colors.black.withOpacity(0.5),
+              ),
+              title: TitleLarge(widget.character.name),
+            ),
+            actions: [
+              IconButton(
+                icon: Icon(
+                  isFavorite ? Icons.favorite : Icons.favorite_border,
+                  color: isFavorite ? Colors.red : Colors.white,
+                ),
+                onPressed: () {
+                  setState(() {
+                    isFavorite = !isFavorite;
+                  });
+                  context.read<CharacterBloc>().add(
+                        CharacterEvent.toggleFavorite(
+                          ByIdParam(id: widget.character.id),
+                        ),
+                      );
+                },
+              ),
+            ],
+          ),
+          SliverPadding(
+            padding: EdgeInsets.symmetric(horizontal: 8.w),
+            sliver: SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  Gap(8.h),
+                  TitleMedium('Status'),
+                  Gap(4.h),
+                  Text(widget.character.status.value),
+                  Gap(8.h),
+                  TitleMedium('Species'),
+                  Gap(4.h),
+                  Text(widget.character.species),
+                  Gap(8.h),
+                  TitleMedium('Gender'),
+                  Text(widget.character.gender.value),
+                  Gap(8.h),
+                  TitleMedium('Origin'),
+                  Gap(4.h),
+                  Text(widget.character.origin.name),
+                  Gap(8.h),
+                  TitleMedium('Location'),
+                  Gap(4.h),
+                  Text(widget.character.location.name),
+                  Gap(8.h),
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

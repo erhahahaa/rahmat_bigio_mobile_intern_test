@@ -28,6 +28,10 @@ enum CharacterGender {
 
 @Collection(accessor: 'characters')
 class CharacterEntity {
+  static const URL_FALLBACK = 'https://rickandmortyapi.com/api/character/1';
+  static const IMAGE_FALLBACK =
+      'https://rickandmortyapi.com/api/character/avatar/1.jpeg';
+
   final Id id;
   final String name;
   @enumerated
@@ -63,6 +67,8 @@ class CharacterEntity {
 
 @embedded
 class CharacterOriginEntity {
+  static const URL_FALLBACK = 'https://rickandmortyapi.com/api/location/1';
+
   final String name;
   final String url;
 
@@ -74,6 +80,8 @@ class CharacterOriginEntity {
 
 @embedded
 class CharacterLocationEntity {
+  static const URL_FALLBACK = 'https://rickandmortyapi.com/api/location/1';
+
   final String name;
   final String url;
 

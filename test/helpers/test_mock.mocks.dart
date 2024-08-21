@@ -154,22 +154,22 @@ class MockCharacterRepository extends _i1.Mock
           ) as _i4.Future<_i2.Either<_i5.Failure, List<_i3.CharacterEntity>>>);
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, void>> toggleFavoriteCharacter(
-          _i6.ByIdParam? param) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #toggleFavoriteCharacter,
-          [param],
-        ),
-        returnValue: _i4.Future<_i2.Either<_i5.Failure, void>>.value(
-            _FakeEither_0<_i5.Failure, void>(
-          this,
-          Invocation.method(
-            #toggleFavoriteCharacter,
-            [param],
-          ),
-        )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
+  _i4.Future<_i2.Either<_i5.Failure, _i3.CharacterEntity>>
+      toggleFavoriteCharacter(_i6.ByIdParam? param) => (super.noSuchMethod(
+            Invocation.method(
+              #toggleFavoriteCharacter,
+              [param],
+            ),
+            returnValue:
+                _i4.Future<_i2.Either<_i5.Failure, _i3.CharacterEntity>>.value(
+                    _FakeEither_0<_i5.Failure, _i3.CharacterEntity>(
+              this,
+              Invocation.method(
+                #toggleFavoriteCharacter,
+                [param],
+              ),
+            )),
+          ) as _i4.Future<_i2.Either<_i5.Failure, _i3.CharacterEntity>>);
 
   @override
   _i4.Future<_i2.Either<_i5.Failure, void>> clearCache() => (super.noSuchMethod(

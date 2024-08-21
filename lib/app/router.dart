@@ -10,24 +10,48 @@ class AppRouter extends RootStackRouter {
 
   @override
   List<AutoRoute> get routes => [
-        RedirectRoute(
-          path: '/',
-          redirectTo: '/character',
-        ),
         AutoRoute(
-          initial: true,
-          path: '/character',
-          page: HomeRoute.page,
+          path: '/',
+          page: DashboardRoute.page,
           children: [
             AutoRoute(
-              path: ':id',
-              page: DetailCharacterRoute.page,
+              initial: true,
+              path: 'character',
+              page: HomeRoute.page,
             ),
             AutoRoute(
-              path: 'search',
-              page: SearchCharacterRoute.page,
+              path: 'episode',
+              page: EpisodeRoute.page,
+            ),
+            AutoRoute(
+              path: 'location',
+              page: LocationRoute.page,
             ),
           ],
+        ),
+        AutoRoute(
+          path: '/character/:id',
+          page: CharacterDetailRoute.page,
+        ),
+        AutoRoute(
+          path: '/character/search',
+          page: SearchCharacterRoute.page,
+        ),
+        AutoRoute(
+          path: '/episode/:id',
+          page: EpisodeDetailRoute.page,
+        ),
+        AutoRoute(
+          path: '/episode/search',
+          page: SearchEpisodeRoute.page,
+        ),
+        AutoRoute(
+          path: '/location/:id',
+          page: LocationDetailRoute.page,
+        ),
+        AutoRoute(
+          path: '/location/search',
+          page: SearchLocationRoute.page,
         ),
       ];
 }

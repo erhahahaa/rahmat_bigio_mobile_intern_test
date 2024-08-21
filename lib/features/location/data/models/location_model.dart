@@ -45,4 +45,16 @@ class LocationModel extends LocationEntity with _$LocationModel {
         created: created,
         isFavorite: isFavorite,
       );
+
+  static LocationModel fake() {
+    return LocationModel(
+      id: 1,
+      name: 'Earth (C-137)',
+      type: 'Planet',
+      dimension: 'Dimension C-137',
+      residents: ['https://rickandmortyapi.com/api/character/1'],
+      url: 'https://rickandmortyapi.com/api/location/1',
+      created: DateTime.now(),
+    );
+  }
 }

@@ -1,123 +1,98 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:moon_design/moon_design.dart';
 import 'package:rick_morty/app/router.gr.dart';
-import 'package:rick_morty/app/sl.dart';
 import 'package:rick_morty/core/core.dart';
 import 'package:rick_morty/features/features.dart';
 
 @RoutePage()
-class HomeScreen extends StatelessWidget implements AutoRouteWrapper {
-  @override
-  Widget wrappedRoute(BuildContext context) {
-    return BlocProvider(
-      create: (context) => sl<CharacterBloc>()
-        ..add(
-          CharacterEvent.getCharacters(),
-        ),
-      child: this,
-    );
-  }
-
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Parent(
-      appBar: AppBar(
-        title: Text(AppConstants.APP_NAME),
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 8.w),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              TitleLarge('Meta'),
-              Gap(4.h),
-              _buildInfo(context),
-              Gap(12.h),
-              TitleLarge('Characters'),
-              Gap(4.h),
-              SizedBox(
-                height: 400.h,
-                child: _buildList(context),
+      appBar: SearchAppBar(
+        onSearch: (value) {
+          context.router.push(
+            SearchCharacterRoute(
+              params: GetCharactersByFilterParams(
+                name: value,
               ),
-            ],
-          ),
-        ),
+            ),
+          );
+        },
       ),
-    );
-  }
-
-  Widget _buildInfo(BuildContext context) {
-    return BlocBuilder<CharacterBloc, CharacterState>(
-      builder: (context, state) {
-        final List<CharacterEntity> characters = [];
-        if (state is CharacterStateLoaded) {
-          characters.addAll(state.characters);
-        }
-
-        return BoxWrapper(
-          child: Row(
-            children: [
-              BoxWrapper(
-                child: Column(
-                  children: [
-                    TitleLarge(characters.length.toString()),
-                    BodySmall('Characters'),
-                  ],
-                ),
-              )
-            ],
-          ),
-        );
-      },
-    );
-  }
-
-  Widget _buildList(BuildContext context) {
-    return BlocBuilder<CharacterBloc, CharacterState>(
-      builder: (context, state) {
-        final List<CharacterEntity> characters = [];
-        if (state is CharacterStateLoaded) {
-          characters.addAll(state.characters);
-        }
-
-        return BoxWrapper(
-          child: ListWrapper<CharacterEntity>(
-            items: characters,
-            itemBuilder: (character) {
-              return BoxWrapper(
-                padding: EdgeInsets.all(4.w),
-                margin: EdgeInsets.symmetric(vertical: 4.h),
-                color: context.moonColors?.frieza.withOpacity(0.05),
-                child: ListTile(
-                  leading: CachedNetworkImage(
-                    imageUrl: character.image,
-                    width: 36.h,
-                    height: 36.h,
-                    imageBuilder: (context, imageProvider) => CircleAvatar(
-                      backgroundImage: imageProvider,
-                    ),
-                  ),
-                  title: Text(character.name),
-                  subtitle: Text(character.status.value),
-                  onTap: () {
-                    context.router.push(
-                      DetailCharacterRoute(id: character.id),
+      body: RefreshIndicator(
+        onRefresh: () async {
+          context.read<CharacterBloc>().add(
+                const CharacterEvent.getCharacters(),
+              );
+        },
+        child: SingleChildScrollView(
+          physics: const AlwaysScrollableScrollPhysics(),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 8.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Gap(8.h),
+                BlocBuilder<CharacterBloc, CharacterState>(
+                  builder: (context, state) {
+                    final int count = state is CharacterStateLoaded
+                        ? state.characters.length
+                        : 0;
+                    return Row(
+                      children: [
+                        TitleLarge('Characters ($count)'),
+                        const Spacer(),
+                        IconButton(
+                          icon: Icon(Icons.refresh),
+                          onPressed: () {
+                            context.read<CharacterBloc>().add(
+                                  const CharacterEvent.getCharacters(),
+                                );
+                          },
+                        ),
+                      ],
                     );
                   },
                 ),
-              );
-            },
+                Gap(4.h),
+                BlocBuilder<CharacterBloc, CharacterState>(
+                  builder: (context, state) {
+                    return state.when(
+                      initial: () => const SizedBox(),
+                      loading: () {
+                        final fakeCharacters =
+                            List.generate(10, (index) => CharacterModel.fake());
+                        return ListCharacter(
+                          characters: fakeCharacters,
+                          isLoading: true,
+                        );
+                      },
+                      loaded: (characters) {
+                        return ListCharacter(
+                          characters: characters,
+                        );
+                      },
+                      error: (message) {
+                        return Center(
+                          child: BoxWrapper(
+                            child: Text(message),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
-        );
-      },
+        ),
+      ),
     );
   }
 }

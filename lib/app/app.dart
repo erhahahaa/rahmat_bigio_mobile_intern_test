@@ -25,7 +25,24 @@ class RickMortyApp extends StatelessWidget {
 
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => sl<CharacterBloc>()),
+        BlocProvider<CharacterBloc>(
+          create: (_) => sl<CharacterBloc>()
+            ..add(
+              CharacterEvent.getCharacters(),
+            ),
+        ),
+        BlocProvider<EpisodeBloc>(
+          create: (_) => sl<EpisodeBloc>()
+            ..add(
+              EpisodeEvent.getEpisodes(),
+            ),
+        ),
+        BlocProvider<LocationBloc>(
+          create: (_) => sl<LocationBloc>()
+            ..add(
+              LocationEvent.getLocations(),
+            ),
+        ),
       ],
       child: ScreenUtilInit(
         designSize: const Size(344, 760),
@@ -36,7 +53,7 @@ class RickMortyApp extends StatelessWidget {
             title: AppConstants.APP_NAME,
             routerConfig: _router.config(),
             localizationsDelegates: const [
-              // Strings.delegate,
+              Strings.delegate,
               GlobalMaterialLocalizations.delegate,
               GlobalWidgetsLocalizations.delegate,
               GlobalCupertinoLocalizations.delegate,

@@ -52,11 +52,13 @@ class CharacterRemoteDataSourceImpl implements CharacterRemoteDataSource {
       _dio.getRequest(
         ListAPI.CHARACTER,
         queryParameters: params.toJson(),
-        converter: (json) => json['results']
-            .map(
-              (e) => CharacterModel.fromJson(e),
-            )
-            .toList(),
+        converter: (json) {
+          final List<CharacterModel> characters = [];
+          for (final item in json['results']) {
+            characters.add(CharacterModel.fromJson(item));
+          }
+          return characters;
+        },
       );
 
   @override

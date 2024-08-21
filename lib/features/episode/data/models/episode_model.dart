@@ -45,4 +45,16 @@ class EpisodeModel extends EpisodeEntity with _$EpisodeModel {
         created: created,
         isFavorite: isFavorite,
       );
+
+  static EpisodeModel fake() {
+    return EpisodeModel(
+      id: 1,
+      name: 'Pilot',
+      airDate: 'December 2, 2013',
+      episode: 'S01E01',
+      characters: ['https://rickandmortyapi.com/api/character/1'],
+      url: 'https://rickandmortyapi.com/api/episode/1',
+      created: DateTime.now(),
+    );
+  }
 }

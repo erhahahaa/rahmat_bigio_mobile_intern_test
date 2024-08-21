@@ -47,7 +47,7 @@ class CharacterRepositoryImpl implements CharacterRepository {
         (r) async {
           final entities = r.map((e) => e.toEntity()).toList();
           await _local.cacheCharacters(entities);
-          return Right(entities);
+          return await _local.getCharactersFromCache();
         },
       );
     } catch (e) {
@@ -102,7 +102,7 @@ class CharacterRepositoryImpl implements CharacterRepository {
   }
 
   @override
-  Future<Either<Failure, void>> toggleFavoriteCharacter(ByIdParam param) async {
+  Future<Either<Failure, CharacterEntity>> toggleFavoriteCharacter(ByIdParam param) async {
     try {
       return await _local.toggleFavoriteCharacter(param);
     } catch (e) {

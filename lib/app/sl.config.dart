@@ -51,6 +51,7 @@ import '../features/episode/domain/usecases/get_multiple_episodes.dart'
     as _i563;
 import '../features/episode/domain/usecases/toggle_favorite_episode.dart'
     as _i778;
+import '../features/episode/ui/bloc/episode_bloc.dart' as _i792;
 import '../features/features.dart' as _i1009;
 import '../features/location/data/data_sources/location_local_data_source.dart'
     as _i751;
@@ -70,6 +71,7 @@ import '../features/location/domain/usecases/get_multiple_locations.dart'
     as _i707;
 import '../features/location/domain/usecases/toggle_favorite_location.dart'
     as _i428;
+import '../features/location/ui/bloc/location_bloc.dart' as _i234;
 import 'router.dart' as _i216;
 import 'sl.dart' as _i581;
 
@@ -129,17 +131,18 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i840.GetMultipleCharacters(gh<_i1009.CharacterRepository>()));
     gh.lazySingleton<_i437.ToggleFavoriteCharacter>(
         () => _i437.ToggleFavoriteCharacter(gh<_i1009.CharacterRepository>()));
-    gh.lazySingleton<_i323.CharacterBloc>(() => _i323.CharacterBloc(
-          gh<_i1009.GetCharacters>(),
-          gh<_i1009.GetCharactersById>(),
-          gh<_i1009.GetMultipleCharacters>(),
-          gh<_i1009.GetFilteredCharacters>(),
-        ));
     gh.lazySingleton<_i1009.LocationRepository>(
         () => _i159.LocationRepositoryImpl(
               gh<_i1009.LocationLocalDataSource>(),
               gh<_i1009.LocationRemoteDataSource>(),
             ));
+    gh.lazySingleton<_i323.CharacterBloc>(() => _i323.CharacterBloc(
+          gh<_i1009.GetCharacters>(),
+          gh<_i1009.GetCharactersById>(),
+          gh<_i1009.GetMultipleCharacters>(),
+          gh<_i1009.GetFilteredCharacters>(),
+          gh<_i1009.ToggleFavoriteCharacter>(),
+        ));
     gh.lazySingleton<_i1009.EpisodeRepository>(
         () => _i375.EpisodeRepositoryImpl(
               gh<_i1009.EpisodeLocalDataSource>(),
@@ -159,6 +162,12 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i563.GetMultipleEpisodes(gh<_i1009.EpisodeRepository>()));
     gh.lazySingleton<_i605.GetEpisodesById>(
         () => _i605.GetEpisodesById(gh<_i1009.EpisodeRepository>()));
+    gh.lazySingleton<_i792.EpisodeBloc>(() => _i792.EpisodeBloc(
+          gh<_i1009.GetEpisodes>(),
+          gh<_i1009.GetEpisodesById>(),
+          gh<_i1009.GetMultipleEpisodes>(),
+          gh<_i1009.GetFilteredEpisodes>(),
+        ));
     gh.lazySingleton<_i50.GetLocationsById>(
         () => _i50.GetLocationsById(gh<_i1009.LocationRepository>()));
     gh.lazySingleton<_i115.GetFilteredLocations>(
@@ -173,6 +182,12 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i428.ToggleFavoriteLocation(gh<_i1009.LocationRepository>()));
     gh.lazySingleton<_i1065.GetLocationsFromCache>(
         () => _i1065.GetLocationsFromCache(gh<_i1009.LocationRepository>()));
+    gh.lazySingleton<_i234.LocationBloc>(() => _i234.LocationBloc(
+          gh<_i1009.GetLocations>(),
+          gh<_i1009.GetLocationsById>(),
+          gh<_i1009.GetMultipleLocations>(),
+          gh<_i1009.GetFilteredLocations>(),
+        ));
     return this;
   }
 }

@@ -34,28 +34,26 @@ class LocationRemoteDataSourceImpl implements LocationRemoteDataSource {
 
   @override
   Future<Either<Failure, List<LocationModel>>> getLocations() =>
-      _dio.getRequest(
-        ListAPI.LOCATION,
-        converter: (json) => json['results']
-            .map(
-              (e) => LocationModel.fromJson(e),
-            )
-            .toList(),
-      );
+      _dio.getRequest(ListAPI.LOCATION, converter: (json) {
+        final List<LocationModel> locations = [];
+        for (final item in json['results']) {
+          locations.add(LocationModel.fromJson(item));
+        }
+        return locations;
+      });
 
   @override
   Future<Either<Failure, List<LocationModel>>> getFilteredLocations(
     GetLocationsByFilterParams params,
   ) =>
-      _dio.getRequest(
-        ListAPI.LOCATION,
-        queryParameters: params.toJson(),
-        converter: (json) => json['results']
-            .map(
-              (e) => LocationModel.fromJson(e),
-            )
-            .toList(),
-      );
+      _dio.getRequest(ListAPI.LOCATION, queryParameters: params.toJson(),
+          converter: (json) {
+        final List<LocationModel> locations = [];
+        for (final item in json['results']) {
+          locations.add(LocationModel.fromJson(item));
+        }
+        return locations;
+      });
 
   @override
   Future<Either<Failure, List<LocationModel>>> getMultipleLocations(

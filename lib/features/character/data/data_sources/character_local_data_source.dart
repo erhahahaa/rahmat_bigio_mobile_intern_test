@@ -14,7 +14,7 @@ abstract class CharacterLocalDataSource {
   );
   Future<Either<Failure, List<CharacterEntity>>> getCharactersFromCache();
   Future<Either<Failure, List<CharacterEntity>>> getFavoriteCharacters();
-  Future<Either<Failure, void>> toggleFavoriteCharacter(
+  Future<Either<Failure, CharacterEntity>> toggleFavoriteCharacter(
     ByIdParam param,
   );
   Future<Either<Failure, void>> clearCache();
@@ -73,7 +73,8 @@ class CharacterLocalDataSourceImpl implements CharacterLocalDataSource {
     });
     final check = await _isar.instance.characters.count();
     if (check != 0) {
-      return const Left(CacheFailure(message: 'Error clearing characters cache'));
+      return const Left(
+          CacheFailure(message: 'Error clearing characters cache'));
     }
     return const Right(null);
   }
@@ -91,19 +92,19 @@ class CharacterLocalDataSourceImpl implements CharacterLocalDataSource {
   }
 
   @override
-  Future<Either<Failure, void>> toggleFavoriteCharacter(ByIdParam param) async {
+  Future<Either<Failure, CharacterEntity>> toggleFavoriteCharacter(
+      ByIdParam param) async {
     final character = await _isar.instance.characters.get(param.id);
     if (character == null) {
       return const Left(CacheFailure(message: 'Character not found in cache'));
     }
-    await cacheCharacter(
+    return await cacheCharacter(
       CharacterModel.fromEntity(character)
           .copyWith(
             isFavorite: !character.isFavorite,
           )
           .toEntity(),
     );
-    return const Right(null);
   }
 
   @override
@@ -114,7 +115,8 @@ class CharacterLocalDataSourceImpl implements CharacterLocalDataSource {
         .isFavoriteEqualTo(true)
         .findAll();
     if (characters.isEmpty) {
-      return const Left(CacheFailure(message: 'No favorite characters in cache'));
+      return const Left(
+          CacheFailure(message: 'No favorite characters in cache'));
     }
     return Right(characters);
   }

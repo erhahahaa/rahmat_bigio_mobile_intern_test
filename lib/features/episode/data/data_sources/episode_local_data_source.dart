@@ -14,7 +14,10 @@ abstract class EpisodeLocalDataSource {
   );
   Future<Either<Failure, List<EpisodeEntity>>> getEpisodesFromCache();
   Future<Either<Failure, List<EpisodeEntity>>> getFavoriteEpisodes();
-  Future<Either<Failure, void>> toggleFavoriteEpisode(
+  Future<Either<Failure, List<EpisodeEntity>>> getEpisodesByIds(
+    ByIdsParam param,
+  );
+  Future<Either<Failure, EpisodeEntity>> toggleFavoriteEpisode(
     ByIdParam param,
   );
   Future<Either<Failure, void>> clearCache();
@@ -90,17 +93,19 @@ class EpisodeLocalDataSourceImpl implements EpisodeLocalDataSource {
   }
 
   @override
-  Future<Either<Failure, void>> toggleFavoriteEpisode(ByIdParam param) async {
+  Future<Either<Failure, EpisodeEntity>> toggleFavoriteEpisode(
+      ByIdParam param) async {
     final episode = await _isar.instance.episodes.get(param.id);
     if (episode == null) {
       return const Left(CacheFailure(message: 'Episode not found in cache'));
     }
-    await cacheEpisode(
+    return await cacheEpisode(
       EpisodeModel.fromEntity(episode)
-          .copyWith(isFavorite: !episode.isFavorite)
+          .copyWith(
+            isFavorite: !episode.isFavorite,
+          )
           .toEntity(),
     );
-    return const Right(null);
   }
 
   @override
@@ -110,10 +115,29 @@ class EpisodeLocalDataSourceImpl implements EpisodeLocalDataSource {
         .filter()
         .isFavoriteEqualTo(true)
         .findAll();
-    if (episodes.isNotEmpty) {
-      return Right(episodes);
-    } else {
+    if (episodes.isEmpty) {
       return const Left(CacheFailure(message: 'No favorite episodes in cache'));
     }
+    return Right(episodes);
+  }
+
+  @override
+  Future<Either<Failure, List<EpisodeEntity>>> getEpisodesByIds(
+    ByIdsParam param,
+  ) async {
+    final episodes = await _isar.instance.episodes.getAll(param.ids);
+    if (episodes.isEmpty) {
+      return const Left(CacheFailure(message: 'No episodes in cache'));
+    }
+    final temp = <EpisodeEntity>[];
+    for (final episode in episodes) {
+      if (episode == null) {
+        return const Left(CacheFailure(message: 'Failed to get episode'));
+      } else {
+        temp.add(episode);
+      }
+    }
+
+    return Right(temp);
   }
 }

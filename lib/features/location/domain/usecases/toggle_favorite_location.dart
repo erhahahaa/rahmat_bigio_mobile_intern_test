@@ -5,13 +5,13 @@ import 'package:rick_morty/features/features.dart';
 import 'package:rick_morty/utils/utils.dart';
 
 @lazySingleton
-class ToggleFavoriteLocation extends FPUC<void, ByIdParam> {
+class ToggleFavoriteLocation extends FPUC<LocationEntity, ByIdParam> {
   final LocationRepository repository;
 
   ToggleFavoriteLocation(this.repository);
 
   @override
-  Future<Either<Failure, void>> call(
+  Future<Either<Failure, LocationEntity>> call(
     ByIdParam params,
   ) =>
       repository.toggleFavoriteLocation(params);

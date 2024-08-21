@@ -51,6 +51,8 @@ class _HomeScreenState extends State<HomeScreen> {
             SearchCharacterRoute(
               params: GetCharactersByFilterParams(
                 name: value,
+                species: value,
+                type: value,
               ),
             ),
           );

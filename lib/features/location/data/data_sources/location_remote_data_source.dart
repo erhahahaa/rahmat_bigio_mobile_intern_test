@@ -5,7 +5,11 @@ import 'package:rick_morty/features/features.dart';
 import 'package:rick_morty/utils/utils.dart';
 
 abstract class LocationRemoteDataSource {
-  Future<Either<Failure, List<LocationModel>>> getLocations();
+  Future<Either<Failure, WithPagination<LocationModel>>> getLocations();
+  Future<Either<Failure, WithPagination<LocationModel>>>
+      getLocationsByPagination(
+    Pagination pagination,
+  );
   Future<Either<Failure, LocationModel>> getLocation(
     ByIdParam param,
   );
@@ -33,27 +37,30 @@ class LocationRemoteDataSourceImpl implements LocationRemoteDataSource {
       );
 
   @override
-  Future<Either<Failure, List<LocationModel>>> getLocations() =>
-      _dio.getRequest(ListAPI.LOCATION, converter: (json) {
-        final List<LocationModel> locations = [];
-        for (final item in json['results']) {
-          locations.add(LocationModel.fromJson(item));
-        }
-        return locations;
-      });
+  Future<Either<Failure, WithPagination<LocationModel>>> getLocations() =>
+      _dio.getRequest(
+        ListAPI.LOCATION,
+        converter: (json) => WithPagination.fromJson(
+          json,
+          (json) => LocationModel.fromJson(json),
+        ),
+      );
 
   @override
   Future<Either<Failure, List<LocationModel>>> getFilteredLocations(
     GetLocationsByFilterParams params,
   ) =>
-      _dio.getRequest(ListAPI.LOCATION, queryParameters: params.toJson(),
-          converter: (json) {
-        final List<LocationModel> locations = [];
-        for (final item in json['results']) {
-          locations.add(LocationModel.fromJson(item));
-        }
-        return locations;
-      });
+      _dio.getRequest(
+        ListAPI.LOCATION,
+        queryParameters: params.toJson(),
+        converter: (json) {
+          final List<LocationModel> locations = [];
+          for (final item in json['results']) {
+            locations.add(LocationModel.fromJson(item));
+          }
+          return locations;
+        },
+      );
 
   @override
   Future<Either<Failure, List<LocationModel>>> getMultipleLocations(
@@ -67,4 +74,20 @@ class LocationRemoteDataSourceImpl implements LocationRemoteDataSource {
             )
             .toList(),
       );
+
+  @override
+  Future<Either<Failure, WithPagination<LocationModel>>>
+      getLocationsByPagination(
+    Pagination pagination,
+  ) =>
+          _dio.getRequest(
+            ListAPI.LOCATION,
+            queryParameters: {
+              'page': pagination.pages,
+            },
+            converter: (json) => WithPagination.fromJson(
+              json,
+              (json) => LocationModel.fromJson(json),
+            ),
+          );
 }

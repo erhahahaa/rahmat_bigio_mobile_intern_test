@@ -23,6 +23,10 @@ mixin _$LocationEvent {
     required TResult Function(ByIdsParam param) getMultipleLocations,
     required TResult Function(GetLocationsByFilterParams param)
         getFilteredLocations,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteLocations,
+    required TResult Function() restoreLocations,
+    required TResult Function() nextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,6 +35,10 @@ mixin _$LocationEvent {
     TResult? Function(ByIdParam param)? getLocationsById,
     TResult? Function(ByIdsParam param)? getMultipleLocations,
     TResult? Function(GetLocationsByFilterParams param)? getFilteredLocations,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteLocations,
+    TResult? Function()? restoreLocations,
+    TResult? Function()? nextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,6 +47,10 @@ mixin _$LocationEvent {
     TResult Function(ByIdParam param)? getLocationsById,
     TResult Function(ByIdsParam param)? getMultipleLocations,
     TResult Function(GetLocationsByFilterParams param)? getFilteredLocations,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteLocations,
+    TResult Function()? restoreLocations,
+    TResult Function()? nextPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +60,10 @@ mixin _$LocationEvent {
     required TResult Function(_GetLocationsById value) getLocationsById,
     required TResult Function(_GetMultipleLocations value) getMultipleLocations,
     required TResult Function(_GetFilteredLocations value) getFilteredLocations,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteLocations value) getFavoriteLocations,
+    required TResult Function(_RestoreLocations value) restoreLocations,
+    required TResult Function(_NextPage value) nextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +72,10 @@ mixin _$LocationEvent {
     TResult? Function(_GetLocationsById value)? getLocationsById,
     TResult? Function(_GetMultipleLocations value)? getMultipleLocations,
     TResult? Function(_GetFilteredLocations value)? getFilteredLocations,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteLocations value)? getFavoriteLocations,
+    TResult? Function(_RestoreLocations value)? restoreLocations,
+    TResult? Function(_NextPage value)? nextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +84,10 @@ mixin _$LocationEvent {
     TResult Function(_GetLocationsById value)? getLocationsById,
     TResult Function(_GetMultipleLocations value)? getMultipleLocations,
     TResult Function(_GetFilteredLocations value)? getFilteredLocations,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteLocations value)? getFavoriteLocations,
+    TResult Function(_RestoreLocations value)? restoreLocations,
+    TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -136,6 +160,10 @@ class _$GetLocationsImpl implements _GetLocations {
     required TResult Function(ByIdsParam param) getMultipleLocations,
     required TResult Function(GetLocationsByFilterParams param)
         getFilteredLocations,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteLocations,
+    required TResult Function() restoreLocations,
+    required TResult Function() nextPage,
   }) {
     return getLocations();
   }
@@ -147,6 +175,10 @@ class _$GetLocationsImpl implements _GetLocations {
     TResult? Function(ByIdParam param)? getLocationsById,
     TResult? Function(ByIdsParam param)? getMultipleLocations,
     TResult? Function(GetLocationsByFilterParams param)? getFilteredLocations,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteLocations,
+    TResult? Function()? restoreLocations,
+    TResult? Function()? nextPage,
   }) {
     return getLocations?.call();
   }
@@ -158,6 +190,10 @@ class _$GetLocationsImpl implements _GetLocations {
     TResult Function(ByIdParam param)? getLocationsById,
     TResult Function(ByIdsParam param)? getMultipleLocations,
     TResult Function(GetLocationsByFilterParams param)? getFilteredLocations,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteLocations,
+    TResult Function()? restoreLocations,
+    TResult Function()? nextPage,
     required TResult orElse(),
   }) {
     if (getLocations != null) {
@@ -173,6 +209,10 @@ class _$GetLocationsImpl implements _GetLocations {
     required TResult Function(_GetLocationsById value) getLocationsById,
     required TResult Function(_GetMultipleLocations value) getMultipleLocations,
     required TResult Function(_GetFilteredLocations value) getFilteredLocations,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteLocations value) getFavoriteLocations,
+    required TResult Function(_RestoreLocations value) restoreLocations,
+    required TResult Function(_NextPage value) nextPage,
   }) {
     return getLocations(this);
   }
@@ -184,6 +224,10 @@ class _$GetLocationsImpl implements _GetLocations {
     TResult? Function(_GetLocationsById value)? getLocationsById,
     TResult? Function(_GetMultipleLocations value)? getMultipleLocations,
     TResult? Function(_GetFilteredLocations value)? getFilteredLocations,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteLocations value)? getFavoriteLocations,
+    TResult? Function(_RestoreLocations value)? restoreLocations,
+    TResult? Function(_NextPage value)? nextPage,
   }) {
     return getLocations?.call(this);
   }
@@ -195,6 +239,10 @@ class _$GetLocationsImpl implements _GetLocations {
     TResult Function(_GetLocationsById value)? getLocationsById,
     TResult Function(_GetMultipleLocations value)? getMultipleLocations,
     TResult Function(_GetFilteredLocations value)? getFilteredLocations,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteLocations value)? getFavoriteLocations,
+    TResult Function(_RestoreLocations value)? restoreLocations,
+    TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
     if (getLocations != null) {
@@ -294,6 +342,10 @@ class _$GetLocationsByIdImpl implements _GetLocationsById {
     required TResult Function(ByIdsParam param) getMultipleLocations,
     required TResult Function(GetLocationsByFilterParams param)
         getFilteredLocations,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteLocations,
+    required TResult Function() restoreLocations,
+    required TResult Function() nextPage,
   }) {
     return getLocationsById(param);
   }
@@ -305,6 +357,10 @@ class _$GetLocationsByIdImpl implements _GetLocationsById {
     TResult? Function(ByIdParam param)? getLocationsById,
     TResult? Function(ByIdsParam param)? getMultipleLocations,
     TResult? Function(GetLocationsByFilterParams param)? getFilteredLocations,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteLocations,
+    TResult? Function()? restoreLocations,
+    TResult? Function()? nextPage,
   }) {
     return getLocationsById?.call(param);
   }
@@ -316,6 +372,10 @@ class _$GetLocationsByIdImpl implements _GetLocationsById {
     TResult Function(ByIdParam param)? getLocationsById,
     TResult Function(ByIdsParam param)? getMultipleLocations,
     TResult Function(GetLocationsByFilterParams param)? getFilteredLocations,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteLocations,
+    TResult Function()? restoreLocations,
+    TResult Function()? nextPage,
     required TResult orElse(),
   }) {
     if (getLocationsById != null) {
@@ -331,6 +391,10 @@ class _$GetLocationsByIdImpl implements _GetLocationsById {
     required TResult Function(_GetLocationsById value) getLocationsById,
     required TResult Function(_GetMultipleLocations value) getMultipleLocations,
     required TResult Function(_GetFilteredLocations value) getFilteredLocations,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteLocations value) getFavoriteLocations,
+    required TResult Function(_RestoreLocations value) restoreLocations,
+    required TResult Function(_NextPage value) nextPage,
   }) {
     return getLocationsById(this);
   }
@@ -342,6 +406,10 @@ class _$GetLocationsByIdImpl implements _GetLocationsById {
     TResult? Function(_GetLocationsById value)? getLocationsById,
     TResult? Function(_GetMultipleLocations value)? getMultipleLocations,
     TResult? Function(_GetFilteredLocations value)? getFilteredLocations,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteLocations value)? getFavoriteLocations,
+    TResult? Function(_RestoreLocations value)? restoreLocations,
+    TResult? Function(_NextPage value)? nextPage,
   }) {
     return getLocationsById?.call(this);
   }
@@ -353,6 +421,10 @@ class _$GetLocationsByIdImpl implements _GetLocationsById {
     TResult Function(_GetLocationsById value)? getLocationsById,
     TResult Function(_GetMultipleLocations value)? getMultipleLocations,
     TResult Function(_GetFilteredLocations value)? getFilteredLocations,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteLocations value)? getFavoriteLocations,
+    TResult Function(_RestoreLocations value)? restoreLocations,
+    TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
     if (getLocationsById != null) {
@@ -462,6 +534,10 @@ class _$GetMultipleLocationsImpl implements _GetMultipleLocations {
     required TResult Function(ByIdsParam param) getMultipleLocations,
     required TResult Function(GetLocationsByFilterParams param)
         getFilteredLocations,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteLocations,
+    required TResult Function() restoreLocations,
+    required TResult Function() nextPage,
   }) {
     return getMultipleLocations(param);
   }
@@ -473,6 +549,10 @@ class _$GetMultipleLocationsImpl implements _GetMultipleLocations {
     TResult? Function(ByIdParam param)? getLocationsById,
     TResult? Function(ByIdsParam param)? getMultipleLocations,
     TResult? Function(GetLocationsByFilterParams param)? getFilteredLocations,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteLocations,
+    TResult? Function()? restoreLocations,
+    TResult? Function()? nextPage,
   }) {
     return getMultipleLocations?.call(param);
   }
@@ -484,6 +564,10 @@ class _$GetMultipleLocationsImpl implements _GetMultipleLocations {
     TResult Function(ByIdParam param)? getLocationsById,
     TResult Function(ByIdsParam param)? getMultipleLocations,
     TResult Function(GetLocationsByFilterParams param)? getFilteredLocations,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteLocations,
+    TResult Function()? restoreLocations,
+    TResult Function()? nextPage,
     required TResult orElse(),
   }) {
     if (getMultipleLocations != null) {
@@ -499,6 +583,10 @@ class _$GetMultipleLocationsImpl implements _GetMultipleLocations {
     required TResult Function(_GetLocationsById value) getLocationsById,
     required TResult Function(_GetMultipleLocations value) getMultipleLocations,
     required TResult Function(_GetFilteredLocations value) getFilteredLocations,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteLocations value) getFavoriteLocations,
+    required TResult Function(_RestoreLocations value) restoreLocations,
+    required TResult Function(_NextPage value) nextPage,
   }) {
     return getMultipleLocations(this);
   }
@@ -510,6 +598,10 @@ class _$GetMultipleLocationsImpl implements _GetMultipleLocations {
     TResult? Function(_GetLocationsById value)? getLocationsById,
     TResult? Function(_GetMultipleLocations value)? getMultipleLocations,
     TResult? Function(_GetFilteredLocations value)? getFilteredLocations,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteLocations value)? getFavoriteLocations,
+    TResult? Function(_RestoreLocations value)? restoreLocations,
+    TResult? Function(_NextPage value)? nextPage,
   }) {
     return getMultipleLocations?.call(this);
   }
@@ -521,6 +613,10 @@ class _$GetMultipleLocationsImpl implements _GetMultipleLocations {
     TResult Function(_GetLocationsById value)? getLocationsById,
     TResult Function(_GetMultipleLocations value)? getMultipleLocations,
     TResult Function(_GetFilteredLocations value)? getFilteredLocations,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteLocations value)? getFavoriteLocations,
+    TResult Function(_RestoreLocations value)? restoreLocations,
+    TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
     if (getMultipleLocations != null) {
@@ -630,6 +726,10 @@ class _$GetFilteredLocationsImpl implements _GetFilteredLocations {
     required TResult Function(ByIdsParam param) getMultipleLocations,
     required TResult Function(GetLocationsByFilterParams param)
         getFilteredLocations,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteLocations,
+    required TResult Function() restoreLocations,
+    required TResult Function() nextPage,
   }) {
     return getFilteredLocations(param);
   }
@@ -641,6 +741,10 @@ class _$GetFilteredLocationsImpl implements _GetFilteredLocations {
     TResult? Function(ByIdParam param)? getLocationsById,
     TResult? Function(ByIdsParam param)? getMultipleLocations,
     TResult? Function(GetLocationsByFilterParams param)? getFilteredLocations,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteLocations,
+    TResult? Function()? restoreLocations,
+    TResult? Function()? nextPage,
   }) {
     return getFilteredLocations?.call(param);
   }
@@ -652,6 +756,10 @@ class _$GetFilteredLocationsImpl implements _GetFilteredLocations {
     TResult Function(ByIdParam param)? getLocationsById,
     TResult Function(ByIdsParam param)? getMultipleLocations,
     TResult Function(GetLocationsByFilterParams param)? getFilteredLocations,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteLocations,
+    TResult Function()? restoreLocations,
+    TResult Function()? nextPage,
     required TResult orElse(),
   }) {
     if (getFilteredLocations != null) {
@@ -667,6 +775,10 @@ class _$GetFilteredLocationsImpl implements _GetFilteredLocations {
     required TResult Function(_GetLocationsById value) getLocationsById,
     required TResult Function(_GetMultipleLocations value) getMultipleLocations,
     required TResult Function(_GetFilteredLocations value) getFilteredLocations,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteLocations value) getFavoriteLocations,
+    required TResult Function(_RestoreLocations value) restoreLocations,
+    required TResult Function(_NextPage value) nextPage,
   }) {
     return getFilteredLocations(this);
   }
@@ -678,6 +790,10 @@ class _$GetFilteredLocationsImpl implements _GetFilteredLocations {
     TResult? Function(_GetLocationsById value)? getLocationsById,
     TResult? Function(_GetMultipleLocations value)? getMultipleLocations,
     TResult? Function(_GetFilteredLocations value)? getFilteredLocations,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteLocations value)? getFavoriteLocations,
+    TResult? Function(_RestoreLocations value)? restoreLocations,
+    TResult? Function(_NextPage value)? nextPage,
   }) {
     return getFilteredLocations?.call(this);
   }
@@ -689,6 +805,10 @@ class _$GetFilteredLocationsImpl implements _GetFilteredLocations {
     TResult Function(_GetLocationsById value)? getLocationsById,
     TResult Function(_GetMultipleLocations value)? getMultipleLocations,
     TResult Function(_GetFilteredLocations value)? getFilteredLocations,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteLocations value)? getFavoriteLocations,
+    TResult Function(_RestoreLocations value)? restoreLocations,
+    TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
     if (getFilteredLocations != null) {
@@ -712,12 +832,629 @@ abstract class _GetFilteredLocations implements LocationEvent {
 }
 
 /// @nodoc
+abstract class _$$ToggleFavoriteImplCopyWith<$Res> {
+  factory _$$ToggleFavoriteImplCopyWith(_$ToggleFavoriteImpl value,
+          $Res Function(_$ToggleFavoriteImpl) then) =
+      __$$ToggleFavoriteImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ByIdParam param});
+
+  $ByIdParamCopyWith<$Res> get param;
+}
+
+/// @nodoc
+class __$$ToggleFavoriteImplCopyWithImpl<$Res>
+    extends _$LocationEventCopyWithImpl<$Res, _$ToggleFavoriteImpl>
+    implements _$$ToggleFavoriteImplCopyWith<$Res> {
+  __$$ToggleFavoriteImplCopyWithImpl(
+      _$ToggleFavoriteImpl _value, $Res Function(_$ToggleFavoriteImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? param = null,
+  }) {
+    return _then(_$ToggleFavoriteImpl(
+      null == param
+          ? _value.param
+          : param // ignore: cast_nullable_to_non_nullable
+              as ByIdParam,
+    ));
+  }
+
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ByIdParamCopyWith<$Res> get param {
+    return $ByIdParamCopyWith<$Res>(_value.param, (value) {
+      return _then(_value.copyWith(param: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$ToggleFavoriteImpl implements _ToggleFavorite {
+  const _$ToggleFavoriteImpl(this.param);
+
+  @override
+  final ByIdParam param;
+
+  @override
+  String toString() {
+    return 'LocationEvent.toggleFavorite(param: $param)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ToggleFavoriteImpl &&
+            (identical(other.param, param) || other.param == param));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, param);
+
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ToggleFavoriteImplCopyWith<_$ToggleFavoriteImpl> get copyWith =>
+      __$$ToggleFavoriteImplCopyWithImpl<_$ToggleFavoriteImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getLocations,
+    required TResult Function(ByIdParam param) getLocationsById,
+    required TResult Function(ByIdsParam param) getMultipleLocations,
+    required TResult Function(GetLocationsByFilterParams param)
+        getFilteredLocations,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteLocations,
+    required TResult Function() restoreLocations,
+    required TResult Function() nextPage,
+  }) {
+    return toggleFavorite(param);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getLocations,
+    TResult? Function(ByIdParam param)? getLocationsById,
+    TResult? Function(ByIdsParam param)? getMultipleLocations,
+    TResult? Function(GetLocationsByFilterParams param)? getFilteredLocations,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteLocations,
+    TResult? Function()? restoreLocations,
+    TResult? Function()? nextPage,
+  }) {
+    return toggleFavorite?.call(param);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getLocations,
+    TResult Function(ByIdParam param)? getLocationsById,
+    TResult Function(ByIdsParam param)? getMultipleLocations,
+    TResult Function(GetLocationsByFilterParams param)? getFilteredLocations,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteLocations,
+    TResult Function()? restoreLocations,
+    TResult Function()? nextPage,
+    required TResult orElse(),
+  }) {
+    if (toggleFavorite != null) {
+      return toggleFavorite(param);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetLocations value) getLocations,
+    required TResult Function(_GetLocationsById value) getLocationsById,
+    required TResult Function(_GetMultipleLocations value) getMultipleLocations,
+    required TResult Function(_GetFilteredLocations value) getFilteredLocations,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteLocations value) getFavoriteLocations,
+    required TResult Function(_RestoreLocations value) restoreLocations,
+    required TResult Function(_NextPage value) nextPage,
+  }) {
+    return toggleFavorite(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetLocations value)? getLocations,
+    TResult? Function(_GetLocationsById value)? getLocationsById,
+    TResult? Function(_GetMultipleLocations value)? getMultipleLocations,
+    TResult? Function(_GetFilteredLocations value)? getFilteredLocations,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteLocations value)? getFavoriteLocations,
+    TResult? Function(_RestoreLocations value)? restoreLocations,
+    TResult? Function(_NextPage value)? nextPage,
+  }) {
+    return toggleFavorite?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetLocations value)? getLocations,
+    TResult Function(_GetLocationsById value)? getLocationsById,
+    TResult Function(_GetMultipleLocations value)? getMultipleLocations,
+    TResult Function(_GetFilteredLocations value)? getFilteredLocations,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteLocations value)? getFavoriteLocations,
+    TResult Function(_RestoreLocations value)? restoreLocations,
+    TResult Function(_NextPage value)? nextPage,
+    required TResult orElse(),
+  }) {
+    if (toggleFavorite != null) {
+      return toggleFavorite(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ToggleFavorite implements LocationEvent {
+  const factory _ToggleFavorite(final ByIdParam param) = _$ToggleFavoriteImpl;
+
+  ByIdParam get param;
+
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ToggleFavoriteImplCopyWith<_$ToggleFavoriteImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetFavoriteLocationsImplCopyWith<$Res> {
+  factory _$$GetFavoriteLocationsImplCopyWith(_$GetFavoriteLocationsImpl value,
+          $Res Function(_$GetFavoriteLocationsImpl) then) =
+      __$$GetFavoriteLocationsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetFavoriteLocationsImplCopyWithImpl<$Res>
+    extends _$LocationEventCopyWithImpl<$Res, _$GetFavoriteLocationsImpl>
+    implements _$$GetFavoriteLocationsImplCopyWith<$Res> {
+  __$$GetFavoriteLocationsImplCopyWithImpl(_$GetFavoriteLocationsImpl _value,
+      $Res Function(_$GetFavoriteLocationsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$GetFavoriteLocationsImpl implements _GetFavoriteLocations {
+  const _$GetFavoriteLocationsImpl();
+
+  @override
+  String toString() {
+    return 'LocationEvent.getFavoriteLocations()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetFavoriteLocationsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getLocations,
+    required TResult Function(ByIdParam param) getLocationsById,
+    required TResult Function(ByIdsParam param) getMultipleLocations,
+    required TResult Function(GetLocationsByFilterParams param)
+        getFilteredLocations,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteLocations,
+    required TResult Function() restoreLocations,
+    required TResult Function() nextPage,
+  }) {
+    return getFavoriteLocations();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getLocations,
+    TResult? Function(ByIdParam param)? getLocationsById,
+    TResult? Function(ByIdsParam param)? getMultipleLocations,
+    TResult? Function(GetLocationsByFilterParams param)? getFilteredLocations,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteLocations,
+    TResult? Function()? restoreLocations,
+    TResult? Function()? nextPage,
+  }) {
+    return getFavoriteLocations?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getLocations,
+    TResult Function(ByIdParam param)? getLocationsById,
+    TResult Function(ByIdsParam param)? getMultipleLocations,
+    TResult Function(GetLocationsByFilterParams param)? getFilteredLocations,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteLocations,
+    TResult Function()? restoreLocations,
+    TResult Function()? nextPage,
+    required TResult orElse(),
+  }) {
+    if (getFavoriteLocations != null) {
+      return getFavoriteLocations();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetLocations value) getLocations,
+    required TResult Function(_GetLocationsById value) getLocationsById,
+    required TResult Function(_GetMultipleLocations value) getMultipleLocations,
+    required TResult Function(_GetFilteredLocations value) getFilteredLocations,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteLocations value) getFavoriteLocations,
+    required TResult Function(_RestoreLocations value) restoreLocations,
+    required TResult Function(_NextPage value) nextPage,
+  }) {
+    return getFavoriteLocations(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetLocations value)? getLocations,
+    TResult? Function(_GetLocationsById value)? getLocationsById,
+    TResult? Function(_GetMultipleLocations value)? getMultipleLocations,
+    TResult? Function(_GetFilteredLocations value)? getFilteredLocations,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteLocations value)? getFavoriteLocations,
+    TResult? Function(_RestoreLocations value)? restoreLocations,
+    TResult? Function(_NextPage value)? nextPage,
+  }) {
+    return getFavoriteLocations?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetLocations value)? getLocations,
+    TResult Function(_GetLocationsById value)? getLocationsById,
+    TResult Function(_GetMultipleLocations value)? getMultipleLocations,
+    TResult Function(_GetFilteredLocations value)? getFilteredLocations,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteLocations value)? getFavoriteLocations,
+    TResult Function(_RestoreLocations value)? restoreLocations,
+    TResult Function(_NextPage value)? nextPage,
+    required TResult orElse(),
+  }) {
+    if (getFavoriteLocations != null) {
+      return getFavoriteLocations(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetFavoriteLocations implements LocationEvent {
+  const factory _GetFavoriteLocations() = _$GetFavoriteLocationsImpl;
+}
+
+/// @nodoc
+abstract class _$$RestoreLocationsImplCopyWith<$Res> {
+  factory _$$RestoreLocationsImplCopyWith(_$RestoreLocationsImpl value,
+          $Res Function(_$RestoreLocationsImpl) then) =
+      __$$RestoreLocationsImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RestoreLocationsImplCopyWithImpl<$Res>
+    extends _$LocationEventCopyWithImpl<$Res, _$RestoreLocationsImpl>
+    implements _$$RestoreLocationsImplCopyWith<$Res> {
+  __$$RestoreLocationsImplCopyWithImpl(_$RestoreLocationsImpl _value,
+      $Res Function(_$RestoreLocationsImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$RestoreLocationsImpl implements _RestoreLocations {
+  const _$RestoreLocationsImpl();
+
+  @override
+  String toString() {
+    return 'LocationEvent.restoreLocations()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RestoreLocationsImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getLocations,
+    required TResult Function(ByIdParam param) getLocationsById,
+    required TResult Function(ByIdsParam param) getMultipleLocations,
+    required TResult Function(GetLocationsByFilterParams param)
+        getFilteredLocations,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteLocations,
+    required TResult Function() restoreLocations,
+    required TResult Function() nextPage,
+  }) {
+    return restoreLocations();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getLocations,
+    TResult? Function(ByIdParam param)? getLocationsById,
+    TResult? Function(ByIdsParam param)? getMultipleLocations,
+    TResult? Function(GetLocationsByFilterParams param)? getFilteredLocations,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteLocations,
+    TResult? Function()? restoreLocations,
+    TResult? Function()? nextPage,
+  }) {
+    return restoreLocations?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getLocations,
+    TResult Function(ByIdParam param)? getLocationsById,
+    TResult Function(ByIdsParam param)? getMultipleLocations,
+    TResult Function(GetLocationsByFilterParams param)? getFilteredLocations,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteLocations,
+    TResult Function()? restoreLocations,
+    TResult Function()? nextPage,
+    required TResult orElse(),
+  }) {
+    if (restoreLocations != null) {
+      return restoreLocations();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetLocations value) getLocations,
+    required TResult Function(_GetLocationsById value) getLocationsById,
+    required TResult Function(_GetMultipleLocations value) getMultipleLocations,
+    required TResult Function(_GetFilteredLocations value) getFilteredLocations,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteLocations value) getFavoriteLocations,
+    required TResult Function(_RestoreLocations value) restoreLocations,
+    required TResult Function(_NextPage value) nextPage,
+  }) {
+    return restoreLocations(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetLocations value)? getLocations,
+    TResult? Function(_GetLocationsById value)? getLocationsById,
+    TResult? Function(_GetMultipleLocations value)? getMultipleLocations,
+    TResult? Function(_GetFilteredLocations value)? getFilteredLocations,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteLocations value)? getFavoriteLocations,
+    TResult? Function(_RestoreLocations value)? restoreLocations,
+    TResult? Function(_NextPage value)? nextPage,
+  }) {
+    return restoreLocations?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetLocations value)? getLocations,
+    TResult Function(_GetLocationsById value)? getLocationsById,
+    TResult Function(_GetMultipleLocations value)? getMultipleLocations,
+    TResult Function(_GetFilteredLocations value)? getFilteredLocations,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteLocations value)? getFavoriteLocations,
+    TResult Function(_RestoreLocations value)? restoreLocations,
+    TResult Function(_NextPage value)? nextPage,
+    required TResult orElse(),
+  }) {
+    if (restoreLocations != null) {
+      return restoreLocations(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RestoreLocations implements LocationEvent {
+  const factory _RestoreLocations() = _$RestoreLocationsImpl;
+}
+
+/// @nodoc
+abstract class _$$NextPageImplCopyWith<$Res> {
+  factory _$$NextPageImplCopyWith(
+          _$NextPageImpl value, $Res Function(_$NextPageImpl) then) =
+      __$$NextPageImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NextPageImplCopyWithImpl<$Res>
+    extends _$LocationEventCopyWithImpl<$Res, _$NextPageImpl>
+    implements _$$NextPageImplCopyWith<$Res> {
+  __$$NextPageImplCopyWithImpl(
+      _$NextPageImpl _value, $Res Function(_$NextPageImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of LocationEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$NextPageImpl implements _NextPage {
+  const _$NextPageImpl();
+
+  @override
+  String toString() {
+    return 'LocationEvent.nextPage()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NextPageImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getLocations,
+    required TResult Function(ByIdParam param) getLocationsById,
+    required TResult Function(ByIdsParam param) getMultipleLocations,
+    required TResult Function(GetLocationsByFilterParams param)
+        getFilteredLocations,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteLocations,
+    required TResult Function() restoreLocations,
+    required TResult Function() nextPage,
+  }) {
+    return nextPage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getLocations,
+    TResult? Function(ByIdParam param)? getLocationsById,
+    TResult? Function(ByIdsParam param)? getMultipleLocations,
+    TResult? Function(GetLocationsByFilterParams param)? getFilteredLocations,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteLocations,
+    TResult? Function()? restoreLocations,
+    TResult? Function()? nextPage,
+  }) {
+    return nextPage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getLocations,
+    TResult Function(ByIdParam param)? getLocationsById,
+    TResult Function(ByIdsParam param)? getMultipleLocations,
+    TResult Function(GetLocationsByFilterParams param)? getFilteredLocations,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteLocations,
+    TResult Function()? restoreLocations,
+    TResult Function()? nextPage,
+    required TResult orElse(),
+  }) {
+    if (nextPage != null) {
+      return nextPage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetLocations value) getLocations,
+    required TResult Function(_GetLocationsById value) getLocationsById,
+    required TResult Function(_GetMultipleLocations value) getMultipleLocations,
+    required TResult Function(_GetFilteredLocations value) getFilteredLocations,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteLocations value) getFavoriteLocations,
+    required TResult Function(_RestoreLocations value) restoreLocations,
+    required TResult Function(_NextPage value) nextPage,
+  }) {
+    return nextPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetLocations value)? getLocations,
+    TResult? Function(_GetLocationsById value)? getLocationsById,
+    TResult? Function(_GetMultipleLocations value)? getMultipleLocations,
+    TResult? Function(_GetFilteredLocations value)? getFilteredLocations,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteLocations value)? getFavoriteLocations,
+    TResult? Function(_RestoreLocations value)? restoreLocations,
+    TResult? Function(_NextPage value)? nextPage,
+  }) {
+    return nextPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetLocations value)? getLocations,
+    TResult Function(_GetLocationsById value)? getLocationsById,
+    TResult Function(_GetMultipleLocations value)? getMultipleLocations,
+    TResult Function(_GetFilteredLocations value)? getFilteredLocations,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteLocations value)? getFavoriteLocations,
+    TResult Function(_RestoreLocations value)? restoreLocations,
+    TResult Function(_NextPage value)? nextPage,
+    required TResult orElse(),
+  }) {
+    if (nextPage != null) {
+      return nextPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NextPage implements LocationEvent {
+  const factory _NextPage() = _$NextPageImpl;
+}
+
+/// @nodoc
 mixin _$LocationState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<LocationEntity> locations) loaded,
+    required TResult Function(WithPagination<LocationEntity> locations) loaded,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -725,7 +1462,7 @@ mixin _$LocationState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<LocationEntity> locations)? loaded,
+    TResult? Function(WithPagination<LocationEntity> locations)? loaded,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -733,7 +1470,7 @@ mixin _$LocationState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<LocationEntity> locations)? loaded,
+    TResult Function(WithPagination<LocationEntity> locations)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -830,7 +1567,7 @@ class _$LocationStateInitialImpl implements LocationStateInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<LocationEntity> locations) loaded,
+    required TResult Function(WithPagination<LocationEntity> locations) loaded,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -841,7 +1578,7 @@ class _$LocationStateInitialImpl implements LocationStateInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<LocationEntity> locations)? loaded,
+    TResult? Function(WithPagination<LocationEntity> locations)? loaded,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -852,7 +1589,7 @@ class _$LocationStateInitialImpl implements LocationStateInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<LocationEntity> locations)? loaded,
+    TResult Function(WithPagination<LocationEntity> locations)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -948,7 +1685,7 @@ class _$LocationStateLoadingImpl implements LocationStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<LocationEntity> locations) loaded,
+    required TResult Function(WithPagination<LocationEntity> locations) loaded,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -959,7 +1696,7 @@ class _$LocationStateLoadingImpl implements LocationStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<LocationEntity> locations)? loaded,
+    TResult? Function(WithPagination<LocationEntity> locations)? loaded,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -970,7 +1707,7 @@ class _$LocationStateLoadingImpl implements LocationStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<LocationEntity> locations)? loaded,
+    TResult Function(WithPagination<LocationEntity> locations)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -1028,7 +1765,9 @@ abstract class _$$LocationStateLoadedImplCopyWith<$Res> {
           $Res Function(_$LocationStateLoadedImpl) then) =
       __$$LocationStateLoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<LocationEntity> locations});
+  $Res call({WithPagination<LocationEntity> locations});
+
+  $WithPaginationCopyWith<LocationEntity, $Res> get locations;
 }
 
 /// @nodoc
@@ -1048,26 +1787,31 @@ class __$$LocationStateLoadedImplCopyWithImpl<$Res>
   }) {
     return _then(_$LocationStateLoadedImpl(
       null == locations
-          ? _value._locations
+          ? _value.locations
           : locations // ignore: cast_nullable_to_non_nullable
-              as List<LocationEntity>,
+              as WithPagination<LocationEntity>,
     ));
+  }
+
+  /// Create a copy of LocationState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $WithPaginationCopyWith<LocationEntity, $Res> get locations {
+    return $WithPaginationCopyWith<LocationEntity, $Res>(_value.locations,
+        (value) {
+      return _then(_value.copyWith(locations: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$LocationStateLoadedImpl implements LocationStateLoaded {
-  const _$LocationStateLoadedImpl(final List<LocationEntity> locations)
-      : _locations = locations;
+  const _$LocationStateLoadedImpl(this.locations);
 
-  final List<LocationEntity> _locations;
   @override
-  List<LocationEntity> get locations {
-    if (_locations is EqualUnmodifiableListView) return _locations;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_locations);
-  }
+  final WithPagination<LocationEntity> locations;
 
   @override
   String toString() {
@@ -1079,13 +1823,12 @@ class _$LocationStateLoadedImpl implements LocationStateLoaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LocationStateLoadedImpl &&
-            const DeepCollectionEquality()
-                .equals(other._locations, _locations));
+            (identical(other.locations, locations) ||
+                other.locations == locations));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_locations));
+  int get hashCode => Object.hash(runtimeType, locations);
 
   /// Create a copy of LocationState
   /// with the given fields replaced by the non-null parameter values.
@@ -1101,7 +1844,7 @@ class _$LocationStateLoadedImpl implements LocationStateLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<LocationEntity> locations) loaded,
+    required TResult Function(WithPagination<LocationEntity> locations) loaded,
     required TResult Function(String message) error,
   }) {
     return loaded(locations);
@@ -1112,7 +1855,7 @@ class _$LocationStateLoadedImpl implements LocationStateLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<LocationEntity> locations)? loaded,
+    TResult? Function(WithPagination<LocationEntity> locations)? loaded,
     TResult? Function(String message)? error,
   }) {
     return loaded?.call(locations);
@@ -1123,7 +1866,7 @@ class _$LocationStateLoadedImpl implements LocationStateLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<LocationEntity> locations)? loaded,
+    TResult Function(WithPagination<LocationEntity> locations)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -1172,10 +1915,11 @@ class _$LocationStateLoadedImpl implements LocationStateLoaded {
 }
 
 abstract class LocationStateLoaded implements LocationState {
-  const factory LocationStateLoaded(final List<LocationEntity> locations) =
+  const factory LocationStateLoaded(
+          final WithPagination<LocationEntity> locations) =
       _$LocationStateLoadedImpl;
 
-  List<LocationEntity> get locations;
+  WithPagination<LocationEntity> get locations;
 
   /// Create a copy of LocationState
   /// with the given fields replaced by the non-null parameter values.
@@ -1255,7 +1999,7 @@ class _$LocationStateErrorImpl implements LocationStateError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<LocationEntity> locations) loaded,
+    required TResult Function(WithPagination<LocationEntity> locations) loaded,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -1266,7 +2010,7 @@ class _$LocationStateErrorImpl implements LocationStateError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<LocationEntity> locations)? loaded,
+    TResult? Function(WithPagination<LocationEntity> locations)? loaded,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -1277,7 +2021,7 @@ class _$LocationStateErrorImpl implements LocationStateError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<LocationEntity> locations)? loaded,
+    TResult Function(WithPagination<LocationEntity> locations)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {

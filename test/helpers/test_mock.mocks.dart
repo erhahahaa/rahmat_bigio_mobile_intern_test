@@ -224,22 +224,45 @@ class MockEpisodeRepository extends _i1.Mock implements _i3.EpisodeRepository {
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, List<_i3.EpisodeEntity>>> getEpisodes() =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #getEpisodes,
-          [],
-        ),
-        returnValue:
-            _i4.Future<_i2.Either<_i5.Failure, List<_i3.EpisodeEntity>>>.value(
-                _FakeEither_0<_i5.Failure, List<_i3.EpisodeEntity>>(
-          this,
-          Invocation.method(
-            #getEpisodes,
-            [],
-          ),
-        )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, List<_i3.EpisodeEntity>>>);
+  _i4.Future<_i2.Either<_i5.Failure, _i6.WithPagination<_i3.EpisodeEntity>>>
+      getEpisodes() => (super.noSuchMethod(
+            Invocation.method(
+              #getEpisodes,
+              [],
+            ),
+            returnValue: _i4.Future<
+                _i2.Either<_i5.Failure,
+                    _i6.WithPagination<_i3.EpisodeEntity>>>.value(_FakeEither_0<
+                _i5.Failure, _i6.WithPagination<_i3.EpisodeEntity>>(
+              this,
+              Invocation.method(
+                #getEpisodes,
+                [],
+              ),
+            )),
+          ) as _i4.Future<
+              _i2.Either<_i5.Failure, _i6.WithPagination<_i3.EpisodeEntity>>>);
+
+  @override
+  _i4.Future<_i2.Either<_i5.Failure, _i6.WithPagination<_i3.EpisodeEntity>>>
+      getEpisodesByPagination(_i6.Pagination? pagination) =>
+          (super.noSuchMethod(
+            Invocation.method(
+              #getEpisodesByPagination,
+              [pagination],
+            ),
+            returnValue: _i4.Future<
+                _i2.Either<_i5.Failure,
+                    _i6.WithPagination<_i3.EpisodeEntity>>>.value(_FakeEither_0<
+                _i5.Failure, _i6.WithPagination<_i3.EpisodeEntity>>(
+              this,
+              Invocation.method(
+                #getEpisodesByPagination,
+                [pagination],
+              ),
+            )),
+          ) as _i4.Future<
+              _i2.Either<_i5.Failure, _i6.WithPagination<_i3.EpisodeEntity>>>);
 
   @override
   _i4.Future<_i2.Either<_i5.Failure, _i3.EpisodeEntity>> getEpisode(
@@ -335,22 +358,23 @@ class MockEpisodeRepository extends _i1.Mock implements _i3.EpisodeRepository {
           ) as _i4.Future<_i2.Either<_i5.Failure, List<_i3.EpisodeEntity>>>);
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, void>> toggleFavoriteEpisode(
+  _i4.Future<_i2.Either<_i5.Failure, _i3.EpisodeEntity>> toggleFavoriteEpisode(
           _i6.ByIdParam? param) =>
       (super.noSuchMethod(
         Invocation.method(
           #toggleFavoriteEpisode,
           [param],
         ),
-        returnValue: _i4.Future<_i2.Either<_i5.Failure, void>>.value(
-            _FakeEither_0<_i5.Failure, void>(
+        returnValue:
+            _i4.Future<_i2.Either<_i5.Failure, _i3.EpisodeEntity>>.value(
+                _FakeEither_0<_i5.Failure, _i3.EpisodeEntity>(
           this,
           Invocation.method(
             #toggleFavoriteEpisode,
             [param],
           ),
         )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
+      ) as _i4.Future<_i2.Either<_i5.Failure, _i3.EpisodeEntity>>);
 
   @override
   _i4.Future<_i2.Either<_i5.Failure, void>> clearCache() => (super.noSuchMethod(
@@ -379,22 +403,47 @@ class MockLocationRepository extends _i1.Mock
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, List<_i3.LocationEntity>>>
+  _i4.Future<_i2.Either<_i5.Failure, _i6.WithPagination<_i3.LocationEntity>>>
       getLocations() => (super.noSuchMethod(
             Invocation.method(
               #getLocations,
               [],
             ),
             returnValue: _i4.Future<
-                    _i2.Either<_i5.Failure, List<_i3.LocationEntity>>>.value(
-                _FakeEither_0<_i5.Failure, List<_i3.LocationEntity>>(
+                    _i2.Either<_i5.Failure,
+                        _i6.WithPagination<_i3.LocationEntity>>>.value(
+                _FakeEither_0<_i5.Failure,
+                    _i6.WithPagination<_i3.LocationEntity>>(
               this,
               Invocation.method(
                 #getLocations,
                 [],
               ),
             )),
-          ) as _i4.Future<_i2.Either<_i5.Failure, List<_i3.LocationEntity>>>);
+          ) as _i4.Future<
+              _i2.Either<_i5.Failure, _i6.WithPagination<_i3.LocationEntity>>>);
+
+  @override
+  _i4.Future<_i2.Either<_i5.Failure, _i6.WithPagination<_i3.LocationEntity>>>
+      getLocationsByPagination(_i6.Pagination? pagination) =>
+          (super.noSuchMethod(
+            Invocation.method(
+              #getLocationsByPagination,
+              [pagination],
+            ),
+            returnValue: _i4.Future<
+                    _i2.Either<_i5.Failure,
+                        _i6.WithPagination<_i3.LocationEntity>>>.value(
+                _FakeEither_0<_i5.Failure,
+                    _i6.WithPagination<_i3.LocationEntity>>(
+              this,
+              Invocation.method(
+                #getLocationsByPagination,
+                [pagination],
+              ),
+            )),
+          ) as _i4.Future<
+              _i2.Either<_i5.Failure, _i6.WithPagination<_i3.LocationEntity>>>);
 
   @override
   _i4.Future<_i2.Either<_i5.Failure, _i3.LocationEntity>> getLocation(
@@ -492,22 +541,22 @@ class MockLocationRepository extends _i1.Mock
           ) as _i4.Future<_i2.Either<_i5.Failure, List<_i3.LocationEntity>>>);
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, void>> toggleFavoriteLocation(
-          _i6.ByIdParam? param) =>
-      (super.noSuchMethod(
-        Invocation.method(
-          #toggleFavoriteLocation,
-          [param],
-        ),
-        returnValue: _i4.Future<_i2.Either<_i5.Failure, void>>.value(
-            _FakeEither_0<_i5.Failure, void>(
-          this,
-          Invocation.method(
-            #toggleFavoriteLocation,
-            [param],
-          ),
-        )),
-      ) as _i4.Future<_i2.Either<_i5.Failure, void>>);
+  _i4.Future<_i2.Either<_i5.Failure, _i3.LocationEntity>>
+      toggleFavoriteLocation(_i6.ByIdParam? param) => (super.noSuchMethod(
+            Invocation.method(
+              #toggleFavoriteLocation,
+              [param],
+            ),
+            returnValue:
+                _i4.Future<_i2.Either<_i5.Failure, _i3.LocationEntity>>.value(
+                    _FakeEither_0<_i5.Failure, _i3.LocationEntity>(
+              this,
+              Invocation.method(
+                #toggleFavoriteLocation,
+                [param],
+              ),
+            )),
+          ) as _i4.Future<_i2.Either<_i5.Failure, _i3.LocationEntity>>);
 
   @override
   _i4.Future<_i2.Either<_i5.Failure, void>> clearCache() => (super.noSuchMethod(

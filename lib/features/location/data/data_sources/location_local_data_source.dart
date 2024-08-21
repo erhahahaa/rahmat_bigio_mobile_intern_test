@@ -14,7 +14,10 @@ abstract class LocationLocalDataSource {
   );
   Future<Either<Failure, List<LocationEntity>>> getLocationsFromCache();
   Future<Either<Failure, List<LocationEntity>>> getFavoriteLocations();
-  Future<Either<Failure, void>> toggleFavoriteLocation(
+  Future<Either<Failure, List<LocationEntity>>> getLocationsByIds(
+    ByIdsParam param,
+  );
+  Future<Either<Failure, LocationEntity>> toggleFavoriteLocation(
     ByIdParam param,
   );
   Future<Either<Failure, void>> clearCache();
@@ -73,7 +76,8 @@ class LocationLocalDataSourceImpl implements LocationLocalDataSource {
     });
     final check = await _isar.instance.locations.count();
     if (check != 0) {
-      return const Left(CacheFailure(message: 'Error clearing locations cache'));
+      return const Left(
+          CacheFailure(message: 'Error clearing locations cache'));
     }
     return const Right(null);
   }
@@ -90,17 +94,19 @@ class LocationLocalDataSourceImpl implements LocationLocalDataSource {
   }
 
   @override
-  Future<Either<Failure, void>> toggleFavoriteLocation(ByIdParam param) async {
+  Future<Either<Failure, LocationEntity>> toggleFavoriteLocation(
+      ByIdParam param) async {
     final location = await _isar.instance.locations.get(param.id);
     if (location == null) {
       return const Left(CacheFailure(message: 'Location not found in cache'));
     }
-    await cacheLocation(
+    return await cacheLocation(
       LocationModel.fromEntity(location)
-          .copyWith(isFavorite: !location.isFavorite)
+          .copyWith(
+            isFavorite: !location.isFavorite,
+          )
           .toEntity(),
     );
-    return const Right(null);
   }
 
   @override
@@ -110,11 +116,30 @@ class LocationLocalDataSourceImpl implements LocationLocalDataSource {
         .filter()
         .isFavoriteEqualTo(true)
         .findAll();
-
-    if (locations.isNotEmpty) {
-      return Right(locations);
-    } else {
-      return const Left(CacheFailure(message: 'No favorite locations in cache'));
+    if (locations.isEmpty) {
+      return const Left(
+          CacheFailure(message: 'No favorite locations in cache'));
     }
+    return Right(locations);
+  }
+
+  @override
+  Future<Either<Failure, List<LocationEntity>>> getLocationsByIds(
+    ByIdsParam param,
+  ) async {
+    final locations = await _isar.instance.locations.getAll(param.ids);
+    if (locations.isEmpty) {
+      return const Left(CacheFailure(message: 'No locations in cache'));
+    }
+    final temp = <LocationEntity>[];
+    for (final location in locations) {
+      if (location == null) {
+        return const Left(CacheFailure(message: 'Failed to get location'));
+      } else {
+        temp.add(location);
+      }
+    }
+
+    return Right(temp);
   }
 }

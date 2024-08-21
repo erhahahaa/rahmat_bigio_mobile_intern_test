@@ -23,6 +23,10 @@ mixin _$EpisodeEvent {
     required TResult Function(ByIdsParam param) getMultipleEpisodes,
     required TResult Function(GetEpisodesByFilterParams param)
         getFilteredEpisodes,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteEpisodes,
+    required TResult Function() restoreEpisodes,
+    required TResult Function() nextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -31,6 +35,10 @@ mixin _$EpisodeEvent {
     TResult? Function(ByIdParam param)? getEpisodesById,
     TResult? Function(ByIdsParam param)? getMultipleEpisodes,
     TResult? Function(GetEpisodesByFilterParams param)? getFilteredEpisodes,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteEpisodes,
+    TResult? Function()? restoreEpisodes,
+    TResult? Function()? nextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,6 +47,10 @@ mixin _$EpisodeEvent {
     TResult Function(ByIdParam param)? getEpisodesById,
     TResult Function(ByIdsParam param)? getMultipleEpisodes,
     TResult Function(GetEpisodesByFilterParams param)? getFilteredEpisodes,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteEpisodes,
+    TResult Function()? restoreEpisodes,
+    TResult Function()? nextPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +60,10 @@ mixin _$EpisodeEvent {
     required TResult Function(_GetEpisodesById value) getEpisodesById,
     required TResult Function(_GetMultipleEpisodes value) getMultipleEpisodes,
     required TResult Function(_GetFilteredEpisodes value) getFilteredEpisodes,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteEpisodes value) getFavoriteEpisodes,
+    required TResult Function(_RestoreEpisodes value) restoreEpisodes,
+    required TResult Function(_NextPage value) nextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +72,10 @@ mixin _$EpisodeEvent {
     TResult? Function(_GetEpisodesById value)? getEpisodesById,
     TResult? Function(_GetMultipleEpisodes value)? getMultipleEpisodes,
     TResult? Function(_GetFilteredEpisodes value)? getFilteredEpisodes,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteEpisodes value)? getFavoriteEpisodes,
+    TResult? Function(_RestoreEpisodes value)? restoreEpisodes,
+    TResult? Function(_NextPage value)? nextPage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +84,10 @@ mixin _$EpisodeEvent {
     TResult Function(_GetEpisodesById value)? getEpisodesById,
     TResult Function(_GetMultipleEpisodes value)? getMultipleEpisodes,
     TResult Function(_GetFilteredEpisodes value)? getFilteredEpisodes,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteEpisodes value)? getFavoriteEpisodes,
+    TResult Function(_RestoreEpisodes value)? restoreEpisodes,
+    TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -136,6 +160,10 @@ class _$GetEpisodesImpl implements _GetEpisodes {
     required TResult Function(ByIdsParam param) getMultipleEpisodes,
     required TResult Function(GetEpisodesByFilterParams param)
         getFilteredEpisodes,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteEpisodes,
+    required TResult Function() restoreEpisodes,
+    required TResult Function() nextPage,
   }) {
     return getEpisodes();
   }
@@ -147,6 +175,10 @@ class _$GetEpisodesImpl implements _GetEpisodes {
     TResult? Function(ByIdParam param)? getEpisodesById,
     TResult? Function(ByIdsParam param)? getMultipleEpisodes,
     TResult? Function(GetEpisodesByFilterParams param)? getFilteredEpisodes,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteEpisodes,
+    TResult? Function()? restoreEpisodes,
+    TResult? Function()? nextPage,
   }) {
     return getEpisodes?.call();
   }
@@ -158,6 +190,10 @@ class _$GetEpisodesImpl implements _GetEpisodes {
     TResult Function(ByIdParam param)? getEpisodesById,
     TResult Function(ByIdsParam param)? getMultipleEpisodes,
     TResult Function(GetEpisodesByFilterParams param)? getFilteredEpisodes,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteEpisodes,
+    TResult Function()? restoreEpisodes,
+    TResult Function()? nextPage,
     required TResult orElse(),
   }) {
     if (getEpisodes != null) {
@@ -173,6 +209,10 @@ class _$GetEpisodesImpl implements _GetEpisodes {
     required TResult Function(_GetEpisodesById value) getEpisodesById,
     required TResult Function(_GetMultipleEpisodes value) getMultipleEpisodes,
     required TResult Function(_GetFilteredEpisodes value) getFilteredEpisodes,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteEpisodes value) getFavoriteEpisodes,
+    required TResult Function(_RestoreEpisodes value) restoreEpisodes,
+    required TResult Function(_NextPage value) nextPage,
   }) {
     return getEpisodes(this);
   }
@@ -184,6 +224,10 @@ class _$GetEpisodesImpl implements _GetEpisodes {
     TResult? Function(_GetEpisodesById value)? getEpisodesById,
     TResult? Function(_GetMultipleEpisodes value)? getMultipleEpisodes,
     TResult? Function(_GetFilteredEpisodes value)? getFilteredEpisodes,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteEpisodes value)? getFavoriteEpisodes,
+    TResult? Function(_RestoreEpisodes value)? restoreEpisodes,
+    TResult? Function(_NextPage value)? nextPage,
   }) {
     return getEpisodes?.call(this);
   }
@@ -195,6 +239,10 @@ class _$GetEpisodesImpl implements _GetEpisodes {
     TResult Function(_GetEpisodesById value)? getEpisodesById,
     TResult Function(_GetMultipleEpisodes value)? getMultipleEpisodes,
     TResult Function(_GetFilteredEpisodes value)? getFilteredEpisodes,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteEpisodes value)? getFavoriteEpisodes,
+    TResult Function(_RestoreEpisodes value)? restoreEpisodes,
+    TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
     if (getEpisodes != null) {
@@ -294,6 +342,10 @@ class _$GetEpisodesByIdImpl implements _GetEpisodesById {
     required TResult Function(ByIdsParam param) getMultipleEpisodes,
     required TResult Function(GetEpisodesByFilterParams param)
         getFilteredEpisodes,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteEpisodes,
+    required TResult Function() restoreEpisodes,
+    required TResult Function() nextPage,
   }) {
     return getEpisodesById(param);
   }
@@ -305,6 +357,10 @@ class _$GetEpisodesByIdImpl implements _GetEpisodesById {
     TResult? Function(ByIdParam param)? getEpisodesById,
     TResult? Function(ByIdsParam param)? getMultipleEpisodes,
     TResult? Function(GetEpisodesByFilterParams param)? getFilteredEpisodes,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteEpisodes,
+    TResult? Function()? restoreEpisodes,
+    TResult? Function()? nextPage,
   }) {
     return getEpisodesById?.call(param);
   }
@@ -316,6 +372,10 @@ class _$GetEpisodesByIdImpl implements _GetEpisodesById {
     TResult Function(ByIdParam param)? getEpisodesById,
     TResult Function(ByIdsParam param)? getMultipleEpisodes,
     TResult Function(GetEpisodesByFilterParams param)? getFilteredEpisodes,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteEpisodes,
+    TResult Function()? restoreEpisodes,
+    TResult Function()? nextPage,
     required TResult orElse(),
   }) {
     if (getEpisodesById != null) {
@@ -331,6 +391,10 @@ class _$GetEpisodesByIdImpl implements _GetEpisodesById {
     required TResult Function(_GetEpisodesById value) getEpisodesById,
     required TResult Function(_GetMultipleEpisodes value) getMultipleEpisodes,
     required TResult Function(_GetFilteredEpisodes value) getFilteredEpisodes,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteEpisodes value) getFavoriteEpisodes,
+    required TResult Function(_RestoreEpisodes value) restoreEpisodes,
+    required TResult Function(_NextPage value) nextPage,
   }) {
     return getEpisodesById(this);
   }
@@ -342,6 +406,10 @@ class _$GetEpisodesByIdImpl implements _GetEpisodesById {
     TResult? Function(_GetEpisodesById value)? getEpisodesById,
     TResult? Function(_GetMultipleEpisodes value)? getMultipleEpisodes,
     TResult? Function(_GetFilteredEpisodes value)? getFilteredEpisodes,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteEpisodes value)? getFavoriteEpisodes,
+    TResult? Function(_RestoreEpisodes value)? restoreEpisodes,
+    TResult? Function(_NextPage value)? nextPage,
   }) {
     return getEpisodesById?.call(this);
   }
@@ -353,6 +421,10 @@ class _$GetEpisodesByIdImpl implements _GetEpisodesById {
     TResult Function(_GetEpisodesById value)? getEpisodesById,
     TResult Function(_GetMultipleEpisodes value)? getMultipleEpisodes,
     TResult Function(_GetFilteredEpisodes value)? getFilteredEpisodes,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteEpisodes value)? getFavoriteEpisodes,
+    TResult Function(_RestoreEpisodes value)? restoreEpisodes,
+    TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
     if (getEpisodesById != null) {
@@ -460,6 +532,10 @@ class _$GetMultipleEpisodesImpl implements _GetMultipleEpisodes {
     required TResult Function(ByIdsParam param) getMultipleEpisodes,
     required TResult Function(GetEpisodesByFilterParams param)
         getFilteredEpisodes,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteEpisodes,
+    required TResult Function() restoreEpisodes,
+    required TResult Function() nextPage,
   }) {
     return getMultipleEpisodes(param);
   }
@@ -471,6 +547,10 @@ class _$GetMultipleEpisodesImpl implements _GetMultipleEpisodes {
     TResult? Function(ByIdParam param)? getEpisodesById,
     TResult? Function(ByIdsParam param)? getMultipleEpisodes,
     TResult? Function(GetEpisodesByFilterParams param)? getFilteredEpisodes,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteEpisodes,
+    TResult? Function()? restoreEpisodes,
+    TResult? Function()? nextPage,
   }) {
     return getMultipleEpisodes?.call(param);
   }
@@ -482,6 +562,10 @@ class _$GetMultipleEpisodesImpl implements _GetMultipleEpisodes {
     TResult Function(ByIdParam param)? getEpisodesById,
     TResult Function(ByIdsParam param)? getMultipleEpisodes,
     TResult Function(GetEpisodesByFilterParams param)? getFilteredEpisodes,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteEpisodes,
+    TResult Function()? restoreEpisodes,
+    TResult Function()? nextPage,
     required TResult orElse(),
   }) {
     if (getMultipleEpisodes != null) {
@@ -497,6 +581,10 @@ class _$GetMultipleEpisodesImpl implements _GetMultipleEpisodes {
     required TResult Function(_GetEpisodesById value) getEpisodesById,
     required TResult Function(_GetMultipleEpisodes value) getMultipleEpisodes,
     required TResult Function(_GetFilteredEpisodes value) getFilteredEpisodes,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteEpisodes value) getFavoriteEpisodes,
+    required TResult Function(_RestoreEpisodes value) restoreEpisodes,
+    required TResult Function(_NextPage value) nextPage,
   }) {
     return getMultipleEpisodes(this);
   }
@@ -508,6 +596,10 @@ class _$GetMultipleEpisodesImpl implements _GetMultipleEpisodes {
     TResult? Function(_GetEpisodesById value)? getEpisodesById,
     TResult? Function(_GetMultipleEpisodes value)? getMultipleEpisodes,
     TResult? Function(_GetFilteredEpisodes value)? getFilteredEpisodes,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteEpisodes value)? getFavoriteEpisodes,
+    TResult? Function(_RestoreEpisodes value)? restoreEpisodes,
+    TResult? Function(_NextPage value)? nextPage,
   }) {
     return getMultipleEpisodes?.call(this);
   }
@@ -519,6 +611,10 @@ class _$GetMultipleEpisodesImpl implements _GetMultipleEpisodes {
     TResult Function(_GetEpisodesById value)? getEpisodesById,
     TResult Function(_GetMultipleEpisodes value)? getMultipleEpisodes,
     TResult Function(_GetFilteredEpisodes value)? getFilteredEpisodes,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteEpisodes value)? getFavoriteEpisodes,
+    TResult Function(_RestoreEpisodes value)? restoreEpisodes,
+    TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
     if (getMultipleEpisodes != null) {
@@ -627,6 +723,10 @@ class _$GetFilteredEpisodesImpl implements _GetFilteredEpisodes {
     required TResult Function(ByIdsParam param) getMultipleEpisodes,
     required TResult Function(GetEpisodesByFilterParams param)
         getFilteredEpisodes,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteEpisodes,
+    required TResult Function() restoreEpisodes,
+    required TResult Function() nextPage,
   }) {
     return getFilteredEpisodes(param);
   }
@@ -638,6 +738,10 @@ class _$GetFilteredEpisodesImpl implements _GetFilteredEpisodes {
     TResult? Function(ByIdParam param)? getEpisodesById,
     TResult? Function(ByIdsParam param)? getMultipleEpisodes,
     TResult? Function(GetEpisodesByFilterParams param)? getFilteredEpisodes,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteEpisodes,
+    TResult? Function()? restoreEpisodes,
+    TResult? Function()? nextPage,
   }) {
     return getFilteredEpisodes?.call(param);
   }
@@ -649,6 +753,10 @@ class _$GetFilteredEpisodesImpl implements _GetFilteredEpisodes {
     TResult Function(ByIdParam param)? getEpisodesById,
     TResult Function(ByIdsParam param)? getMultipleEpisodes,
     TResult Function(GetEpisodesByFilterParams param)? getFilteredEpisodes,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteEpisodes,
+    TResult Function()? restoreEpisodes,
+    TResult Function()? nextPage,
     required TResult orElse(),
   }) {
     if (getFilteredEpisodes != null) {
@@ -664,6 +772,10 @@ class _$GetFilteredEpisodesImpl implements _GetFilteredEpisodes {
     required TResult Function(_GetEpisodesById value) getEpisodesById,
     required TResult Function(_GetMultipleEpisodes value) getMultipleEpisodes,
     required TResult Function(_GetFilteredEpisodes value) getFilteredEpisodes,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteEpisodes value) getFavoriteEpisodes,
+    required TResult Function(_RestoreEpisodes value) restoreEpisodes,
+    required TResult Function(_NextPage value) nextPage,
   }) {
     return getFilteredEpisodes(this);
   }
@@ -675,6 +787,10 @@ class _$GetFilteredEpisodesImpl implements _GetFilteredEpisodes {
     TResult? Function(_GetEpisodesById value)? getEpisodesById,
     TResult? Function(_GetMultipleEpisodes value)? getMultipleEpisodes,
     TResult? Function(_GetFilteredEpisodes value)? getFilteredEpisodes,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteEpisodes value)? getFavoriteEpisodes,
+    TResult? Function(_RestoreEpisodes value)? restoreEpisodes,
+    TResult? Function(_NextPage value)? nextPage,
   }) {
     return getFilteredEpisodes?.call(this);
   }
@@ -686,6 +802,10 @@ class _$GetFilteredEpisodesImpl implements _GetFilteredEpisodes {
     TResult Function(_GetEpisodesById value)? getEpisodesById,
     TResult Function(_GetMultipleEpisodes value)? getMultipleEpisodes,
     TResult Function(_GetFilteredEpisodes value)? getFilteredEpisodes,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteEpisodes value)? getFavoriteEpisodes,
+    TResult Function(_RestoreEpisodes value)? restoreEpisodes,
+    TResult Function(_NextPage value)? nextPage,
     required TResult orElse(),
   }) {
     if (getFilteredEpisodes != null) {
@@ -709,12 +829,629 @@ abstract class _GetFilteredEpisodes implements EpisodeEvent {
 }
 
 /// @nodoc
+abstract class _$$ToggleFavoriteImplCopyWith<$Res> {
+  factory _$$ToggleFavoriteImplCopyWith(_$ToggleFavoriteImpl value,
+          $Res Function(_$ToggleFavoriteImpl) then) =
+      __$$ToggleFavoriteImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ByIdParam param});
+
+  $ByIdParamCopyWith<$Res> get param;
+}
+
+/// @nodoc
+class __$$ToggleFavoriteImplCopyWithImpl<$Res>
+    extends _$EpisodeEventCopyWithImpl<$Res, _$ToggleFavoriteImpl>
+    implements _$$ToggleFavoriteImplCopyWith<$Res> {
+  __$$ToggleFavoriteImplCopyWithImpl(
+      _$ToggleFavoriteImpl _value, $Res Function(_$ToggleFavoriteImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of EpisodeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? param = null,
+  }) {
+    return _then(_$ToggleFavoriteImpl(
+      null == param
+          ? _value.param
+          : param // ignore: cast_nullable_to_non_nullable
+              as ByIdParam,
+    ));
+  }
+
+  /// Create a copy of EpisodeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ByIdParamCopyWith<$Res> get param {
+    return $ByIdParamCopyWith<$Res>(_value.param, (value) {
+      return _then(_value.copyWith(param: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$ToggleFavoriteImpl implements _ToggleFavorite {
+  const _$ToggleFavoriteImpl(this.param);
+
+  @override
+  final ByIdParam param;
+
+  @override
+  String toString() {
+    return 'EpisodeEvent.toggleFavorite(param: $param)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ToggleFavoriteImpl &&
+            (identical(other.param, param) || other.param == param));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, param);
+
+  /// Create a copy of EpisodeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ToggleFavoriteImplCopyWith<_$ToggleFavoriteImpl> get copyWith =>
+      __$$ToggleFavoriteImplCopyWithImpl<_$ToggleFavoriteImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getEpisodes,
+    required TResult Function(ByIdParam param) getEpisodesById,
+    required TResult Function(ByIdsParam param) getMultipleEpisodes,
+    required TResult Function(GetEpisodesByFilterParams param)
+        getFilteredEpisodes,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteEpisodes,
+    required TResult Function() restoreEpisodes,
+    required TResult Function() nextPage,
+  }) {
+    return toggleFavorite(param);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getEpisodes,
+    TResult? Function(ByIdParam param)? getEpisodesById,
+    TResult? Function(ByIdsParam param)? getMultipleEpisodes,
+    TResult? Function(GetEpisodesByFilterParams param)? getFilteredEpisodes,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteEpisodes,
+    TResult? Function()? restoreEpisodes,
+    TResult? Function()? nextPage,
+  }) {
+    return toggleFavorite?.call(param);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getEpisodes,
+    TResult Function(ByIdParam param)? getEpisodesById,
+    TResult Function(ByIdsParam param)? getMultipleEpisodes,
+    TResult Function(GetEpisodesByFilterParams param)? getFilteredEpisodes,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteEpisodes,
+    TResult Function()? restoreEpisodes,
+    TResult Function()? nextPage,
+    required TResult orElse(),
+  }) {
+    if (toggleFavorite != null) {
+      return toggleFavorite(param);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetEpisodes value) getEpisodes,
+    required TResult Function(_GetEpisodesById value) getEpisodesById,
+    required TResult Function(_GetMultipleEpisodes value) getMultipleEpisodes,
+    required TResult Function(_GetFilteredEpisodes value) getFilteredEpisodes,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteEpisodes value) getFavoriteEpisodes,
+    required TResult Function(_RestoreEpisodes value) restoreEpisodes,
+    required TResult Function(_NextPage value) nextPage,
+  }) {
+    return toggleFavorite(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetEpisodes value)? getEpisodes,
+    TResult? Function(_GetEpisodesById value)? getEpisodesById,
+    TResult? Function(_GetMultipleEpisodes value)? getMultipleEpisodes,
+    TResult? Function(_GetFilteredEpisodes value)? getFilteredEpisodes,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteEpisodes value)? getFavoriteEpisodes,
+    TResult? Function(_RestoreEpisodes value)? restoreEpisodes,
+    TResult? Function(_NextPage value)? nextPage,
+  }) {
+    return toggleFavorite?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetEpisodes value)? getEpisodes,
+    TResult Function(_GetEpisodesById value)? getEpisodesById,
+    TResult Function(_GetMultipleEpisodes value)? getMultipleEpisodes,
+    TResult Function(_GetFilteredEpisodes value)? getFilteredEpisodes,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteEpisodes value)? getFavoriteEpisodes,
+    TResult Function(_RestoreEpisodes value)? restoreEpisodes,
+    TResult Function(_NextPage value)? nextPage,
+    required TResult orElse(),
+  }) {
+    if (toggleFavorite != null) {
+      return toggleFavorite(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ToggleFavorite implements EpisodeEvent {
+  const factory _ToggleFavorite(final ByIdParam param) = _$ToggleFavoriteImpl;
+
+  ByIdParam get param;
+
+  /// Create a copy of EpisodeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ToggleFavoriteImplCopyWith<_$ToggleFavoriteImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$GetFavoriteEpisodesImplCopyWith<$Res> {
+  factory _$$GetFavoriteEpisodesImplCopyWith(_$GetFavoriteEpisodesImpl value,
+          $Res Function(_$GetFavoriteEpisodesImpl) then) =
+      __$$GetFavoriteEpisodesImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetFavoriteEpisodesImplCopyWithImpl<$Res>
+    extends _$EpisodeEventCopyWithImpl<$Res, _$GetFavoriteEpisodesImpl>
+    implements _$$GetFavoriteEpisodesImplCopyWith<$Res> {
+  __$$GetFavoriteEpisodesImplCopyWithImpl(_$GetFavoriteEpisodesImpl _value,
+      $Res Function(_$GetFavoriteEpisodesImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of EpisodeEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$GetFavoriteEpisodesImpl implements _GetFavoriteEpisodes {
+  const _$GetFavoriteEpisodesImpl();
+
+  @override
+  String toString() {
+    return 'EpisodeEvent.getFavoriteEpisodes()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetFavoriteEpisodesImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getEpisodes,
+    required TResult Function(ByIdParam param) getEpisodesById,
+    required TResult Function(ByIdsParam param) getMultipleEpisodes,
+    required TResult Function(GetEpisodesByFilterParams param)
+        getFilteredEpisodes,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteEpisodes,
+    required TResult Function() restoreEpisodes,
+    required TResult Function() nextPage,
+  }) {
+    return getFavoriteEpisodes();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getEpisodes,
+    TResult? Function(ByIdParam param)? getEpisodesById,
+    TResult? Function(ByIdsParam param)? getMultipleEpisodes,
+    TResult? Function(GetEpisodesByFilterParams param)? getFilteredEpisodes,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteEpisodes,
+    TResult? Function()? restoreEpisodes,
+    TResult? Function()? nextPage,
+  }) {
+    return getFavoriteEpisodes?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getEpisodes,
+    TResult Function(ByIdParam param)? getEpisodesById,
+    TResult Function(ByIdsParam param)? getMultipleEpisodes,
+    TResult Function(GetEpisodesByFilterParams param)? getFilteredEpisodes,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteEpisodes,
+    TResult Function()? restoreEpisodes,
+    TResult Function()? nextPage,
+    required TResult orElse(),
+  }) {
+    if (getFavoriteEpisodes != null) {
+      return getFavoriteEpisodes();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetEpisodes value) getEpisodes,
+    required TResult Function(_GetEpisodesById value) getEpisodesById,
+    required TResult Function(_GetMultipleEpisodes value) getMultipleEpisodes,
+    required TResult Function(_GetFilteredEpisodes value) getFilteredEpisodes,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteEpisodes value) getFavoriteEpisodes,
+    required TResult Function(_RestoreEpisodes value) restoreEpisodes,
+    required TResult Function(_NextPage value) nextPage,
+  }) {
+    return getFavoriteEpisodes(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetEpisodes value)? getEpisodes,
+    TResult? Function(_GetEpisodesById value)? getEpisodesById,
+    TResult? Function(_GetMultipleEpisodes value)? getMultipleEpisodes,
+    TResult? Function(_GetFilteredEpisodes value)? getFilteredEpisodes,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteEpisodes value)? getFavoriteEpisodes,
+    TResult? Function(_RestoreEpisodes value)? restoreEpisodes,
+    TResult? Function(_NextPage value)? nextPage,
+  }) {
+    return getFavoriteEpisodes?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetEpisodes value)? getEpisodes,
+    TResult Function(_GetEpisodesById value)? getEpisodesById,
+    TResult Function(_GetMultipleEpisodes value)? getMultipleEpisodes,
+    TResult Function(_GetFilteredEpisodes value)? getFilteredEpisodes,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteEpisodes value)? getFavoriteEpisodes,
+    TResult Function(_RestoreEpisodes value)? restoreEpisodes,
+    TResult Function(_NextPage value)? nextPage,
+    required TResult orElse(),
+  }) {
+    if (getFavoriteEpisodes != null) {
+      return getFavoriteEpisodes(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetFavoriteEpisodes implements EpisodeEvent {
+  const factory _GetFavoriteEpisodes() = _$GetFavoriteEpisodesImpl;
+}
+
+/// @nodoc
+abstract class _$$RestoreEpisodesImplCopyWith<$Res> {
+  factory _$$RestoreEpisodesImplCopyWith(_$RestoreEpisodesImpl value,
+          $Res Function(_$RestoreEpisodesImpl) then) =
+      __$$RestoreEpisodesImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$RestoreEpisodesImplCopyWithImpl<$Res>
+    extends _$EpisodeEventCopyWithImpl<$Res, _$RestoreEpisodesImpl>
+    implements _$$RestoreEpisodesImplCopyWith<$Res> {
+  __$$RestoreEpisodesImplCopyWithImpl(
+      _$RestoreEpisodesImpl _value, $Res Function(_$RestoreEpisodesImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of EpisodeEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$RestoreEpisodesImpl implements _RestoreEpisodes {
+  const _$RestoreEpisodesImpl();
+
+  @override
+  String toString() {
+    return 'EpisodeEvent.restoreEpisodes()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$RestoreEpisodesImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getEpisodes,
+    required TResult Function(ByIdParam param) getEpisodesById,
+    required TResult Function(ByIdsParam param) getMultipleEpisodes,
+    required TResult Function(GetEpisodesByFilterParams param)
+        getFilteredEpisodes,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteEpisodes,
+    required TResult Function() restoreEpisodes,
+    required TResult Function() nextPage,
+  }) {
+    return restoreEpisodes();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getEpisodes,
+    TResult? Function(ByIdParam param)? getEpisodesById,
+    TResult? Function(ByIdsParam param)? getMultipleEpisodes,
+    TResult? Function(GetEpisodesByFilterParams param)? getFilteredEpisodes,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteEpisodes,
+    TResult? Function()? restoreEpisodes,
+    TResult? Function()? nextPage,
+  }) {
+    return restoreEpisodes?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getEpisodes,
+    TResult Function(ByIdParam param)? getEpisodesById,
+    TResult Function(ByIdsParam param)? getMultipleEpisodes,
+    TResult Function(GetEpisodesByFilterParams param)? getFilteredEpisodes,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteEpisodes,
+    TResult Function()? restoreEpisodes,
+    TResult Function()? nextPage,
+    required TResult orElse(),
+  }) {
+    if (restoreEpisodes != null) {
+      return restoreEpisodes();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetEpisodes value) getEpisodes,
+    required TResult Function(_GetEpisodesById value) getEpisodesById,
+    required TResult Function(_GetMultipleEpisodes value) getMultipleEpisodes,
+    required TResult Function(_GetFilteredEpisodes value) getFilteredEpisodes,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteEpisodes value) getFavoriteEpisodes,
+    required TResult Function(_RestoreEpisodes value) restoreEpisodes,
+    required TResult Function(_NextPage value) nextPage,
+  }) {
+    return restoreEpisodes(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetEpisodes value)? getEpisodes,
+    TResult? Function(_GetEpisodesById value)? getEpisodesById,
+    TResult? Function(_GetMultipleEpisodes value)? getMultipleEpisodes,
+    TResult? Function(_GetFilteredEpisodes value)? getFilteredEpisodes,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteEpisodes value)? getFavoriteEpisodes,
+    TResult? Function(_RestoreEpisodes value)? restoreEpisodes,
+    TResult? Function(_NextPage value)? nextPage,
+  }) {
+    return restoreEpisodes?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetEpisodes value)? getEpisodes,
+    TResult Function(_GetEpisodesById value)? getEpisodesById,
+    TResult Function(_GetMultipleEpisodes value)? getMultipleEpisodes,
+    TResult Function(_GetFilteredEpisodes value)? getFilteredEpisodes,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteEpisodes value)? getFavoriteEpisodes,
+    TResult Function(_RestoreEpisodes value)? restoreEpisodes,
+    TResult Function(_NextPage value)? nextPage,
+    required TResult orElse(),
+  }) {
+    if (restoreEpisodes != null) {
+      return restoreEpisodes(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _RestoreEpisodes implements EpisodeEvent {
+  const factory _RestoreEpisodes() = _$RestoreEpisodesImpl;
+}
+
+/// @nodoc
+abstract class _$$NextPageImplCopyWith<$Res> {
+  factory _$$NextPageImplCopyWith(
+          _$NextPageImpl value, $Res Function(_$NextPageImpl) then) =
+      __$$NextPageImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NextPageImplCopyWithImpl<$Res>
+    extends _$EpisodeEventCopyWithImpl<$Res, _$NextPageImpl>
+    implements _$$NextPageImplCopyWith<$Res> {
+  __$$NextPageImplCopyWithImpl(
+      _$NextPageImpl _value, $Res Function(_$NextPageImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of EpisodeEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$NextPageImpl implements _NextPage {
+  const _$NextPageImpl();
+
+  @override
+  String toString() {
+    return 'EpisodeEvent.nextPage()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NextPageImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getEpisodes,
+    required TResult Function(ByIdParam param) getEpisodesById,
+    required TResult Function(ByIdsParam param) getMultipleEpisodes,
+    required TResult Function(GetEpisodesByFilterParams param)
+        getFilteredEpisodes,
+    required TResult Function(ByIdParam param) toggleFavorite,
+    required TResult Function() getFavoriteEpisodes,
+    required TResult Function() restoreEpisodes,
+    required TResult Function() nextPage,
+  }) {
+    return nextPage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getEpisodes,
+    TResult? Function(ByIdParam param)? getEpisodesById,
+    TResult? Function(ByIdsParam param)? getMultipleEpisodes,
+    TResult? Function(GetEpisodesByFilterParams param)? getFilteredEpisodes,
+    TResult? Function(ByIdParam param)? toggleFavorite,
+    TResult? Function()? getFavoriteEpisodes,
+    TResult? Function()? restoreEpisodes,
+    TResult? Function()? nextPage,
+  }) {
+    return nextPage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getEpisodes,
+    TResult Function(ByIdParam param)? getEpisodesById,
+    TResult Function(ByIdsParam param)? getMultipleEpisodes,
+    TResult Function(GetEpisodesByFilterParams param)? getFilteredEpisodes,
+    TResult Function(ByIdParam param)? toggleFavorite,
+    TResult Function()? getFavoriteEpisodes,
+    TResult Function()? restoreEpisodes,
+    TResult Function()? nextPage,
+    required TResult orElse(),
+  }) {
+    if (nextPage != null) {
+      return nextPage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetEpisodes value) getEpisodes,
+    required TResult Function(_GetEpisodesById value) getEpisodesById,
+    required TResult Function(_GetMultipleEpisodes value) getMultipleEpisodes,
+    required TResult Function(_GetFilteredEpisodes value) getFilteredEpisodes,
+    required TResult Function(_ToggleFavorite value) toggleFavorite,
+    required TResult Function(_GetFavoriteEpisodes value) getFavoriteEpisodes,
+    required TResult Function(_RestoreEpisodes value) restoreEpisodes,
+    required TResult Function(_NextPage value) nextPage,
+  }) {
+    return nextPage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetEpisodes value)? getEpisodes,
+    TResult? Function(_GetEpisodesById value)? getEpisodesById,
+    TResult? Function(_GetMultipleEpisodes value)? getMultipleEpisodes,
+    TResult? Function(_GetFilteredEpisodes value)? getFilteredEpisodes,
+    TResult? Function(_ToggleFavorite value)? toggleFavorite,
+    TResult? Function(_GetFavoriteEpisodes value)? getFavoriteEpisodes,
+    TResult? Function(_RestoreEpisodes value)? restoreEpisodes,
+    TResult? Function(_NextPage value)? nextPage,
+  }) {
+    return nextPage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetEpisodes value)? getEpisodes,
+    TResult Function(_GetEpisodesById value)? getEpisodesById,
+    TResult Function(_GetMultipleEpisodes value)? getMultipleEpisodes,
+    TResult Function(_GetFilteredEpisodes value)? getFilteredEpisodes,
+    TResult Function(_ToggleFavorite value)? toggleFavorite,
+    TResult Function(_GetFavoriteEpisodes value)? getFavoriteEpisodes,
+    TResult Function(_RestoreEpisodes value)? restoreEpisodes,
+    TResult Function(_NextPage value)? nextPage,
+    required TResult orElse(),
+  }) {
+    if (nextPage != null) {
+      return nextPage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NextPage implements EpisodeEvent {
+  const factory _NextPage() = _$NextPageImpl;
+}
+
+/// @nodoc
 mixin _$EpisodeState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<EpisodeEntity> episodes) loaded,
+    required TResult Function(WithPagination<EpisodeEntity> episodes) loaded,
     required TResult Function(String message) error,
   }) =>
       throw _privateConstructorUsedError;
@@ -722,7 +1459,7 @@ mixin _$EpisodeState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<EpisodeEntity> episodes)? loaded,
+    TResult? Function(WithPagination<EpisodeEntity> episodes)? loaded,
     TResult? Function(String message)? error,
   }) =>
       throw _privateConstructorUsedError;
@@ -730,7 +1467,7 @@ mixin _$EpisodeState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<EpisodeEntity> episodes)? loaded,
+    TResult Function(WithPagination<EpisodeEntity> episodes)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) =>
@@ -827,7 +1564,7 @@ class _$EpisodeStateInitialImpl implements EpisodeStateInitial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<EpisodeEntity> episodes) loaded,
+    required TResult Function(WithPagination<EpisodeEntity> episodes) loaded,
     required TResult Function(String message) error,
   }) {
     return initial();
@@ -838,7 +1575,7 @@ class _$EpisodeStateInitialImpl implements EpisodeStateInitial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<EpisodeEntity> episodes)? loaded,
+    TResult? Function(WithPagination<EpisodeEntity> episodes)? loaded,
     TResult? Function(String message)? error,
   }) {
     return initial?.call();
@@ -849,7 +1586,7 @@ class _$EpisodeStateInitialImpl implements EpisodeStateInitial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<EpisodeEntity> episodes)? loaded,
+    TResult Function(WithPagination<EpisodeEntity> episodes)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -945,7 +1682,7 @@ class _$EpisodeStateLoadingImpl implements EpisodeStateLoading {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<EpisodeEntity> episodes) loaded,
+    required TResult Function(WithPagination<EpisodeEntity> episodes) loaded,
     required TResult Function(String message) error,
   }) {
     return loading();
@@ -956,7 +1693,7 @@ class _$EpisodeStateLoadingImpl implements EpisodeStateLoading {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<EpisodeEntity> episodes)? loaded,
+    TResult? Function(WithPagination<EpisodeEntity> episodes)? loaded,
     TResult? Function(String message)? error,
   }) {
     return loading?.call();
@@ -967,7 +1704,7 @@ class _$EpisodeStateLoadingImpl implements EpisodeStateLoading {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<EpisodeEntity> episodes)? loaded,
+    TResult Function(WithPagination<EpisodeEntity> episodes)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -1025,7 +1762,9 @@ abstract class _$$EpisodeStateLoadedImplCopyWith<$Res> {
           $Res Function(_$EpisodeStateLoadedImpl) then) =
       __$$EpisodeStateLoadedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<EpisodeEntity> episodes});
+  $Res call({WithPagination<EpisodeEntity> episodes});
+
+  $WithPaginationCopyWith<EpisodeEntity, $Res> get episodes;
 }
 
 /// @nodoc
@@ -1045,26 +1784,31 @@ class __$$EpisodeStateLoadedImplCopyWithImpl<$Res>
   }) {
     return _then(_$EpisodeStateLoadedImpl(
       null == episodes
-          ? _value._episodes
+          ? _value.episodes
           : episodes // ignore: cast_nullable_to_non_nullable
-              as List<EpisodeEntity>,
+              as WithPagination<EpisodeEntity>,
     ));
+  }
+
+  /// Create a copy of EpisodeState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $WithPaginationCopyWith<EpisodeEntity, $Res> get episodes {
+    return $WithPaginationCopyWith<EpisodeEntity, $Res>(_value.episodes,
+        (value) {
+      return _then(_value.copyWith(episodes: value));
+    });
   }
 }
 
 /// @nodoc
 
 class _$EpisodeStateLoadedImpl implements EpisodeStateLoaded {
-  const _$EpisodeStateLoadedImpl(final List<EpisodeEntity> episodes)
-      : _episodes = episodes;
+  const _$EpisodeStateLoadedImpl(this.episodes);
 
-  final List<EpisodeEntity> _episodes;
   @override
-  List<EpisodeEntity> get episodes {
-    if (_episodes is EqualUnmodifiableListView) return _episodes;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_episodes);
-  }
+  final WithPagination<EpisodeEntity> episodes;
 
   @override
   String toString() {
@@ -1076,12 +1820,12 @@ class _$EpisodeStateLoadedImpl implements EpisodeStateLoaded {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EpisodeStateLoadedImpl &&
-            const DeepCollectionEquality().equals(other._episodes, _episodes));
+            (identical(other.episodes, episodes) ||
+                other.episodes == episodes));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_episodes));
+  int get hashCode => Object.hash(runtimeType, episodes);
 
   /// Create a copy of EpisodeState
   /// with the given fields replaced by the non-null parameter values.
@@ -1097,7 +1841,7 @@ class _$EpisodeStateLoadedImpl implements EpisodeStateLoaded {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<EpisodeEntity> episodes) loaded,
+    required TResult Function(WithPagination<EpisodeEntity> episodes) loaded,
     required TResult Function(String message) error,
   }) {
     return loaded(episodes);
@@ -1108,7 +1852,7 @@ class _$EpisodeStateLoadedImpl implements EpisodeStateLoaded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<EpisodeEntity> episodes)? loaded,
+    TResult? Function(WithPagination<EpisodeEntity> episodes)? loaded,
     TResult? Function(String message)? error,
   }) {
     return loaded?.call(episodes);
@@ -1119,7 +1863,7 @@ class _$EpisodeStateLoadedImpl implements EpisodeStateLoaded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<EpisodeEntity> episodes)? loaded,
+    TResult Function(WithPagination<EpisodeEntity> episodes)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {
@@ -1168,10 +1912,10 @@ class _$EpisodeStateLoadedImpl implements EpisodeStateLoaded {
 }
 
 abstract class EpisodeStateLoaded implements EpisodeState {
-  const factory EpisodeStateLoaded(final List<EpisodeEntity> episodes) =
-      _$EpisodeStateLoadedImpl;
+  const factory EpisodeStateLoaded(
+      final WithPagination<EpisodeEntity> episodes) = _$EpisodeStateLoadedImpl;
 
-  List<EpisodeEntity> get episodes;
+  WithPagination<EpisodeEntity> get episodes;
 
   /// Create a copy of EpisodeState
   /// with the given fields replaced by the non-null parameter values.
@@ -1251,7 +1995,7 @@ class _$EpisodeStateErrorImpl implements EpisodeStateError {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(List<EpisodeEntity> episodes) loaded,
+    required TResult Function(WithPagination<EpisodeEntity> episodes) loaded,
     required TResult Function(String message) error,
   }) {
     return error(message);
@@ -1262,7 +2006,7 @@ class _$EpisodeStateErrorImpl implements EpisodeStateError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(List<EpisodeEntity> episodes)? loaded,
+    TResult? Function(WithPagination<EpisodeEntity> episodes)? loaded,
     TResult? Function(String message)? error,
   }) {
     return error?.call(message);
@@ -1273,7 +2017,7 @@ class _$EpisodeStateErrorImpl implements EpisodeStateError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(List<EpisodeEntity> episodes)? loaded,
+    TResult Function(WithPagination<EpisodeEntity> episodes)? loaded,
     TResult Function(String message)? error,
     required TResult orElse(),
   }) {

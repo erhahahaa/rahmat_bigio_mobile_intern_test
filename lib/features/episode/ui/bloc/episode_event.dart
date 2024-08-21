@@ -12,4 +12,10 @@ class EpisodeEvent with _$EpisodeEvent {
   const factory EpisodeEvent.getFilteredEpisodes(
     GetEpisodesByFilterParams param,
   ) = _GetFilteredEpisodes;
+  const factory EpisodeEvent.toggleFavorite(
+    ByIdParam param,
+  ) = _ToggleFavorite;
+  const factory EpisodeEvent.getFavoriteEpisodes() = _GetFavoriteEpisodes;
+  const factory EpisodeEvent.restoreEpisodes() = _RestoreEpisodes;
+  const factory EpisodeEvent.nextPage() = _NextPage;
 }

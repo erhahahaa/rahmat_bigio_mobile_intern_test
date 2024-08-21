@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rick_morty/core/errors/failure.dart';
 import 'package:rick_morty/features/features.dart';
+import 'package:rick_morty/utils/helpers/helpers.dart';
 import 'package:rick_morty/utils/params/by_id_param.dart';
 import 'package:rick_morty/utils/params/by_ids_param.dart';
 
@@ -39,15 +40,19 @@ class EpisodeRepositoryImpl implements EpisodeRepository {
   }
 
   @override
-  Future<Either<Failure, List<EpisodeEntity>>> getEpisodes() async {
+  Future<Either<Failure, WithPagination<EpisodeEntity>>> getEpisodes() async {
     try {
       final result = await _remote.getEpisodes();
       return result.fold(
         (l) => Left(l),
         (r) async {
-          final entities = r.map((e) => e.toEntity()).toList();
+          final entities = r.results.map((e) => e.toEntity()).toList();
           await _local.cacheEpisodes(entities);
-          return Right(entities);
+          final chars = await _local.getEpisodesFromCache();
+          return Right(WithPagination<EpisodeEntity>(
+            info: r.info,
+            results: chars.getOrElse(() => []),
+          ));
         },
       );
     } catch (e) {
@@ -101,7 +106,8 @@ class EpisodeRepositoryImpl implements EpisodeRepository {
   }
 
   @override
-  Future<Either<Failure, void>> toggleFavoriteEpisode(ByIdParam param) async {
+  Future<Either<Failure, EpisodeEntity>> toggleFavoriteEpisode(
+      ByIdParam param) async {
     try {
       return await _local.toggleFavoriteEpisode(param);
     } catch (e) {
@@ -115,6 +121,27 @@ class EpisodeRepositoryImpl implements EpisodeRepository {
       return await _local.getFavoriteEpisodes();
     } catch (e) {
       return Left(CacheFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, WithPagination<EpisodeEntity>>>
+      getEpisodesByPagination(Pagination pagination) async {
+    try {
+      final result = await _remote.getEpisodesByPagination(pagination);
+      return result.fold(
+        (l) => Left(l),
+        (r) async {
+          final entities = r.results.map((e) => e.toEntity()).toList();
+          await _local.cacheEpisodes(entities);
+          return Right(WithPagination<EpisodeEntity>(
+            info: r.info,
+            results: entities,
+          ));
+        },
+      );
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
     }
   }
 }

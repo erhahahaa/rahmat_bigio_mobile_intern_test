@@ -12,4 +12,10 @@ class LocationEvent with _$LocationEvent {
   const factory LocationEvent.getFilteredLocations(
     GetLocationsByFilterParams param,
   ) = _GetFilteredLocations;
+  const factory LocationEvent.toggleFavorite(
+    ByIdParam param,
+  ) = _ToggleFavorite;
+  const factory LocationEvent.getFavoriteLocations() = _GetFavoriteLocations;
+  const factory LocationEvent.restoreLocations() = _RestoreLocations;
+  const factory LocationEvent.nextPage() = _NextPage;
 }

@@ -45,6 +45,8 @@ import '../features/episode/data/repositories/episode_repository_impl.dart'
 import '../features/episode/domain/usecases/clear_episodes_cache.dart' as _i188;
 import '../features/episode/domain/usecases/get_episodes.dart' as _i1047;
 import '../features/episode/domain/usecases/get_episodes_by_id.dart' as _i605;
+import '../features/episode/domain/usecases/get_episodes_by_pagination.dart'
+    as _i418;
 import '../features/episode/domain/usecases/get_episodes_from_cache.dart'
     as _i142;
 import '../features/episode/domain/usecases/get_filtered_episodes.dart'
@@ -67,6 +69,8 @@ import '../features/location/domain/usecases/get_filtered_locations.dart'
     as _i115;
 import '../features/location/domain/usecases/get_locations.dart' as _i394;
 import '../features/location/domain/usecases/get_locations_by_id.dart' as _i50;
+import '../features/location/domain/usecases/get_locations_by_pagination.dart'
+    as _i545;
 import '../features/location/domain/usecases/get_locations_from_cache.dart'
     as _i1065;
 import '../features/location/domain/usecases/get_multiple_locations.dart'
@@ -166,11 +170,16 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i563.GetMultipleEpisodes(gh<_i1009.EpisodeRepository>()));
     gh.lazySingleton<_i605.GetEpisodesById>(
         () => _i605.GetEpisodesById(gh<_i1009.EpisodeRepository>()));
+    gh.lazySingleton<_i418.GetEpisodesByPagination>(
+        () => _i418.GetEpisodesByPagination(gh<_i1009.EpisodeRepository>()));
+    gh.lazySingleton<_i545.GetLocationsByPagination>(
+        () => _i545.GetLocationsByPagination(gh<_i1009.LocationRepository>()));
     gh.lazySingleton<_i792.EpisodeBloc>(() => _i792.EpisodeBloc(
           gh<_i1009.GetEpisodes>(),
-          gh<_i1009.GetEpisodesById>(),
           gh<_i1009.GetMultipleEpisodes>(),
           gh<_i1009.GetFilteredEpisodes>(),
+          gh<_i1009.ToggleFavoriteEpisode>(),
+          gh<_i1009.GetEpisodesByPagination>(),
         ));
     gh.lazySingleton<_i50.GetLocationsById>(
         () => _i50.GetLocationsById(gh<_i1009.LocationRepository>()));
@@ -188,9 +197,10 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i1065.GetLocationsFromCache(gh<_i1009.LocationRepository>()));
     gh.lazySingleton<_i234.LocationBloc>(() => _i234.LocationBloc(
           gh<_i1009.GetLocations>(),
-          gh<_i1009.GetLocationsById>(),
           gh<_i1009.GetMultipleLocations>(),
           gh<_i1009.GetFilteredLocations>(),
+          gh<_i1009.ToggleFavoriteLocation>(),
+          gh<_i1009.GetLocationsByPagination>(),
         ));
     return this;
   }

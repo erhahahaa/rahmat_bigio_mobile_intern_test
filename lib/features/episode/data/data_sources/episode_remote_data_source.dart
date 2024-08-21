@@ -5,7 +5,10 @@ import 'package:rick_morty/features/features.dart';
 import 'package:rick_morty/utils/utils.dart';
 
 abstract class EpisodeRemoteDataSource {
-  Future<Either<Failure, List<EpisodeModel>>> getEpisodes();
+  Future<Either<Failure, WithPagination<EpisodeModel>>> getEpisodes();
+  Future<Either<Failure, WithPagination<EpisodeModel>>> getEpisodesByPagination(
+    Pagination pagination,
+  );
   Future<Either<Failure, EpisodeModel>> getEpisode(
     ByIdParam param,
   );
@@ -33,27 +36,30 @@ class EpisodeRemoteDataSourceImpl implements EpisodeRemoteDataSource {
       );
 
   @override
-  Future<Either<Failure, List<EpisodeModel>>> getEpisodes() =>
-      _dio.getRequest(ListAPI.EPISODE, converter: (json) {
-        final List<EpisodeModel> episodes = [];
-        for (final item in json['results']) {
-          episodes.add(EpisodeModel.fromJson(item));
-        }
-        return episodes;
-      });
+  Future<Either<Failure, WithPagination<EpisodeModel>>> getEpisodes() =>
+      _dio.getRequest(
+        ListAPI.EPISODE,
+        converter: (json) => WithPagination.fromJson(
+          json,
+          (json) => EpisodeModel.fromJson(json),
+        ),
+      );
 
   @override
   Future<Either<Failure, List<EpisodeModel>>> getFilteredEpisodes(
     GetEpisodesByFilterParams params,
   ) =>
-      _dio.getRequest(ListAPI.EPISODE, queryParameters: params.toJson(),
-          converter: (json) {
-        final List<EpisodeModel> episodes = [];
-        for (final item in json['results']) {
-          episodes.add(EpisodeModel.fromJson(item));
-        }
-        return episodes;
-      });
+      _dio.getRequest(
+        ListAPI.EPISODE,
+        queryParameters: params.toJson(),
+        converter: (json) {
+          final List<EpisodeModel> episodes = [];
+          for (final item in json['results']) {
+            episodes.add(EpisodeModel.fromJson(item));
+          }
+          return episodes;
+        },
+      );
 
   @override
   Future<Either<Failure, List<EpisodeModel>>> getMultipleEpisodes(
@@ -66,5 +72,20 @@ class EpisodeRemoteDataSourceImpl implements EpisodeRemoteDataSource {
               (e) => EpisodeModel.fromJson(e),
             )
             .toList(),
+      );
+
+  @override
+  Future<Either<Failure, WithPagination<EpisodeModel>>> getEpisodesByPagination(
+    Pagination pagination,
+  ) =>
+      _dio.getRequest(
+        ListAPI.EPISODE,
+        queryParameters: {
+          'page': pagination.pages,
+        },
+        converter: (json) => WithPagination.fromJson(
+          json,
+          (json) => EpisodeModel.fromJson(json),
+        ),
       );
 }

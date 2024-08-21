@@ -4,17 +4,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rick_morty/app/router.gr.dart';
 import 'package:rick_morty/core/core.dart';
 import 'package:rick_morty/features/features.dart';
-import 'package:rick_morty/utils/utils.dart';
 
-class ListCharacter extends StatelessWidget {
-  final List<CharacterEntity> characters;
+class ListEpisode extends StatelessWidget {
+  final List<EpisodeEntity> episodes;
   final bool isLoading;
   final ScrollController? scrollController;
   final double? height;
 
-  const ListCharacter({
+  const ListEpisode({
     super.key,
-    required this.characters,
+    required this.episodes,
     this.isLoading = false,
     this.scrollController,
     this.height,
@@ -24,20 +23,19 @@ class ListCharacter extends StatelessWidget {
   Widget build(BuildContext context) {
     return BoxWrapper(
       height: height ?? 560.h,
-      child: ListWrapper<CharacterEntity>(
-        items: characters,
+      child: ListWrapper<EpisodeEntity>(
+        items: episodes,
         isLoading: isLoading,
         scrollController: scrollController,
-        itemBuilder: (character) {
+        itemBuilder: (episode) {
           return ListTileBoxWrapper(
-            image: character.image,
-            title: character.name,
-            isFavorite: character.isFavorite,
-            subtitle: character.status.value.capitalize(),
+            title: episode.name,
+            isFavorite: episode.isFavorite,
+            subtitle: episode.airDate,
             showChevron: true,
             onTap: () {
               context.router.push(
-                CharacterDetailRoute(id: character.id, character: character),
+                EpisodeDetailRoute(id: episode.id, episode: episode),
               );
             },
           );

@@ -7,16 +7,17 @@ import 'package:rick_morty/core/core.dart';
 class ListTileBoxWrapper extends StatelessWidget {
   final String? image;
   final String title, subtitle;
-  final VoidCallback onTap;
-  final bool isFavorite;
+  final VoidCallback? onTap;
+  final bool isFavorite, showChevron;
 
   const ListTileBoxWrapper({
     super.key,
     this.image,
     required this.title,
     required this.subtitle,
-    required this.onTap,
+    this.onTap,
     this.isFavorite = false,
+    this.showChevron = false,
   });
 
   @override
@@ -53,9 +54,11 @@ class ListTileBoxWrapper extends StatelessWidget {
           ],
         ),
         subtitle: Text(subtitle),
-        trailing: MoonButton.icon(
-          icon: Icon(MoonIcons.controls_chevron_right_24_light),
-        ),
+        trailing: showChevron
+            ? MoonButton.icon(
+                icon: Icon(MoonIcons.controls_chevron_right_24_light),
+              )
+            : null,
         onTap: onTap,
       ),
     );

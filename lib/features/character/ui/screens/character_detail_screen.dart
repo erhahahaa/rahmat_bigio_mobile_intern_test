@@ -74,25 +74,49 @@ class _CharacterDetailScreenState extends State<CharacterDetailScreen> {
               delegate: SliverChildListDelegate(
                 [
                   Gap(8.h),
-                  TitleMedium('Status'),
-                  Gap(4.h),
-                  Text(widget.character.status.value),
+                  TitleLarge('Details'),
+                  ListTileBoxWrapper(
+                    image: widget.character.image,
+                    title: widget.character.name,
+                    subtitle: widget.character.species,
+                  ),
                   Gap(8.h),
-                  TitleMedium('Species'),
-                  Gap(4.h),
-                  Text(widget.character.species),
+                  ListTileBoxWrapper(
+                    title: 'Status',
+                    subtitle: widget.character.status.value,
+                  ),
                   Gap(8.h),
-                  TitleMedium('Gender'),
-                  Text(widget.character.gender.value),
+                  ListTileBoxWrapper(
+                    title: 'Species',
+                    subtitle: widget.character.species,
+                  ),
                   Gap(8.h),
-                  TitleMedium('Origin'),
-                  Gap(4.h),
-                  Text(widget.character.origin.name),
+                  ListTileBoxWrapper(
+                    title: 'Type',
+                    subtitle: widget.character.type.isEmpty
+                        ? 'Unknown'
+                        : widget.character.type,
+                  ),
                   Gap(8.h),
-                  TitleMedium('Location'),
-                  Gap(4.h),
-                  Text(widget.character.location.name),
+                  ListTileBoxWrapper(
+                    title: 'Gender',
+                    subtitle: widget.character.gender.value.capitalize(),
+                  ),
                   Gap(8.h),
+                  ListTileBoxWrapper(
+                    title: 'Origin',
+                    subtitle: widget.character.origin.name,
+                  ),
+                  Gap(8.h),
+                  ListTileBoxWrapper(
+                    title: 'Location',
+                    subtitle: widget.character.location.name,
+                  ),
+                  Gap(8.h),
+                  ListTileBoxWrapper(
+                    title: 'Episodes',
+                    subtitle: widget.character.episode.length.toString(),
+                  ),
                 ],
               ),
             ),

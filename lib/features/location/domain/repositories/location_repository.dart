@@ -4,7 +4,11 @@ import 'package:rick_morty/features/features.dart';
 import 'package:rick_morty/utils/utils.dart';
 
 abstract class LocationRepository {
-  Future<Either<Failure, List<LocationEntity>>> getLocations();
+  Future<Either<Failure, WithPagination<LocationEntity>>> getLocations();
+  Future<Either<Failure, WithPagination<LocationEntity>>>
+      getLocationsByPagination(
+    Pagination pagination,
+  );
   Future<Either<Failure, LocationEntity>> getLocation(
     ByIdParam param,
   );
@@ -17,7 +21,7 @@ abstract class LocationRepository {
 
   Future<Either<Failure, List<LocationEntity>>> getLocationsFromCache();
   Future<Either<Failure, List<LocationEntity>>> getFavoriteLocations();
-  Future<Either<Failure, void>> toggleFavoriteLocation(
+  Future<Either<Failure, LocationEntity>> toggleFavoriteLocation(
     ByIdParam param,
   );
   Future<Either<Failure, void>> clearCache();

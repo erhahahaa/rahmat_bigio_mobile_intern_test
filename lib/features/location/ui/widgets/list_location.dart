@@ -4,17 +4,16 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:rick_morty/app/router.gr.dart';
 import 'package:rick_morty/core/core.dart';
 import 'package:rick_morty/features/features.dart';
-import 'package:rick_morty/utils/utils.dart';
 
-class ListCharacter extends StatelessWidget {
-  final List<CharacterEntity> characters;
+class ListLocation extends StatelessWidget {
+  final List<LocationEntity> locations;
   final bool isLoading;
   final ScrollController? scrollController;
   final double? height;
 
-  const ListCharacter({
+  const ListLocation({
     super.key,
-    required this.characters,
+    required this.locations,
     this.isLoading = false,
     this.scrollController,
     this.height,
@@ -24,20 +23,19 @@ class ListCharacter extends StatelessWidget {
   Widget build(BuildContext context) {
     return BoxWrapper(
       height: height ?? 560.h,
-      child: ListWrapper<CharacterEntity>(
-        items: characters,
+      child: ListWrapper<LocationEntity>(
+        items: locations,
         isLoading: isLoading,
         scrollController: scrollController,
-        itemBuilder: (character) {
+        itemBuilder: (location) {
           return ListTileBoxWrapper(
-            image: character.image,
-            title: character.name,
-            isFavorite: character.isFavorite,
-            subtitle: character.status.value.capitalize(),
+            title: location.name,
+            isFavorite: location.isFavorite,
+            subtitle: location.type,
             showChevron: true,
             onTap: () {
               context.router.push(
-                CharacterDetailRoute(id: character.id, character: character),
+                LocationDetailRoute(id: location.id, location: location),
               );
             },
           );

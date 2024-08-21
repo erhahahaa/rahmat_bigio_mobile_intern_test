@@ -111,12 +111,14 @@ class EpisodeDetailRoute extends _i11.PageRouteInfo<EpisodeDetailRouteArgs> {
   EpisodeDetailRoute({
     _i12.Key? key,
     required int id,
+    required _i13.EpisodeEntity episode,
     List<_i11.PageRouteInfo>? children,
   }) : super(
           EpisodeDetailRoute.name,
           args: EpisodeDetailRouteArgs(
             key: key,
             id: id,
+            episode: episode,
           ),
           rawPathParams: {'id': id},
           initialChildren: children,
@@ -127,12 +129,11 @@ class EpisodeDetailRoute extends _i11.PageRouteInfo<EpisodeDetailRouteArgs> {
   static _i11.PageInfo page = _i11.PageInfo(
     name,
     builder: (data) {
-      final pathParams = data.inheritedPathParams;
-      final args = data.argsAs<EpisodeDetailRouteArgs>(
-          orElse: () => EpisodeDetailRouteArgs(id: pathParams.getInt('id')));
+      final args = data.argsAs<EpisodeDetailRouteArgs>();
       return _i3.EpisodeDetailScreen(
         key: args.key,
         id: args.id,
+        episode: args.episode,
       );
     },
   );
@@ -142,15 +143,18 @@ class EpisodeDetailRouteArgs {
   const EpisodeDetailRouteArgs({
     this.key,
     required this.id,
+    required this.episode,
   });
 
   final _i12.Key? key;
 
   final int id;
 
+  final _i13.EpisodeEntity episode;
+
   @override
   String toString() {
-    return 'EpisodeDetailRouteArgs{key: $key, id: $id}';
+    return 'EpisodeDetailRouteArgs{key: $key, id: $id, episode: $episode}';
   }
 }
 
@@ -198,12 +202,14 @@ class LocationDetailRoute extends _i11.PageRouteInfo<LocationDetailRouteArgs> {
   LocationDetailRoute({
     _i12.Key? key,
     required int id,
+    required _i13.LocationEntity location,
     List<_i11.PageRouteInfo>? children,
   }) : super(
           LocationDetailRoute.name,
           args: LocationDetailRouteArgs(
             key: key,
             id: id,
+            location: location,
           ),
           rawPathParams: {'id': id},
           initialChildren: children,
@@ -214,12 +220,11 @@ class LocationDetailRoute extends _i11.PageRouteInfo<LocationDetailRouteArgs> {
   static _i11.PageInfo page = _i11.PageInfo(
     name,
     builder: (data) {
-      final pathParams = data.inheritedPathParams;
-      final args = data.argsAs<LocationDetailRouteArgs>(
-          orElse: () => LocationDetailRouteArgs(id: pathParams.getInt('id')));
+      final args = data.argsAs<LocationDetailRouteArgs>();
       return _i6.LocationDetailScreen(
         key: args.key,
         id: args.id,
+        location: args.location,
       );
     },
   );
@@ -229,15 +234,18 @@ class LocationDetailRouteArgs {
   const LocationDetailRouteArgs({
     this.key,
     required this.id,
+    required this.location,
   });
 
   final _i12.Key? key;
 
   final int id;
 
+  final _i13.LocationEntity location;
+
   @override
   String toString() {
-    return 'LocationDetailRouteArgs{key: $key, id: $id}';
+    return 'LocationDetailRouteArgs{key: $key, id: $id, location: $location}';
   }
 }
 
@@ -310,10 +318,17 @@ class SearchCharacterRouteArgs {
 
 /// generated route for
 /// [_i9.SearchEpisodeScreen]
-class SearchEpisodeRoute extends _i11.PageRouteInfo<void> {
-  const SearchEpisodeRoute({List<_i11.PageRouteInfo>? children})
-      : super(
+class SearchEpisodeRoute extends _i11.PageRouteInfo<SearchEpisodeRouteArgs> {
+  SearchEpisodeRoute({
+    _i12.Key? key,
+    required _i13.GetEpisodesByFilterParams params,
+    List<_i11.PageRouteInfo>? children,
+  }) : super(
           SearchEpisodeRoute.name,
+          args: SearchEpisodeRouteArgs(
+            key: key,
+            params: params,
+          ),
           initialChildren: children,
         );
 
@@ -322,17 +337,45 @@ class SearchEpisodeRoute extends _i11.PageRouteInfo<void> {
   static _i11.PageInfo page = _i11.PageInfo(
     name,
     builder: (data) {
-      return const _i9.SearchEpisodeScreen();
+      final args = data.argsAs<SearchEpisodeRouteArgs>();
+      return _i11.WrappedRoute(
+          child: _i9.SearchEpisodeScreen(
+        key: args.key,
+        params: args.params,
+      ));
     },
   );
 }
 
+class SearchEpisodeRouteArgs {
+  const SearchEpisodeRouteArgs({
+    this.key,
+    required this.params,
+  });
+
+  final _i12.Key? key;
+
+  final _i13.GetEpisodesByFilterParams params;
+
+  @override
+  String toString() {
+    return 'SearchEpisodeRouteArgs{key: $key, params: $params}';
+  }
+}
+
 /// generated route for
 /// [_i10.SearchLocationScreen]
-class SearchLocationRoute extends _i11.PageRouteInfo<void> {
-  const SearchLocationRoute({List<_i11.PageRouteInfo>? children})
-      : super(
+class SearchLocationRoute extends _i11.PageRouteInfo<SearchLocationRouteArgs> {
+  SearchLocationRoute({
+    _i12.Key? key,
+    required _i13.GetLocationsByFilterParams params,
+    List<_i11.PageRouteInfo>? children,
+  }) : super(
           SearchLocationRoute.name,
+          args: SearchLocationRouteArgs(
+            key: key,
+            params: params,
+          ),
           initialChildren: children,
         );
 
@@ -341,7 +384,28 @@ class SearchLocationRoute extends _i11.PageRouteInfo<void> {
   static _i11.PageInfo page = _i11.PageInfo(
     name,
     builder: (data) {
-      return const _i10.SearchLocationScreen();
+      final args = data.argsAs<SearchLocationRouteArgs>();
+      return _i11.WrappedRoute(
+          child: _i10.SearchLocationScreen(
+        key: args.key,
+        params: args.params,
+      ));
     },
   );
+}
+
+class SearchLocationRouteArgs {
+  const SearchLocationRouteArgs({
+    this.key,
+    required this.params,
+  });
+
+  final _i12.Key? key;
+
+  final _i13.GetLocationsByFilterParams params;
+
+  @override
+  String toString() {
+    return 'SearchLocationRouteArgs{key: $key, params: $params}';
+  }
 }

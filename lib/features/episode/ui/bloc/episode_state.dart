@@ -5,7 +5,7 @@ class EpisodeState with _$EpisodeState {
   const factory EpisodeState.initial() = EpisodeStateInitial;
   const factory EpisodeState.loading() = EpisodeStateLoading;
   const factory EpisodeState.loaded(
-    List<EpisodeEntity> episodes,
+    WithPagination<EpisodeEntity> episodes,
   ) = EpisodeStateLoaded;
   const factory EpisodeState.error(String message) = EpisodeStateError;
 }

@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 import 'package:rick_morty/core/errors/failure.dart';
 import 'package:rick_morty/features/features.dart';
+import 'package:rick_morty/utils/utils.dart';
 
 import '../../../../helpers/test_mock.mocks.dart';
 
@@ -20,8 +21,8 @@ void main() {
       'SHOULD return list of characters WHEN call to repository is successful',
       () async {
         // arrange
-        when(mockCharacterRepository.getCharacters())
-            .thenAnswer((_) async => const Right([]));
+        when(mockCharacterRepository.getCharacters()).thenAnswer((_) async =>
+            const Right(WithPagination(info: Pagination(), results: [])));
         // act
         final result = await getCharacters();
         // assert

@@ -54,6 +54,4 @@ To try out the application, you can download the APK from the following link: [A
 
 ## <a name="test-result-snippet"></a> Test Result Snippet :
 
-<!-- image -->
-
 ![Test Result Snippet](https://raw.githubusercontent.com/erhahahaa/rahmat_bigio_mobile_intern_test/main/resources/test/result_snippet.png "Test Result Snippet")

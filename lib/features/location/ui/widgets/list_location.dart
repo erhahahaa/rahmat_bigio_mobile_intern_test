@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rick_morty/app/router.gr.dart';
-import 'package:rick_morty/core/core.dart';
-import 'package:rick_morty/features/features.dart';
+import 'package:hidayatullah/app/router.gr.dart';
+import 'package:hidayatullah/core/core.dart';
+import 'package:hidayatullah/features/features.dart';
 
 class ListLocation extends StatelessWidget {
   final List<LocationEntity> locations;

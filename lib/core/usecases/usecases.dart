@@ -1,5 +1,5 @@
 import 'package:dartz/dartz.dart';
-import 'package:rick_morty/core/core.dart';
+import 'package:hidayatullah/core/core.dart';
 
 /// [Future with Params Use Case]
 abstract class FPUC<Type, Param> {

@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
-import 'package:rick_morty/app/router.gr.dart';
-import 'package:rick_morty/core/core.dart';
-import 'package:rick_morty/features/features.dart';
-import 'package:rick_morty/utils/utils.dart';
+import 'package:hidayatullah/app/router.gr.dart';
+import 'package:hidayatullah/core/core.dart';
+import 'package:hidayatullah/features/features.dart';
+import 'package:hidayatullah/utils/utils.dart';
 
 @RoutePage()
 class HomeScreen extends StatefulWidget {
@@ -113,10 +113,16 @@ class _HomeScreenState extends State<HomeScreen> {
                           characters: characters.results,
                         );
                       },
-                      error: (message) {
+                      error: (failure) {
                         return Center(
                           child: BoxWrapper(
-                            child: Text(message),
+                            child: Column(
+                              children: [
+                                Text(failure.message),
+                                Gap(8.h),
+                                Text(failure.toString()),
+                              ],
+                            ),
                           ),
                         );
                       },

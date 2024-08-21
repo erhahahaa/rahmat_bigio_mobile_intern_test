@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rick_morty/utils/utils.dart';
+import 'package:hidayatullah/utils/utils.dart';
 
 class Parent extends StatefulWidget {
   final Widget? body;

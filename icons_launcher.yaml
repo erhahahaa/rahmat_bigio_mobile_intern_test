@@ -20,10 +20,10 @@ icons_launcher:
       image_path: "assets/icons/ic_logo_radius.png"
       favicon_path: "assets/icons/ic_logo_round.png"
     macos:
-      enable: true
+      enable: false
       image_path: "assets/icons/ic_logo_radius.png"
     windows:
-      enable: true
+      enable: false
       image_path: "assets/icons/ic_logo_radius.png"
     linux:
       enable: false

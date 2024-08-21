@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
+import 'package:hidayatullah/core/core.dart';
+import 'package:hidayatullah/features/features.dart';
+import 'package:hidayatullah/utils/helpers/helpers.dart';
 import 'package:injectable/injectable.dart';
-import 'package:rick_morty/core/core.dart';
-import 'package:rick_morty/features/features.dart';
-import 'package:rick_morty/utils/helpers/helpers.dart';
 
 @lazySingleton
 class GetLocations extends FNPUC<WithPagination<LocationEntity>> {

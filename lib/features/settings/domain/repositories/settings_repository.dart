@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
-import 'package:rick_morty/core/core.dart';
+import 'package:hidayatullah/core/core.dart';
 
 abstract class SettingsRepository {
   Future<Either<Failure, ThemeMode>> getThemeMode();

@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:rick_morty/utils/utils.dart';
+import 'package:hidayatullah/utils/utils.dart';
 
 class DioInterceptor extends Interceptor with Log {
   @override

@@ -7,5 +7,5 @@ class CharacterState with _$CharacterState {
   const factory CharacterState.loaded(
     WithPagination<CharacterEntity> characters,
   ) = CharacterStateLoaded;
-  const factory CharacterState.error(String message) = CharacterStateError;
+  const factory CharacterState.error(Failure message) = CharacterStateError;
 }

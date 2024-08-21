@@ -1484,7 +1484,7 @@ mixin _$CharacterState {
     required TResult Function() loading,
     required TResult Function(WithPagination<CharacterEntity> characters)
         loaded,
-    required TResult Function(String message) error,
+    required TResult Function(Failure message) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1492,7 +1492,7 @@ mixin _$CharacterState {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(WithPagination<CharacterEntity> characters)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function(Failure message)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -1500,7 +1500,7 @@ mixin _$CharacterState {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(WithPagination<CharacterEntity> characters)? loaded,
-    TResult Function(String message)? error,
+    TResult Function(Failure message)? error,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -1599,7 +1599,7 @@ class _$CharacterStateInitialImpl implements CharacterStateInitial {
     required TResult Function() loading,
     required TResult Function(WithPagination<CharacterEntity> characters)
         loaded,
-    required TResult Function(String message) error,
+    required TResult Function(Failure message) error,
   }) {
     return initial();
   }
@@ -1610,7 +1610,7 @@ class _$CharacterStateInitialImpl implements CharacterStateInitial {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(WithPagination<CharacterEntity> characters)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function(Failure message)? error,
   }) {
     return initial?.call();
   }
@@ -1621,7 +1621,7 @@ class _$CharacterStateInitialImpl implements CharacterStateInitial {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(WithPagination<CharacterEntity> characters)? loaded,
-    TResult Function(String message)? error,
+    TResult Function(Failure message)? error,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -1719,7 +1719,7 @@ class _$CharacterStateLoadingImpl implements CharacterStateLoading {
     required TResult Function() loading,
     required TResult Function(WithPagination<CharacterEntity> characters)
         loaded,
-    required TResult Function(String message) error,
+    required TResult Function(Failure message) error,
   }) {
     return loading();
   }
@@ -1730,7 +1730,7 @@ class _$CharacterStateLoadingImpl implements CharacterStateLoading {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(WithPagination<CharacterEntity> characters)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function(Failure message)? error,
   }) {
     return loading?.call();
   }
@@ -1741,7 +1741,7 @@ class _$CharacterStateLoadingImpl implements CharacterStateLoading {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(WithPagination<CharacterEntity> characters)? loaded,
-    TResult Function(String message)? error,
+    TResult Function(Failure message)? error,
     required TResult orElse(),
   }) {
     if (loading != null) {
@@ -1880,7 +1880,7 @@ class _$CharacterStateLoadedImpl implements CharacterStateLoaded {
     required TResult Function() loading,
     required TResult Function(WithPagination<CharacterEntity> characters)
         loaded,
-    required TResult Function(String message) error,
+    required TResult Function(Failure message) error,
   }) {
     return loaded(characters);
   }
@@ -1891,7 +1891,7 @@ class _$CharacterStateLoadedImpl implements CharacterStateLoaded {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(WithPagination<CharacterEntity> characters)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function(Failure message)? error,
   }) {
     return loaded?.call(characters);
   }
@@ -1902,7 +1902,7 @@ class _$CharacterStateLoadedImpl implements CharacterStateLoaded {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(WithPagination<CharacterEntity> characters)? loaded,
-    TResult Function(String message)? error,
+    TResult Function(Failure message)? error,
     required TResult orElse(),
   }) {
     if (loaded != null) {
@@ -1969,7 +1969,7 @@ abstract class _$$CharacterStateErrorImplCopyWith<$Res> {
           $Res Function(_$CharacterStateErrorImpl) then) =
       __$$CharacterStateErrorImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({String message});
+  $Res call({Failure message});
 }
 
 /// @nodoc
@@ -1991,7 +1991,7 @@ class __$$CharacterStateErrorImplCopyWithImpl<$Res>
       null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as String,
+              as Failure,
     ));
   }
 }
@@ -2002,7 +2002,7 @@ class _$CharacterStateErrorImpl implements CharacterStateError {
   const _$CharacterStateErrorImpl(this.message);
 
   @override
-  final String message;
+  final Failure message;
 
   @override
   String toString() {
@@ -2036,7 +2036,7 @@ class _$CharacterStateErrorImpl implements CharacterStateError {
     required TResult Function() loading,
     required TResult Function(WithPagination<CharacterEntity> characters)
         loaded,
-    required TResult Function(String message) error,
+    required TResult Function(Failure message) error,
   }) {
     return error(message);
   }
@@ -2047,7 +2047,7 @@ class _$CharacterStateErrorImpl implements CharacterStateError {
     TResult? Function()? initial,
     TResult? Function()? loading,
     TResult? Function(WithPagination<CharacterEntity> characters)? loaded,
-    TResult? Function(String message)? error,
+    TResult? Function(Failure message)? error,
   }) {
     return error?.call(message);
   }
@@ -2058,7 +2058,7 @@ class _$CharacterStateErrorImpl implements CharacterStateError {
     TResult Function()? initial,
     TResult Function()? loading,
     TResult Function(WithPagination<CharacterEntity> characters)? loaded,
-    TResult Function(String message)? error,
+    TResult Function(Failure message)? error,
     required TResult orElse(),
   }) {
     if (error != null) {
@@ -2106,10 +2106,10 @@ class _$CharacterStateErrorImpl implements CharacterStateError {
 }
 
 abstract class CharacterStateError implements CharacterState {
-  const factory CharacterStateError(final String message) =
+  const factory CharacterStateError(final Failure message) =
       _$CharacterStateErrorImpl;
 
-  String get message;
+  Failure get message;
 
   /// Create a copy of CharacterState
   /// with the given fields replaced by the non-null parameter values.

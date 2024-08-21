@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import 'package:hidayatullah/core/core.dart';
+import 'package:hidayatullah/features/features.dart';
 import 'package:injectable/injectable.dart';
 import 'package:isar/isar.dart';
-import 'package:rick_morty/core/core.dart';
-import 'package:rick_morty/features/features.dart';
 
 abstract class SettingsLocalDataSource {
   Future<Either<Failure, ThemeMode>> getThemeMode();

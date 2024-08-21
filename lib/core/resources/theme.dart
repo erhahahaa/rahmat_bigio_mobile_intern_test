@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hidayatullah/core/core.dart';
 import 'package:moon_design/moon_design.dart';
-import 'package:rick_morty/core/core.dart';
 
 final class RickMortyTheme {
   static final typography = MoonTypography.typography.copyWith(

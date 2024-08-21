@@ -1,8 +1,8 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hidayatullah/features/features.dart';
+import 'package:hidayatullah/utils/utils.dart';
 import 'package:injectable/injectable.dart';
-import 'package:rick_morty/features/features.dart';
-import 'package:rick_morty/utils/utils.dart';
 
 part 'location_bloc.freezed.dart';
 part 'location_event.dart';

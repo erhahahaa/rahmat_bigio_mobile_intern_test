@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rick_morty/utils/utils.dart';
+import 'package:hidayatullah/utils/utils.dart';
 
 part 'get_locations_by_filter_params.freezed.dart';
 

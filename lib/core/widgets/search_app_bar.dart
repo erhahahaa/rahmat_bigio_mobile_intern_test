@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hidayatullah/utils/utils.dart';
 import 'package:moon_design/moon_design.dart';
-import 'package:rick_morty/utils/utils.dart';
 
 class SearchAppBar extends StatefulWidget implements PreferredSizeWidget {
   final String? hintText;

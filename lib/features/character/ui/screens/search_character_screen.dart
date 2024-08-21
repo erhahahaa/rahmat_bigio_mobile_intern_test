@@ -2,8 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rick_morty/core/core.dart';
-import 'package:rick_morty/features/features.dart';
+import 'package:hidayatullah/core/core.dart';
+import 'package:hidayatullah/features/features.dart';
 
 @RoutePage()
 class SearchCharacterScreen extends StatelessWidget
@@ -63,9 +63,9 @@ class SearchCharacterScreen extends StatelessWidget
                   characters: characters.results,
                 );
               },
-              error: (message) => Center(
+              error: (failure) => Center(
                 child: BoxWrapper(
-                  child: Text(message),
+                  child: Text(failure.message),
                 ),
               ),
             );

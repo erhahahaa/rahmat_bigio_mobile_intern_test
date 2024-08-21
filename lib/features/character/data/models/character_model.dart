@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rick_morty/features/character/domain/entities/character_entity.dart';
+import 'package:hidayatullah/features/character/domain/entities/character_entity.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
 part 'character_model.freezed.dart';

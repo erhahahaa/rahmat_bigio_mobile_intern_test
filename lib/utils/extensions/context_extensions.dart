@@ -3,13 +3,13 @@ import 'package:elegant_notification/resources/arrays.dart';
 import 'package:elegant_notification/resources/stacked_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rick_morty/core/core.dart';
+import 'package:hidayatullah/core/core.dart';
 
 extension BuildContextX on BuildContext {
   ThemeData get theme => Theme.of(this);
 
   Strings? get str => Strings.of(this);
-  
+
   Locale get locale => Localizations.localeOf(this);
 
   void changeFocus(FocusNode currentFocus, FocusNode? nextFocus) {

@@ -3,10 +3,10 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:rick_morty/app/router.dart';
-import 'package:rick_morty/app/sl.dart';
-import 'package:rick_morty/core/core.dart';
-import 'package:rick_morty/features/features.dart';
+import 'package:hidayatullah/app/router.dart';
+import 'package:hidayatullah/app/sl.dart';
+import 'package:hidayatullah/core/core.dart';
+import 'package:hidayatullah/features/features.dart';
 
 class RickMortyApp extends StatelessWidget {
   RickMortyApp({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rick_morty/features/features.dart';
+import 'package:hidayatullah/features/features.dart';
 
 part 'settings_model.freezed.dart';
 

@@ -3,7 +3,7 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
-import 'package:rick_morty/features/features.dart';
+import 'package:hidayatullah/features/features.dart';
 
 import '../../../../helpers/json_reader.dart';
 

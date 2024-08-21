@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:rick_morty/features/features.dart';
+import 'package:hidayatullah/features/features.dart';
 
 part 'episode_model.freezed.dart';
 part 'episode_model.g.dart';

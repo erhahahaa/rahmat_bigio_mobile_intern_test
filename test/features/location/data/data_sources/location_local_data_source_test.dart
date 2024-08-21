@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:flutter_test/flutter_test.dart';
+import 'package:hidayatullah/app/sl.dart';
+import 'package:hidayatullah/core/core.dart';
+import 'package:hidayatullah/features/features.dart';
+import 'package:hidayatullah/utils/utils.dart';
 // ignore: depend_on_referenced_packages
 import 'package:path_provider_platform_interface/path_provider_platform_interface.dart';
-import 'package:rick_morty/app/sl.dart';
-import 'package:rick_morty/core/core.dart';
-import 'package:rick_morty/features/features.dart';
-import 'package:rick_morty/utils/utils.dart';
 
 import '../../../../helpers/fake_path_provider_platform.dart';
 import '../../../../helpers/json_reader.dart';

@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
+import 'package:hidayatullah/core/errors/failure.dart';
+import 'package:hidayatullah/features/features.dart';
+import 'package:hidayatullah/utils/helpers/helpers.dart';
+import 'package:hidayatullah/utils/params/by_id_param.dart';
+import 'package:hidayatullah/utils/params/by_ids_param.dart';
 import 'package:injectable/injectable.dart';
-import 'package:rick_morty/core/errors/failure.dart';
-import 'package:rick_morty/features/features.dart';
-import 'package:rick_morty/utils/helpers/helpers.dart';
-import 'package:rick_morty/utils/params/by_id_param.dart';
-import 'package:rick_morty/utils/params/by_ids_param.dart';
 
 @LazySingleton(as: LocationRepository)
 class LocationRepositoryImpl implements LocationRepository {
@@ -40,8 +40,7 @@ class LocationRepositoryImpl implements LocationRepository {
   }
 
   @override
-  Future<Either<Failure, WithPagination<LocationEntity>>>
-      getLocations() async {
+  Future<Either<Failure, WithPagination<LocationEntity>>> getLocations() async {
     try {
       final result = await _remote.getLocations();
       return result.fold(
@@ -62,8 +61,7 @@ class LocationRepositoryImpl implements LocationRepository {
   }
 
   @override
-  Future<Either<Failure, List<LocationEntity>>>
-      getLocationsFromCache() async {
+  Future<Either<Failure, List<LocationEntity>>> getLocationsFromCache() async {
     try {
       return await _local.getLocationsFromCache();
     } catch (e) {

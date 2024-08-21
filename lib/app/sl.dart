@@ -1,6 +1,6 @@
 import 'package:get_it/get_it.dart';
+import 'package:hidayatullah/app/sl.config.dart';
 import 'package:injectable/injectable.dart';
-import 'package:rick_morty/app/sl.config.dart';
 
 final sl = GetIt.instance;
 

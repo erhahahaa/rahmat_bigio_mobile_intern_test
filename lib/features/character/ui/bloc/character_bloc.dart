@@ -1,8 +1,9 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:hidayatullah/core/errors/errors.dart';
+import 'package:hidayatullah/features/features.dart';
+import 'package:hidayatullah/utils/utils.dart';
 import 'package:injectable/injectable.dart';
-import 'package:rick_morty/features/features.dart';
-import 'package:rick_morty/utils/utils.dart';
 
 part 'character_bloc.freezed.dart';
 part 'character_event.dart';
@@ -42,7 +43,7 @@ class CharacterBloc extends Bloc<CharacterEvent, CharacterState> {
     emit(const CharacterStateLoading());
     final result = await _getCharacters.call();
     result.fold(
-      (failure) => emit(CharacterStateError(failure.message)),
+      (failure) => emit(CharacterStateError(failure)),
       (success) {
         _characters = success;
         emit(CharacterStateLoaded(_characters));
@@ -57,7 +58,7 @@ class CharacterBloc extends Bloc<CharacterEvent, CharacterState> {
     emit(const CharacterStateLoading());
     final result = await _getMultipleCharacters.call(event.param);
     result.fold(
-      (failure) => emit(CharacterStateError(failure.message)),
+      (failure) => emit(CharacterStateError(failure)),
       (success) => emit(CharacterStateLoaded(_characters.copyWith(
         results: [..._characters.results, ...success],
       ))),
@@ -71,7 +72,7 @@ class CharacterBloc extends Bloc<CharacterEvent, CharacterState> {
     emit(const CharacterStateLoading());
     final result = await _getFilteredCharacters.call(event.param);
     result.fold(
-      (failure) => emit(CharacterStateError(failure.message)),
+      (failure) => emit(CharacterStateError(failure)),
       (success) => emit(CharacterStateLoaded(
         WithPagination(
           info: const Pagination(pages: 1),
@@ -89,7 +90,7 @@ class CharacterBloc extends Bloc<CharacterEvent, CharacterState> {
     emit(const CharacterStateLoading());
     final result = await _toggleFavoriteCharacter.call(event.param);
     result.fold(
-      (failure) => emit(CharacterStateError(failure.message)),
+      (failure) => emit(CharacterStateError(failure)),
       (success) {
         final updatedCharacters = characters.copyWith(
           results: characters.results
@@ -116,10 +117,7 @@ class CharacterBloc extends Bloc<CharacterEvent, CharacterState> {
     Emitter emit,
   ) async {
     final characters = (state as CharacterStateLoaded).characters;
-    if (characters.info.next == null) {
-      emit(const CharacterStateError('No more pages'));
-      return;
-    }
+
     Pagination pagination = characters.info;
 
     if (pagination.next != null) {
@@ -131,7 +129,7 @@ class CharacterBloc extends Bloc<CharacterEvent, CharacterState> {
 
     final result = await _getCharactersByPagination.call(pagination);
     result.fold(
-      (failure) => emit(CharacterStateError(failure.message)),
+      (failure) => emit(CharacterStateError(failure)),
       (success) {
         _characters = characters.copyWith(
           info: success.info,

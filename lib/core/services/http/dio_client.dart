@@ -2,13 +2,13 @@ import 'dart:async';
 
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:hidayatullah/core/core.dart';
+import 'package:hidayatullah/utils/utils.dart';
 import 'package:injectable/injectable.dart';
-import 'package:rick_morty/core/core.dart';
-import 'package:rick_morty/utils/utils.dart';
 
-@lazySingleton
+@injectable
 class DioClient with Log {
-  late final Dio dio = Dio(
+  final Dio dio = Dio(
     BaseOptions(
       baseUrl: ListAPI.BASE_URL,
       headers: {
@@ -23,11 +23,6 @@ class DioClient with Log {
 
   DioClient() {
     dio.interceptors.add(DioInterceptor());
-  }
-
-  @disposeMethod
-  void dispose() {
-    dio.close();
   }
 
   Future<Either<Failure, T>> getRequest<T>(

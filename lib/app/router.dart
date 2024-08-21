@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:hidayatullah/app/router.gr.dart';
 import 'package:injectable/injectable.dart';
-import 'package:rick_morty/app/router.gr.dart';
 
 @Injectable()
 @AutoRouterConfig()

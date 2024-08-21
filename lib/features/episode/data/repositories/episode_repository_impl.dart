@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
+import 'package:hidayatullah/core/errors/failure.dart';
+import 'package:hidayatullah/features/features.dart';
+import 'package:hidayatullah/utils/helpers/helpers.dart';
+import 'package:hidayatullah/utils/params/by_id_param.dart';
+import 'package:hidayatullah/utils/params/by_ids_param.dart';
 import 'package:injectable/injectable.dart';
-import 'package:rick_morty/core/errors/failure.dart';
-import 'package:rick_morty/features/features.dart';
-import 'package:rick_morty/utils/helpers/helpers.dart';
-import 'package:rick_morty/utils/params/by_id_param.dart';
-import 'package:rick_morty/utils/params/by_ids_param.dart';
 
 @LazySingleton(as: EpisodeRepository)
 class EpisodeRepositoryImpl implements EpisodeRepository {

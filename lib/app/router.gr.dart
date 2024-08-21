@@ -10,28 +10,28 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i12;
 import 'package:flutter/material.dart' as _i13;
-import 'package:rick_morty/features/character/ui/screens/character_detail_screen.dart'
+import 'package:hidayatullah/features/character/ui/screens/character_detail_screen.dart'
     as _i1;
-import 'package:rick_morty/features/character/ui/screens/home_screen.dart'
+import 'package:hidayatullah/features/character/ui/screens/home_screen.dart'
     as _i5;
-import 'package:rick_morty/features/character/ui/screens/search_character_screen.dart'
+import 'package:hidayatullah/features/character/ui/screens/search_character_screen.dart'
     as _i8;
-import 'package:rick_morty/features/episode/ui/screens/episode_detail_screen.dart'
+import 'package:hidayatullah/features/episode/ui/screens/episode_detail_screen.dart'
     as _i3;
-import 'package:rick_morty/features/episode/ui/screens/episode_screen.dart'
+import 'package:hidayatullah/features/episode/ui/screens/episode_screen.dart'
     as _i4;
-import 'package:rick_morty/features/episode/ui/screens/search_episode_screen.dart'
+import 'package:hidayatullah/features/episode/ui/screens/search_episode_screen.dart'
     as _i9;
-import 'package:rick_morty/features/features.dart' as _i14;
-import 'package:rick_morty/features/location/ui/screens/location_detail_screen.dart'
+import 'package:hidayatullah/features/features.dart' as _i14;
+import 'package:hidayatullah/features/location/ui/screens/location_detail_screen.dart'
     as _i6;
-import 'package:rick_morty/features/location/ui/screens/location_screen.dart'
+import 'package:hidayatullah/features/location/ui/screens/location_screen.dart'
     as _i7;
-import 'package:rick_morty/features/location/ui/screens/search_location_screen.dart'
+import 'package:hidayatullah/features/location/ui/screens/search_location_screen.dart'
     as _i10;
-import 'package:rick_morty/features/navigation/ui/screens/dashboard_screen.dart'
+import 'package:hidayatullah/features/navigation/ui/screens/dashboard_screen.dart'
     as _i2;
-import 'package:rick_morty/features/settings/ui/screens/settings_screen.dart'
+import 'package:hidayatullah/features/settings/ui/screens/settings_screen.dart'
     as _i11;
 
 /// generated route for

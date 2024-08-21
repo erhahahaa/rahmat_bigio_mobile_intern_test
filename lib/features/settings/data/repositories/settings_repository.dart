@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import 'package:hidayatullah/core/errors/failure.dart';
+import 'package:hidayatullah/features/features.dart';
 import 'package:injectable/injectable.dart';
-import 'package:rick_morty/core/errors/failure.dart';
-import 'package:rick_morty/features/features.dart';
 
 @LazySingleton(as: SettingsRepository)
 class SettingsRepositoryImpl implements SettingsRepository {

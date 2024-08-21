@@ -1,11 +1,11 @@
 import 'dart:io';
 
 import 'package:flutter/foundation.dart';
+import 'package:hidayatullah/features/features.dart';
+import 'package:hidayatullah/utils/utils.dart';
 import 'package:injectable/injectable.dart';
 import 'package:isar/isar.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:rick_morty/features/features.dart';
-import 'package:rick_morty/utils/utils.dart';
 
 @lazySingleton
 class IsarClient with Log {

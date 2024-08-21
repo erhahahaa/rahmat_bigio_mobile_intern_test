@@ -2,10 +2,10 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hidayatullah/app/app.dart';
+import 'package:hidayatullah/app/sl.dart';
+import 'package:hidayatullah/utils/utils.dart';
 import 'package:isar/isar.dart';
-import 'package:rick_morty/app/app.dart';
-import 'package:rick_morty/app/sl.dart';
-import 'package:rick_morty/utils/utils.dart';
 
 void main() {
   runZonedGuarded(() async {

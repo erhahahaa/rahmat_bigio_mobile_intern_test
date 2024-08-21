@@ -2,8 +2,8 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dot_navigation_bar/dot_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hidayatullah/app/router.gr.dart';
 import 'package:moon_design/moon_design.dart';
-import 'package:rick_morty/app/router.gr.dart';
 
 @RoutePage()
 class DashboardScreen extends StatelessWidget {

@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hidayatullah/core/core.dart';
 import 'package:moon_design/moon_design.dart';
-import 'package:rick_morty/core/core.dart';
 
 class ListTileBoxWrapper extends StatelessWidget {
   final String? image;

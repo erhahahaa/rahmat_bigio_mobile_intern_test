@@ -8,8 +8,39 @@ import 'package:rick_morty/core/core.dart';
 import 'package:rick_morty/features/features.dart';
 
 @RoutePage()
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
+
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  late ScrollController _scrollController;
+
+  void _listenScrollController() {
+    _scrollController.addListener(() {
+      if (_scrollController.position.pixels ==
+          _scrollController.position.maxScrollExtent) {
+        context.read<CharacterBloc>().add(
+              CharacterEvent.nextPage(),
+            );
+      }
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController = ScrollController();
+    _listenScrollController();
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +73,7 @@ class HomeScreen extends StatelessWidget {
                 BlocBuilder<CharacterBloc, CharacterState>(
                   builder: (context, state) {
                     final int count = state is CharacterStateLoaded
-                        ? state.characters.length
+                        ? state.characters.results.length
                         : 0;
                     return Row(
                       children: [
@@ -75,7 +106,8 @@ class HomeScreen extends StatelessWidget {
                       },
                       loaded: (characters) {
                         return ListCharacter(
-                          characters: characters,
+                          scrollController: _scrollController,
+                          characters: characters.results,
                         );
                       },
                       error: (message) {

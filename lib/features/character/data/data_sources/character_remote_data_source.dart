@@ -5,7 +5,11 @@ import 'package:rick_morty/features/features.dart';
 import 'package:rick_morty/utils/utils.dart';
 
 abstract class CharacterRemoteDataSource {
-  Future<Either<Failure, List<CharacterModel>>> getCharacters();
+  Future<Either<Failure, WithPagination<CharacterModel>>> getCharacters();
+  Future<Either<Failure, WithPagination<CharacterModel>>>
+      getCharactersByPagination(
+    Pagination pagination,
+  );
   Future<Either<Failure, CharacterModel>> getCharacter(
     ByIdParam param,
   );
@@ -33,16 +37,13 @@ class CharacterRemoteDataSourceImpl implements CharacterRemoteDataSource {
       );
 
   @override
-  Future<Either<Failure, List<CharacterModel>>> getCharacters() =>
+  Future<Either<Failure, WithPagination<CharacterModel>>> getCharacters() =>
       _dio.getRequest(
         ListAPI.CHARACTER,
-        converter: (json) {
-          final List<CharacterModel> characters = [];
-          for (final item in json['results']) {
-            characters.add(CharacterModel.fromJson(item));
-          }
-          return characters;
-        },
+        converter: (json) => WithPagination.fromJson(
+          json,
+          (json) => CharacterModel.fromJson(json),
+        ),
       );
 
   @override
@@ -73,4 +74,20 @@ class CharacterRemoteDataSourceImpl implements CharacterRemoteDataSource {
             )
             .toList(),
       );
+
+  @override
+  Future<Either<Failure, WithPagination<CharacterModel>>>
+      getCharactersByPagination(
+    Pagination pagination,
+  ) =>
+          _dio.getRequest(
+            ListAPI.CHARACTER,
+            queryParameters: {
+              'page': pagination.pages,
+            },
+            converter: (json) => WithPagination.fromJson(
+              json,
+              (json) => CharacterModel.fromJson(json),
+            ),
+          );
 }

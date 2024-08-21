@@ -9,10 +9,13 @@ import 'package:rick_morty/utils/utils.dart';
 class ListCharacter extends StatelessWidget {
   final List<CharacterEntity> characters;
   final bool isLoading;
+  final ScrollController? scrollController;
+
   const ListCharacter({
     super.key,
     required this.characters,
     this.isLoading = false,
+    this.scrollController,
   });
 
   @override
@@ -22,6 +25,7 @@ class ListCharacter extends StatelessWidget {
       child: ListWrapper<CharacterEntity>(
         items: characters,
         isLoading: isLoading,
+        scrollController: scrollController,
         itemBuilder: (character) {
           return ListTileBoxWrapper(
             image: character.image,

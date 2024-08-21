@@ -44,22 +44,49 @@ class MockCharacterRepository extends _i1.Mock
   }
 
   @override
-  _i4.Future<_i2.Either<_i5.Failure, List<_i3.CharacterEntity>>>
-      getCharacters() => (super.noSuchMethod(
+  _i4.Future<
+      _i2.Either<_i5.Failure,
+          _i6.WithPagination<_i3.CharacterEntity>>> getCharacters() =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #getCharacters,
+          [],
+        ),
+        returnValue: _i4.Future<
+                _i2.Either<_i5.Failure,
+                    _i6.WithPagination<_i3.CharacterEntity>>>.value(
+            _FakeEither_0<_i5.Failure, _i6.WithPagination<_i3.CharacterEntity>>(
+          this,
+          Invocation.method(
+            #getCharacters,
+            [],
+          ),
+        )),
+      ) as _i4.Future<
+          _i2.Either<_i5.Failure, _i6.WithPagination<_i3.CharacterEntity>>>);
+
+  @override
+  _i4.Future<_i2.Either<_i5.Failure, _i6.WithPagination<_i3.CharacterEntity>>>
+      getCharactersByPagination(_i6.Pagination? pagination) =>
+          (super.noSuchMethod(
             Invocation.method(
-              #getCharacters,
-              [],
+              #getCharactersByPagination,
+              [pagination],
             ),
             returnValue: _i4.Future<
-                    _i2.Either<_i5.Failure, List<_i3.CharacterEntity>>>.value(
-                _FakeEither_0<_i5.Failure, List<_i3.CharacterEntity>>(
+                    _i2.Either<_i5.Failure,
+                        _i6.WithPagination<_i3.CharacterEntity>>>.value(
+                _FakeEither_0<_i5.Failure,
+                    _i6.WithPagination<_i3.CharacterEntity>>(
               this,
               Invocation.method(
-                #getCharacters,
-                [],
+                #getCharactersByPagination,
+                [pagination],
               ),
             )),
-          ) as _i4.Future<_i2.Either<_i5.Failure, List<_i3.CharacterEntity>>>);
+          ) as _i4.Future<
+              _i2
+              .Either<_i5.Failure, _i6.WithPagination<_i3.CharacterEntity>>>);
 
   @override
   _i4.Future<_i2.Either<_i5.Failure, _i3.CharacterEntity>> getCharacter(

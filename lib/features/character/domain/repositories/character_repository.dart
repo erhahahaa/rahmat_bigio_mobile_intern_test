@@ -4,7 +4,11 @@ import 'package:rick_morty/features/features.dart';
 import 'package:rick_morty/utils/utils.dart';
 
 abstract class CharacterRepository {
-  Future<Either<Failure, List<CharacterEntity>>> getCharacters();
+  Future<Either<Failure, WithPagination<CharacterEntity>>> getCharacters();
+  Future<Either<Failure, WithPagination<CharacterEntity>>>
+      getCharactersByPagination(
+    Pagination pagination,
+  );
   Future<Either<Failure, CharacterEntity>> getCharacter(
     ByIdParam param,
   );

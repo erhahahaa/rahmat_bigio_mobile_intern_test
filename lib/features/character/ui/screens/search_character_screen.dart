@@ -55,7 +55,7 @@ class SearchCharacterScreen extends StatelessWidget
             },
             loaded: (characters) {
               return ListCharacter(
-                characters: characters,
+                characters: characters.results,
               );
             },
             error: (message) => Center(

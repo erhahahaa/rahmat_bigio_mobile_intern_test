@@ -17,4 +17,5 @@ class CharacterEvent with _$CharacterEvent {
   ) = _ToggleFavorite;
   const factory CharacterEvent.getFavoriteCharacters() = _GetFavoriteCharacters;
   const factory CharacterEvent.restoreCharacters() = _RestoreCharacters;
+  const factory CharacterEvent.nextPage() = _NextPage;
 }

@@ -25,6 +25,8 @@ import '../features/character/domain/usecases/clear_characters_cache.dart'
 import '../features/character/domain/usecases/get_characters.dart' as _i129;
 import '../features/character/domain/usecases/get_characters_by_id.dart'
     as _i296;
+import '../features/character/domain/usecases/get_characters_by_pagination.dart'
+    as _i530;
 import '../features/character/domain/usecases/get_characters_from_cache.dart'
     as _i830;
 import '../features/character/domain/usecases/get_filtered_characters.dart'
@@ -136,12 +138,14 @@ extension GetItInjectableX on _i174.GetIt {
               gh<_i1009.LocationLocalDataSource>(),
               gh<_i1009.LocationRemoteDataSource>(),
             ));
+    gh.lazySingleton<_i530.GetCharactersByPagination>(() =>
+        _i530.GetCharactersByPagination(gh<_i1009.CharacterRepository>()));
     gh.lazySingleton<_i323.CharacterBloc>(() => _i323.CharacterBloc(
           gh<_i1009.GetCharacters>(),
-          gh<_i1009.GetCharactersById>(),
           gh<_i1009.GetMultipleCharacters>(),
           gh<_i1009.GetFilteredCharacters>(),
           gh<_i1009.ToggleFavoriteCharacter>(),
+          gh<_i1009.GetCharactersByPagination>(),
         ));
     gh.lazySingleton<_i1009.EpisodeRepository>(
         () => _i375.EpisodeRepositoryImpl(

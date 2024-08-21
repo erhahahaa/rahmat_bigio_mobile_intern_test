@@ -2,6 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 import 'package:rick_morty/core/errors/failure.dart';
 import 'package:rick_morty/features/features.dart';
+import 'package:rick_morty/utils/helpers/helpers.dart';
 import 'package:rick_morty/utils/params/by_id_param.dart';
 import 'package:rick_morty/utils/params/by_ids_param.dart';
 
@@ -39,15 +40,20 @@ class CharacterRepositoryImpl implements CharacterRepository {
   }
 
   @override
-  Future<Either<Failure, List<CharacterEntity>>> getCharacters() async {
+  Future<Either<Failure, WithPagination<CharacterEntity>>>
+      getCharacters() async {
     try {
       final result = await _remote.getCharacters();
       return result.fold(
         (l) => Left(l),
         (r) async {
-          final entities = r.map((e) => e.toEntity()).toList();
+          final entities = r.results.map((e) => e.toEntity()).toList();
           await _local.cacheCharacters(entities);
-          return await _local.getCharactersFromCache();
+          final chars = await _local.getCharactersFromCache();
+          return Right(WithPagination<CharacterEntity>(
+            info: r.info,
+            results: chars.getOrElse(() => []),
+          ));
         },
       );
     } catch (e) {
@@ -102,7 +108,8 @@ class CharacterRepositoryImpl implements CharacterRepository {
   }
 
   @override
-  Future<Either<Failure, CharacterEntity>> toggleFavoriteCharacter(ByIdParam param) async {
+  Future<Either<Failure, CharacterEntity>> toggleFavoriteCharacter(
+      ByIdParam param) async {
     try {
       return await _local.toggleFavoriteCharacter(param);
     } catch (e) {
@@ -116,6 +123,27 @@ class CharacterRepositoryImpl implements CharacterRepository {
       return await _local.getFavoriteCharacters();
     } catch (e) {
       return Left(CacheFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, WithPagination<CharacterEntity>>>
+      getCharactersByPagination(Pagination pagination) async {
+    try {
+      final result = await _remote.getCharactersByPagination(pagination);
+      return result.fold(
+        (l) => Left(l),
+        (r) async {
+          final entities = r.results.map((e) => e.toEntity()).toList();
+          await _local.cacheCharacters(entities);
+          return Right(WithPagination<CharacterEntity>(
+            info: r.info,
+            results: entities,
+          ));
+        },
+      );
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
     }
   }
 }

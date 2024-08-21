@@ -25,7 +25,7 @@ class WithPagination<T> with _$WithPagination<T> {
 
   factory WithPagination.fromJson(
     Map<String, dynamic> json,
-    T Function(Object? json) fromJsonT,
+    T Function(dynamic json) fromJsonT,
   ) =>
       _$WithPaginationFromJson(json, fromJsonT);
 }

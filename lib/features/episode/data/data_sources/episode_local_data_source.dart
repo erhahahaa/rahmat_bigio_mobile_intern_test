@@ -94,13 +94,11 @@ class EpisodeLocalDataSourceImpl implements EpisodeLocalDataSource {
     if (episode == null) {
       return Left(CacheFailure(message: 'Episode not found in cache'));
     }
-    await _isar.instance.writeTxn(() async {
-      await cacheEpisode(
-        EpisodeModel.fromEntity(episode)
-            .copyWith(isFavorite: !episode.isFavorite)
-            .toEntity(),
-      );
-    });
+    await cacheEpisode(
+      EpisodeModel.fromEntity(episode)
+          .copyWith(isFavorite: !episode.isFavorite)
+          .toEntity(),
+    );
     return Right(null);
   }
 }

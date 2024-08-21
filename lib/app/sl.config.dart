@@ -187,14 +187,14 @@ extension GetItInjectableX on _i174.GetIt {
         () => _i418.GetEpisodesByPagination(gh<_i1009.EpisodeRepository>()));
     gh.lazySingleton<_i545.GetLocationsByPagination>(
         () => _i545.GetLocationsByPagination(gh<_i1009.LocationRepository>()));
-    gh.lazySingleton<_i1030.SetLocale>(
-        () => _i1030.SetLocale(gh<_i1009.SettingsRepository>()));
     gh.lazySingleton<_i901.GetLocale>(
         () => _i901.GetLocale(gh<_i1009.SettingsRepository>()));
-    gh.lazySingleton<_i942.SetThemeMode>(
-        () => _i942.SetThemeMode(gh<_i1009.SettingsRepository>()));
     gh.lazySingleton<_i462.GetThemeMode>(
         () => _i462.GetThemeMode(gh<_i1009.SettingsRepository>()));
+    gh.lazySingleton<_i1030.SetLocale>(
+        () => _i1030.SetLocale(gh<_i1009.SettingsRepository>()));
+    gh.lazySingleton<_i942.SetThemeMode>(
+        () => _i942.SetThemeMode(gh<_i1009.SettingsRepository>()));
     gh.lazySingleton<_i792.EpisodeBloc>(() => _i792.EpisodeBloc(
           gh<_i1009.GetEpisodes>(),
           gh<_i1009.GetMultipleEpisodes>(),

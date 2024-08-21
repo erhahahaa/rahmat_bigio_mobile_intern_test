@@ -1,4 +1,4 @@
-package com.takehomechallenge.hidayatullah.rick_morty
+package com.takehomechallenge.hidayatullah
 
 import io.flutter.embedding.android.FlutterActivity
 

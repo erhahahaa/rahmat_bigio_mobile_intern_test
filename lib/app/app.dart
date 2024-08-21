@@ -34,19 +34,19 @@ class RickMortyApp extends StatelessWidget {
         BlocProvider<CharacterBloc>(
           create: (_) => sl<CharacterBloc>()
             ..add(
-              CharacterEvent.getCharacters(),
+              const CharacterEvent.getCharacters(),
             ),
         ),
         BlocProvider<EpisodeBloc>(
           create: (_) => sl<EpisodeBloc>()
             ..add(
-              EpisodeEvent.getEpisodes(),
+              const EpisodeEvent.getEpisodes(),
             ),
         ),
         BlocProvider<LocationBloc>(
           create: (_) => sl<LocationBloc>()
             ..add(
-              LocationEvent.getLocations(),
+              const LocationEvent.getLocations(),
             ),
         ),
       ],

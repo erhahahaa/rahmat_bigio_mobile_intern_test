@@ -97,7 +97,7 @@ class _EpisodeDetailScreenState extends State<EpisodeDetailScreen> {
                     subtitle: widget.episode.url,
                   ),
                   Gap(8.h),
-                  TitleLarge('Other Info'),
+                  const TitleLarge('Other Info'),
                   Gap(8.h),
                   ListTileBoxWrapper(
                     title: context.str?.name ?? 'Name',

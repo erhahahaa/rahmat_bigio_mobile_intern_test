@@ -24,7 +24,7 @@ class _EpisodeScreenState extends State<EpisodeScreen> {
       if (_scrollController.position.pixels ==
           _scrollController.position.maxScrollExtent) {
         context.read<EpisodeBloc>().add(
-              EpisodeEvent.nextPage(),
+              const EpisodeEvent.nextPage(),
             );
       }
     });
@@ -81,7 +81,7 @@ class _EpisodeScreenState extends State<EpisodeScreen> {
                         TitleLarge('${context.str?.episodes} ($count)'),
                         const Spacer(),
                         IconButton(
-                          icon: Icon(Icons.refresh),
+                          icon: const Icon(Icons.refresh),
                           onPressed: () {
                             context.read<EpisodeBloc>().add(
                                   const EpisodeEvent.getEpisodes(),

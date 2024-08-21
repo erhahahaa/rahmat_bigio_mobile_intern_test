@@ -30,12 +30,12 @@ class SearchCharacterScreen extends StatelessWidget
   Widget build(BuildContext context) {
     return Parent(
       appBar: AppBar(
-        title: Text('Search Character'),
+        title: const Text('Search Character'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             context.read<CharacterBloc>().add(
-                  CharacterEvent.restoreCharacters(),
+                  const CharacterEvent.restoreCharacters(),
                 );
             context.router.back();
           },

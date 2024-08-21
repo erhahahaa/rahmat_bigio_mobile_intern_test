@@ -30,7 +30,7 @@ class EpisodeBloc extends Bloc<EpisodeEvent, EpisodeState> {
     on<_RestoreEpisodes>(_restoreEpisodesHandler);
     on<_NextPage>(_getNextPageHandler);
   }
-  WithPagination<EpisodeEntity> _episodes = WithPagination(
+  WithPagination<EpisodeEntity> _episodes = const WithPagination(
     info: Pagination(pages: 1),
     results: [],
   );
@@ -74,7 +74,7 @@ class EpisodeBloc extends Bloc<EpisodeEvent, EpisodeState> {
       (failure) => emit(EpisodeStateError(failure.message)),
       (success) => emit(EpisodeStateLoaded(
         WithPagination(
-          info: Pagination(pages: 1),
+          info: const Pagination(pages: 1),
           results: success,
         ),
       )),

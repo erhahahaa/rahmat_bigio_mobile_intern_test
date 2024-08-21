@@ -29,12 +29,12 @@ class SearchEpisodeScreen extends StatelessWidget implements AutoRouteWrapper {
   Widget build(BuildContext context) {
     return Parent(
       appBar: AppBar(
-        title: Text('Search Episode'),
+        title: const Text('Search Episode'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             context.read<EpisodeBloc>().add(
-                  EpisodeEvent.restoreEpisodes(),
+                  const EpisodeEvent.restoreEpisodes(),
                 );
             context.router.back();
           },

@@ -24,7 +24,7 @@ class _LocationScreenState extends State<LocationScreen> {
       if (_scrollController.position.pixels ==
           _scrollController.position.maxScrollExtent) {
         context.read<LocationBloc>().add(
-              LocationEvent.nextPage(),
+              const LocationEvent.nextPage(),
             );
       }
     });
@@ -83,7 +83,7 @@ class _LocationScreenState extends State<LocationScreen> {
                         TitleLarge('${context.str?.locations} ($count)'),
                         const Spacer(),
                         IconButton(
-                          icon: Icon(Icons.refresh),
+                          icon: const Icon(Icons.refresh),
                           onPressed: () {
                             context.read<LocationBloc>().add(
                                   const LocationEvent.getLocations(),

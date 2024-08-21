@@ -20,7 +20,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     this._setThemeMode,
     this._getLocale,
     this._setLocale,
-  ) : super(SettingsState()) {
+  ) : super(const SettingsState()) {
     on<_ChangedLocale>(_changeLocaleHandler);
     on<_ChangedTheme>(_changeThemeHandler);
     on<_Started>(_startedHandler);

@@ -47,7 +47,7 @@ class ListTileBoxWrapper extends StatelessWidget {
               ),
             ),
             if (isFavorite) ...[
-              MoonButton.icon(
+              const MoonButton.icon(
                 icon: Icon(Icons.favorite, color: Colors.red),
               ),
             ]
@@ -55,7 +55,7 @@ class ListTileBoxWrapper extends StatelessWidget {
         ),
         subtitle: Text(subtitle),
         trailing: showChevron
-            ? MoonButton.icon(
+            ? const MoonButton.icon(
                 icon: Icon(MoonIcons.controls_chevron_right_24_light),
               )
             : null,

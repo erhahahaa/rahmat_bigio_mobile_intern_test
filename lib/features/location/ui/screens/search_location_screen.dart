@@ -29,12 +29,12 @@ class SearchLocationScreen extends StatelessWidget implements AutoRouteWrapper {
   Widget build(BuildContext context) {
     return Parent(
       appBar: AppBar(
-        title: Text('Search Location'),
+        title: const Text('Search Location'),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
           onPressed: () {
             context.read<LocationBloc>().add(
-                  LocationEvent.restoreLocations(),
+                  const LocationEvent.restoreLocations(),
                 );
             context.router.back();
           },

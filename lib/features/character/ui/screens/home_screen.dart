@@ -24,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
       if (_scrollController.position.pixels ==
           _scrollController.position.maxScrollExtent) {
         context.read<CharacterBloc>().add(
-              CharacterEvent.nextPage(),
+              const CharacterEvent.nextPage(),
             );
       }
     });
@@ -83,7 +83,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         TitleLarge('${context.str?.characters} ($count)'),
                         const Spacer(),
                         IconButton(
-                          icon: Icon(Icons.refresh),
+                          icon: const Icon(Icons.refresh),
                           onPressed: () {
                             context.read<CharacterBloc>().add(
                                   const CharacterEvent.getCharacters(),

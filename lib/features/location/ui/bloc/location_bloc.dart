@@ -30,7 +30,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
     on<_RestoreLocations>(_restoreLocationsHandler);
     on<_NextPage>(_getNextPageHandler);
   }
-  WithPagination<LocationEntity> _locations = WithPagination(
+  WithPagination<LocationEntity> _locations = const WithPagination(
     info: Pagination(pages: 1),
     results: [],
   );
@@ -74,7 +74,7 @@ class LocationBloc extends Bloc<LocationEvent, LocationState> {
       (failure) => emit(LocationStateError(failure.message)),
       (success) => emit(LocationStateLoaded(
         WithPagination(
-          info: Pagination(pages: 1),
+          info: const Pagination(pages: 1),
           results: success,
         ),
       )),

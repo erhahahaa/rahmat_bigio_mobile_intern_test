@@ -30,7 +30,7 @@ class CharacterBloc extends Bloc<CharacterEvent, CharacterState> {
     on<_RestoreCharacters>(_restoreCharactersHandler);
     on<_NextPage>(_getNextPageHandler);
   }
-  WithPagination<CharacterEntity> _characters = WithPagination(
+  WithPagination<CharacterEntity> _characters = const WithPagination(
     info: Pagination(pages: 1),
     results: [],
   );
@@ -74,7 +74,7 @@ class CharacterBloc extends Bloc<CharacterEvent, CharacterState> {
       (failure) => emit(CharacterStateError(failure.message)),
       (success) => emit(CharacterStateLoaded(
         WithPagination(
-          info: Pagination(pages: 1),
+          info: const Pagination(pages: 1),
           results: success,
         ),
       )),

@@ -23,11 +23,11 @@ class SettingsLocalDataSourceImpl implements SettingsLocalDataSource {
     try {
       final settings = await _isar.instance.settings.where().findAll();
       if (settings.isEmpty) {
-        return Right(ThemeMode.system);
+        return const Right(ThemeMode.system);
       }
       return Right(settings.first.themeMode);
     } catch (e) {
-      return Left(CacheFailure(message: 'Failed to get theme mode'));
+      return const Left(CacheFailure(message: 'Failed to get theme mode'));
     }
   }
 
@@ -53,7 +53,7 @@ class SettingsLocalDataSourceImpl implements SettingsLocalDataSource {
       }
       return Right(themeMode);
     } catch (e) {
-      return Left(CacheFailure(message: 'Failed to set theme mode'));
+      return const Left(CacheFailure(message: 'Failed to set theme mode'));
     }
   }
 
@@ -62,11 +62,11 @@ class SettingsLocalDataSourceImpl implements SettingsLocalDataSource {
     try {
       final settings = await _isar.instance.settings.where().findAll();
       if (settings.isEmpty) {
-        return Right(const Locale('en', 'US'));
+        return const Right(Locale('en', 'US'));
       }
       return Right(Locale(settings.first.langCode, settings.first.countryCode));
     } catch (e) {
-      return Left(CacheFailure(message: 'Failed to get locale'));
+      return const Left(CacheFailure(message: 'Failed to get locale'));
     }
   }
 
@@ -93,7 +93,7 @@ class SettingsLocalDataSourceImpl implements SettingsLocalDataSource {
       }
       return Right(locale);
     } catch (e) {
-      return Left(CacheFailure(message: 'Failed to set locale'));
+      return const Left(CacheFailure(message: 'Failed to set locale'));
     }
   }
 }
